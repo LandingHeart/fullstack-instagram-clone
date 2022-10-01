@@ -39,4 +39,26 @@ From frontend to backend
 - EditProfilePage component
 - react router routes for differnt pages
   - Example UI button hover effects, and interactable UXs
+
 # fullstack-instagram-clone
+
+# Github work flow, commands
+
+- git checkout -b feature_yourname || component_yourname
+
+```bash
+git checkout -b feature_yourname
+git add .
+git commit -m "commit message"
+git push origin feature_yourname
+```
+
+- commit message is bascically what are you pushing to github, what were you doing.
+
+## make sure to pull from main when Pull request are merge
+
+- at your own branch
+
+```bash
+git pull origin main
+```
