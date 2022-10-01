@@ -1,6 +1,14 @@
 # Setup and installation
 
-- make sure node is intalled
+- make sure node is intalled, can download at https://nodejs.org/en/download/
+
+- check installation by typing in cmd, or terminal
+
+```bash
+node -v
+npm -v
+
+```
 
 - cd web dev fullstack
 - npm install
