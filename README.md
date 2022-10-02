@@ -15,14 +15,14 @@
 
 ### Frontend Setup
 
-[VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
-[VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
+- [VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
+- [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
 
 ### Backend Setup
 
-[postgreSQL-blank]()
-[Postico for mac-blank]()
-[Postman API enpoint testing](https://www.postman.com/downloads/)
+- [postgreSQL-blank]()
+- [Postico for mac-blank]()
+- [Postman API enpoint testing](https://www.postman.com/downloads/)
 
 - make sure node is intalled, can download at [Node](https://nodejs.org/en/download/)
 
