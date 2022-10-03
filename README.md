@@ -1,6 +1,6 @@
 # fullstack-instagram-clone
 
-- cd web dev fullstack
+- cd frontend
 - npm install
 - npm run dev
 - view page on localhost http://localhost:3010
@@ -111,20 +111,28 @@ We largely follow this react code style guidelines, [react syntax guidelines](ht
 
 ## Backend installation and setup instruction
 
-## Made changes to model run
+- cd backend
+- npm install
+- npm run dev
+- server start on port 8080
+- go to http://localhost:8080/api/post to get a json response
 
-1. npm install
-2. cd seeders
-3. creates the database table with the model name
-4. And then had a local db setup with [postgreSQL](https://www.postgresql.org/download/)
-5. or download it with package manager homebrew for mac, or [chocolatey](https://chocolatey.org/) for winodws
+## PostgreSQL installation guide using package manager homeBrew (mac), chocolatey(win)
+1. And then had a local db setup with [postgreSQL](https://www.postgresql.org/download/)
+2. or download it with package manager homebrew for mac, or [chocolatey](https://chocolatey.org/) for winodws
+
+## Database Seeding (in progress)
+1. cd seeders
+2. creates the database table with the model name, npx sequelize-cli 
+
+npx sequelize-cli migration:create --name
 
 ```
 psql postgres
 postgres=#
 ```
 
-![example_1](./db%20image/example.jpg)
+![example_1](.backend/db%20image/example.jpg)
 
 ```
 postgres=# createdb insdb
@@ -138,8 +146,4 @@ npm install
 npx sequelize-cli db:migrate
 ```
 
-sequelizemeta will be created in database
-
-1. go to http://localhost:8080/api/post to get a json response
-2. npx sequelize-cli migration:create --name
-3.
+sequelizemeta will be created in database, this track the migration files
