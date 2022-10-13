@@ -104,6 +104,7 @@ We largely follow this react code style guidelines, [react syntax guidelines](ht
 - [postgreSQL-blank]()
 - [Postico for mac-blank]()
 - [Postman API enpoint testing](https://www.postman.com/downloads/)
+- [Chrome json vue extention](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
 - make sure node is intalled, can download at [Node](https://nodejs.org/en/download/)
 - check installation by typing in cmd, or terminal
 
