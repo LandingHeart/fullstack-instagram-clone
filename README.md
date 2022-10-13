@@ -1,9 +1,4 @@
-# fullstack-instagram-clone
-
-- cd web dev fullstack
-- npm install
-- npm run dev
-- view page on localhost http://localhost:3010
+### fullstack-instagram-clone
 
 #### Documentation
 
@@ -15,11 +10,16 @@
 
 - [VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
 - [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
+- [use node version manager](https://github.com/nvm-sh/nvm/blob/master/README.md), use the link to setup node version manager.
+
+Lets use node version 16 for this project
+node version v16.18.0
 
 ```sh
 node -v
+v16.18.0
 npm -v
-
+8.19.2
 ```
 
 #### Useful mac terminal commands cheatsheet
@@ -36,11 +36,6 @@ npm -v
 
 - Each ticket will have a point associated with them from 1 - 5
 - 1 points ticket is the easiest and 5 points is the hardest
-
-#### Priority Color system
-
-- on trello colored red have more priorities over other colored label
-- lighter clor lower priority compares to red
 
 #### Current roadmaps React Frontend MUI(Material UI)
 
