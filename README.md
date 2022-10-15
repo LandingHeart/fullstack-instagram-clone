@@ -12,8 +12,7 @@
 - [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
 - [use node version manager](https://github.com/nvm-sh/nvm/blob/master/README.md), use the link to setup node version manager.
 
-Lets use node version 16 for this project
-node version v16.18.0
+Lets use node version 16 for this project node version v16.18.0
 
 ```sh
 node -v
@@ -103,20 +102,29 @@ We largely follow this react code style guidelines, [react syntax guidelines](ht
 - make sure node is intalled, can download at [Node](https://nodejs.org/en/download/)
 - check installation by typing in cmd, or terminal
 
-1. creates the database table with the model name
-2. And then had a local db setup with [postgreSQL](https://www.postgresql.org/download/)
-3. or download it with package manager homebrew for mac, or [chocolatey](https://chocolatey.org/) for winodws
+1. Download postgresdb with [homebrew](https://docs.brew.sh/Installation) package manager for mac, or [chocolatey](https://chocolatey.org/) for winodws
+2. Follow the documentation to install brew or chocolatey.
 
+Download postgresql with 
+```sh
+brew install postgresql@14
+```
+
+Start the postgres database
+```sh
+brew services start postgresql@14
+psql postgres 
+```
+To connect to postgres db
 ```
 psql postgres
 postgres=#
 ```
 
-![example_1](./db%20image/example.jpg)
-
+create insdb and connect to insdb
 ```
-postgres=# createdb insdb
-postgres=# \c insdb
+createdb insdb
+psql insdb
 insdb=#
 ```
 
