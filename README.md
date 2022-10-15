@@ -1,35 +1,45 @@
 ### fullstack-instagram-clone
 
+#### cool tools to make dev life easier
+
+- [VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
+- [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
+
+#### Must have tools
+
+- [Postico](https://eggerapps.at/postico/) for mac
+- [pgAdmin](https://www.pgadmin.org/download/pgadmin-4-windows/) for windows
+- [Postman API for enpoint testing](https://www.postman.com/downloads/canary/) mac, windows, linux
+- [Chrome json vue extention](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
+
+1. Download postgresdb with [homebrew](https://docs.brew.sh/Installation) package manager for mac,
+2. [chocolatey](https://chocolatey.org/) for winodws
+
+#### important dependency
+
+- [use node version manager](https://github.com/nvm-sh/nvm/blob/master/README.md), use the link to setup node version manager.
+
+Lets use node version 16 for this project node version v16.18.0
+
+1. node version 16.18.0
+
+#### Frontend
+
+[doc](frontend/README.md)
+
+#### Backend
+
+[doc](backend/README.md)
+
 #### Documentation
 
 - Components that are being use by 2 or more components, create the component file in shared folder
 - A new page that use the react router and routes go to pages, file naming follow the "ContentPage", example HomePage
 - Some Component name will be specify, but not all, if specify use that naming for the component
 
-#### Frontend Setup
-
-- [VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
-- [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
-- [use node version manager](https://github.com/nvm-sh/nvm/blob/master/README.md), use the link to setup node version manager.
-
-Lets use node version 16 for this project node version v16.18.0
-
-```sh
-node -v
-v16.18.0
-npm -v
-8.19.2
-```
-
 #### Useful mac terminal commands cheatsheet
 
 [cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
-
-#### Pcakage/Dependencies
-
-#### Steps to learning and begginning to work on tickets
-
-- The steps are all in the resource tab at trello, with learning resources.
 
 #### Sprint diffculties point system
 
@@ -52,24 +62,21 @@ From frontend to backend
 - react router routes for differnt pages
   - Example UI button hover effects, and interactable UXs
 
-#### Github work flow, commands
+#### Github work flow, commands Developoment lifecycle :round_pushpin:
 
-#### Developoment lifecycle :round_pushpin:
-
-- git checkout -b feature_yourname || component_yourname
+- git checkout -b fsc-featureName
 
 1. first when you start a new branch using following commands :pencil2:
-2. name your branch by yourName/featureName
-3.
+2. name your branch by fsc-featureName
 
 ```sh
-git checkout -b yourName/featureName
+git checkout -b fsc-featureName
 
 ```
 
 git add .
 git commit -m "commit message"
-git push origin yourName/featureName
+git push origin fsc-featureName
 
 ````
 
@@ -90,52 +97,3 @@ We use React with JavascriptScript for our frontend codebase.
 #### Code Style Guide
 
 We largely follow this react code style guidelines, [react syntax guidelines](https://github.com/pillarstudio/standards/blob/master/reactjs-guidelines.md), for creating components and file name.
-
-#### Backend installation and setup instruction
-
-#### Backend Apps/tools
-
-- [postgreSQL-blank]()
-- [Postico for mac-blank]()
-- [Postman API enpoint testing](https://www.postman.com/downloads/)
-- [Chrome json vue extention](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc)
-- make sure node is intalled, can download at [Node](https://nodejs.org/en/download/)
-- check installation by typing in cmd, or terminal
-
-1. Download postgresdb with [homebrew](https://docs.brew.sh/Installation) package manager for mac, or [chocolatey](https://chocolatey.org/) for winodws
-2. Follow the documentation to install brew or chocolatey.
-
-Download postgresql with 
-```sh
-brew install postgresql@14
-```
-
-Start the postgres database
-```sh
-brew services start postgresql@14
-psql postgres 
-```
-To connect to postgres db
-```
-psql postgres
-postgres=#
-```
-
-create insdb and connect to insdb
-```
-createdb insdb
-psql insdb
-insdb=#
-```
-
-run the backend server by typing, make sure to be in backend folder
-
-```sh
-cd backend
-npm install
-npm run dev
-```
-
-should see server started at port 8080
-
-1. go to http://localhost:8080/api/post to get a json response
