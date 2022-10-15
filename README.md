@@ -25,11 +25,11 @@ Lets use node version 16 for this project node version v16.18.0
 
 #### Frontend
 
-[doc](frontend/README.md)
+[fronten doc](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/frontend/README.md)
 
 #### Backend
 
-[doc](backend/README.md)
+[backend doc](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/backend/README.md)
 
 #### Documentation
 
