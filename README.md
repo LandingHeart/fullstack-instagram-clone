@@ -5,7 +5,7 @@
 - [VsCode Prettier code format setup format on save](https://www.youtube.com/watch?v=__eiQumLOEo)
 - [VsCode setup for react javaScript development](https://www.youtube.com/watch?v=9EMUJm7qdxM)
 
-#### Must have tools
+#### Must have tool
 
 - [Postico](https://eggerapps.at/postico/) for mac
 - [pgAdmin](https://www.pgadmin.org/download/pgadmin-4-windows/) for windows
