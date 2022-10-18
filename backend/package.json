@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "migrate": "sequelize db:migrate",
-    "seedAll": "sequelize db:seed:all"
+    "seedAll": "sequelize db:seed:all",
+    "db:makemigrations": "./node_modules/sequelize-auto-migrations/bin/makemigration.js"
   },
   "engines": {
     "node": "16.18.0"
@@ -28,6 +29,7 @@
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.21.3",
+    "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations#a063aa6535a3f580623581bf866cef2d609531ba",
     "sequelize-cli": "^6.4.1",
     "socket.io": "^4.5.2"
   },

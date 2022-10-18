@@ -39,3 +39,12 @@ npm run dev
 ```
 
 should see server started at port 8080, go to http://localhost:8080/api/post to get a json response
+
+#### db Migrations steps
+
+1. npx sequelize-cli db:migrate
+   db table created
+2. npx sequelize-cli db:seed:all
+   db data inserted
+
+Should see the data being added to db tables

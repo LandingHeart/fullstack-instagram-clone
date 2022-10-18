@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       Post.belongsTo(models.User, {
         foreignKey: "userId",
         onDelete: "CASCADE",
-      }); // define association/relation here, one to many, many to many
+        as: "post"
+      });
     }
   }
   Post.init(

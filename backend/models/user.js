@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association/relation here, one to many, many to many
       User.hasMany(models.Post, {
         foreignKey: "userId",
-        as: "posts"
+        onDelete: "CASCADE",
+        as: "user"
       });
     }
     async validatePassword(password) {}
@@ -22,8 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         allowNull: false
       },
+      userame: { type: DataTypes.STRING(255), required: true },
       password: { type: DataTypes.STRING(20), required: true },
-      userame: { type: DataTypes.STRING(255), required: true }
+      last_edit_date: DataTypes.DATE
     },
     {
       freezeTableName: true,

@@ -1,11 +1,11 @@
-const Post = require("../models/user").post;
-var posts = require("../seeders/posts.json");
+const Post = require("../models/index").post;
+
 module.exports = class PostService {
   static async findAll() {
     try {
-      const allPost = posts;
-      // const allPost = await Post.findAll()
-      return allPost;
+      // const allPost = await Post.findAll();
+      console.log(Post);
+      // return allPost;
     } catch (error) {
       console.log(`could not find all post${error}`);
     }
