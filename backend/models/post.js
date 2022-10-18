@@ -1,34 +1,54 @@
 "use strict";
 const { Model } = require("sequelize");
+const { sequelize, DataTypes } = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     static associate(models) {
       Post.belongsTo(models.User, {
         foreignKey: "userId",
-        onDelete: "CASCADE"
+        onDelete: "CASCADE",
       }); // define association/relation here, one to many, many to many
     }
   }
   Post.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       title: { type: DataTypes.STRING(255), required: true, allowNull: false },
       postImgUrl: {
         type: DataTypes.STRING,
         required: true,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: DataTypes.STRING(255),
         required: true,
-        allowNull: false
+        allowNull: false,
       },
-      last_edit_date: Date.now()
+      lastEditDate: {
+        type: DataTypes.Date,
+        required: true,
+        allowNull: false,
+      },
+      createdAt: {
+        type: DataTypes.Date,
+        required: true,
+        allowNull: false,
+      },
+      createdAt: {
+        type: DataTypes.Date,
+        required: true,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,
       sequelize,
-      modelName: "post"
+      modelName: "post",
     }
   );
   return Post;
