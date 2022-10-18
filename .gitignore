@@ -1,5 +1,5 @@
-# gitignore for MacOS files
 
+## User settings
 xcuserdata/
 .DS_Store
 
