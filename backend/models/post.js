@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Post.belongsTo(models.User, {
         foreignKey: "userId",
-        onDelete: "CASCADE"
-      }); // define association/relation here, one to many, many to many
+        onDelete: "CASCADE",
+        as: "post"
+      });
     }
   }
   Post.init(
