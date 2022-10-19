@@ -1,16 +1,13 @@
 "use strict";
 const { Model } = require("sequelize");
-const { sequelize, DataTypes } = require("sequelize");
-
+const User = require("./index").user;
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
-    static associate(models) {
-      Post.belongsTo(models.User, {
-        foreignKey: "userId",
-        onDelete: "CASCADE",
-        as: "post"
-      });
-    }
+    // Post.belongsTo(User, {
+    //   foreignKey: "userId",
+    //   onDelete: "CASCADE",
+    //   as: "post"
+    // });
   }
   Post.init(
     {
@@ -52,5 +49,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "post",
     }
   );
+
   return Post;
 };
