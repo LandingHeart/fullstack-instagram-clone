@@ -4,7 +4,6 @@ const initialState = {
   value: 0,
   user: [],
 };
-// user counter sample
 export const usersSlice = createSlice({
   name: "users",
   initialState,

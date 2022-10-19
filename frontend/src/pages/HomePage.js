@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Counter } from "../components/Counter";
+import { useDispatch, useSelector } from "react-redux";
 import MainLayout from "../shared/MainLayout";
-import api from "../api";
+import { fetchPosts } from "../store/posts.slice";
+import CardFeed from "../components/CardFeed";
 export default function HomePage() {
-  // example usage to pass data down to child
-  const [data, setData] = useState([]);
-
+  const dispatch = useDispatch();
+  const { loading, posts } = useSelector((state) => state.posts);
   useEffect(() => {
-    api.get("data.json").then((res) => {
-      setData(res.data);
-    });
+    dispatch(fetchPosts());
   }, []);
 
   return (
     <MainLayout>
-      {/* example passing data down to child as arguments/props */}
-      <Counter data={data} />
+      {loading === false &&
+        posts.map((ele, index) => (
+          <CardFeed key={index} title={ele.title} postImgUrl={ele.postImgUrl} />
+        ))}
     </MainLayout>
   );
 }
