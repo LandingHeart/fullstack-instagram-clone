@@ -4,6 +4,6 @@ const router = express.Router();
 const postController = require("../../controllers/post");
 
 router.get("/post", postController.apiGetAllpost);
-router.get("/post=:query", postController.apiSearchAllpost);
+router.get("/post=:title", postController.apiSearchAllpost);
 
 module.exports = router;

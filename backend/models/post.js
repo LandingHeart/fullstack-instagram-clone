@@ -11,42 +11,23 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
       title: { type: DataTypes.STRING(255), required: true, allowNull: false },
       postImgUrl: {
         type: DataTypes.STRING,
         required: true,
-        allowNull: false,
+        allowNull: false
       },
       description: {
         type: DataTypes.STRING(255),
         required: true,
-        allowNull: false,
+        allowNull: false
       },
-      lastEditDate: {
-        type: DataTypes.Date,
-        required: true,
-        allowNull: false,
-      },
-      createdAt: {
-        type: DataTypes.Date,
-        required: true,
-        allowNull: false,
-      },
-      createdAt: {
-        type: DataTypes.Date,
-        required: true,
-        allowNull: false,
-      },
+      last_edit_date: Date.now()
     },
     {
       freezeTableName: true,
       sequelize,
-      modelName: "post",
+      modelName: "post"
     }
   );
 
