@@ -1,15 +1,15 @@
 "use strict";
 const { Model } = require("sequelize");
-
+const Post = require("./index").post;
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       // define association/relation here, one to many, many to many
-      User.hasMany(models.Post, {
-        foreignKey: "userId",
-        onDelete: "CASCADE",
-        as: "user"
-      });
+      // User.hasMany(Post, {
+      //   foreignKey: "userId",
+      //   onDelete: "CASCADE",
+      //   as: "user"
+      // });
     }
     async validatePassword(password) {}
   }
