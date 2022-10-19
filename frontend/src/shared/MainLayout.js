@@ -15,6 +15,8 @@ const styles = (theme) => ({
   },
   main_content_container: {
     display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
   },
