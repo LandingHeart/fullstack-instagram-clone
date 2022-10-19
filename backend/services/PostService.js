@@ -11,7 +11,7 @@ module.exports = class PostService {
     }
   }
 
-  static async searchAllpost(title) {
+  static async searchPostWithTitle(title) {
     try {
       const post = await Post.findAll({
         where: {
@@ -20,7 +20,7 @@ module.exports = class PostService {
           },
         },
       });
-      res.send(post);
+      return post
     } catch (error) {
       console.log(`could not find all post${error} with title ${title}`);
     }

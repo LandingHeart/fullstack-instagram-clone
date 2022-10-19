@@ -11,7 +11,7 @@ module.exports = class Post {
   }
   static async apiSearchAllpost(req, res, next) {
     try {
-      const post = await PostService.searchAllpost(req.params.title);
+      const post = await PostService.searchPostWithTitle(req.params.title);
       res.send(post)
     } catch (error) {
       res.status(500).json({ error: error });
