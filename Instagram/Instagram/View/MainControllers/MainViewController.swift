@@ -54,6 +54,6 @@ class MainViewController: UITabBarController {
         profileNC.navigationBar.tintColor = .systemBackground
         
         tabBar.backgroundColor = .systemBackground
-        tabBar.tintColor = .systemBackground
+        tabBar.tintColor = .label
     }
 }
