@@ -1,5 +1,5 @@
 //
-//  URLSession+GenericFetch.swift
+//  APICaller.swift
 //  Instagram
 //
 //  Created by Huang Yan on 10/18/22.
@@ -12,9 +12,10 @@ enum NetworkError: Error {
     case decodingError
 }
 
-extension URLSession {
-    func fetchData<T: Codable>(url: URL?, decoder: JSONDecoder ,completion: @escaping (Result<T,NetworkError>) -> Void) {
-        guard let url = url else {
+class APICaller {
+    static let shared = APICaller()
+    func fetchData<T: Codable>(url: String, expecting: T.Type, decoder: JSONDecoder = JSONDecoder() ,completion: @escaping (Result<T,NetworkError>) -> Void) {
+        guard let url = URL(string: url) else {
             completion(.failure(.serverError))
             return
         }
@@ -23,12 +24,17 @@ extension URLSession {
                 completion(.failure(.serverError))
                 return
             }
+            var decodedResult: T?
             do {
-                let result = try decoder.decode(T.self, from: data)
-                completion(.success(result))
+                decodedResult = try decoder.decode(T.self, from: data)
             } catch {
                 completion(.failure(.decodingError))
             }
+            guard let result = decodedResult else {
+                completion(.failure(.decodingError))
+                return
+            }
+            completion(.success(result))
         }
         task.resume()
     }
