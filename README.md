@@ -1,6 +1,6 @@
-### fullstack-instagram-clone
+# Getting Started
 
-#### Project Tech Stacks:
+#### Project Stack:
 
 - React 17
 - Redux Toolkit
@@ -14,16 +14,7 @@
 
 #### Table of contents
 [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
-
-#### Documentation
-
-- Components that are being use by 2 or more components, create the component file in shared folder
-- A new page that use the react router and routes go to pages, file naming follow the "ContentPage", example HomePage
-- Some Component name will be specify, but not all, if specify use that naming for the component
-
-#### Useful mac terminal commands cheatsheet
-
-[cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+[mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
 
 #### Sprint diffculties point system
 
@@ -33,15 +24,14 @@
 #### Github work flow, commands Developoment lifecycle :round_pushpin:
 
 - git checkout -b fsc-featureName
-
 - first when you start a new branch using following commands :pencil2:
 - name your branch by fsc-featureName
 
 ```sh
-git checkout -b fsc-featureName
+git checkout -b featureName
 git add .
 git commit -m "message"
-git push origin fsc-featureName
+git push origin featureName
 
 ```
 
@@ -53,7 +43,7 @@ git pull origin main
 
 #### React
 
-We use React with JavascriptScript for our frontend codebase.
+We use React with Javascript for our frontend codebase.
 
 #### Code Style Guide
 
