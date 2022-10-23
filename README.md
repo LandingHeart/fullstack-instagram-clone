@@ -12,7 +12,8 @@
 - sequelize
 - heroku, netlify TBD
 
-[INSTALL]()
+#### Table of contents
+[INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
 
 #### Documentation
 
