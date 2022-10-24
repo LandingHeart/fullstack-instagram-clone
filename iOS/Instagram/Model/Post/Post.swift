@@ -12,7 +12,7 @@ struct Post: Codable{
     let title: String
     let postImgUrl: String
     let description: String
-    let lastEditDate: Date
+    let last_edit_date: Date
     let createdAt: Date
     let updatedAt: Date
     
