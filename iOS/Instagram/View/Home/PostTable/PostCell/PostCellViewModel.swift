@@ -14,12 +14,19 @@ struct PostCellViewModel {
 //    let like: Int
 //    let createdAt: String
     
-    func configure(with vm: PostCellViewModel, view: PostCell) {
-        ImageSource.shared.fetchImage(urlString: imageUrl) { image in
+    func configure(with cell: PostCell) {
+        let token = ImageSource.shared.fetchImage(urlString: imageUrl) { image in
             DispatchQueue.main.async {
-                view.images.image = image
+                cell.images.image = image
+                cell.layoutSubviews()
             }
         }
+        cell.onReuse = {
+            if let token = token {
+                ImageSource.shared.cancelLoad(token)
+            }
+        }
+        
     }
 }
 

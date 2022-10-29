@@ -13,22 +13,24 @@ class ImageSource {
     
     var cache = NSCache<NSString, UIImage>()
     
+    var runningRequests = [UUID: URLSessionDataTask]()
+    
     private init() {}
     
-    func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) {
+    func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) -> UUID? {
         
         if let image = cache.object(forKey: urlString as NSString) {
-            print("using cache")
             completion(image)
-            return
+            return nil
         }
+        
+        let uuid = UUID()
         
         guard let url = URL(string: urlString) else {
             completion(nil)
-            return
+            return nil
         }
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            print("fetching through network")
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(nil)
                 return
@@ -42,7 +44,14 @@ class ImageSource {
                 self?.cache.setObject(image, forKey: urlString as NSString)
                 completion(image)
             }
-        }.resume()
+        }
+        task.resume()
         
+        runningRequests[uuid] = task
+        return uuid
+    }
+    func cancelLoad(_ uuid: UUID) {
+        runningRequests[uuid]?.cancel()
+        runningRequests.removeValue(forKey: uuid)
     }
 }

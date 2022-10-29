@@ -35,7 +35,8 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseId)
-        tableView.rowHeight = PostCell.rowHeight
+//        tableView.rowHeight = PostCell.rowHeight
+        tableView.separatorStyle = .none
     }
 }
 
@@ -52,7 +53,7 @@ extension HomeViewController: UITableViewDataSource {
         if !postCellViewModels.isEmpty {
             let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseId) as! PostCell
             let vm = postCellViewModels[indexPath.row]
-            vm.configure(with: vm, view: cell)
+            vm.configure(with: cell)
             return cell
         }
         return UITableViewCell()

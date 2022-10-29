@@ -17,8 +17,9 @@ class PostCell: UITableViewCell {
     
     let actionStack = UIStackView()
     
-    var visibleConstraint: NSLayoutConstraint = NSLayoutConstraint()
-    var hiddenConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    var heightConstrain: NSLayoutConstraint = NSLayoutConstraint()
+    
+    var onReuse: () -> Void = {}
     
     static let rowHeight: CGFloat = 500
     static let reuseId = "PostCell"
@@ -42,6 +43,7 @@ extension PostCell {
     private func style() {
         VStack.translatesAutoresizingMaskIntoConstraints = false
         VStack.axis = .vertical
+        VStack.distribution = .fillProportionally
         
         postHeader.translatesAutoresizingMaskIntoConstraints = false
         
@@ -71,15 +73,27 @@ extension PostCell {
             
             postHeader.leadingAnchor.constraint(equalTo: VStack.leadingAnchor),
             postHeader.trailingAnchor.constraint(equalTo: VStack.trailingAnchor),
+            postHeader.heightAnchor.constraint(equalToConstant: 70),
             
             //images
             images.leadingAnchor.constraint(equalTo: VStack.leadingAnchor),
             images.trailingAnchor.constraint(equalTo: VStack.trailingAnchor),
-//            images.topAnchor.constraint(equalTo: imageTopGuide.topAnchor)
-            
-            
-            
+//            images.heightAnchor.constraint(equalToConstant: 250),
         ])
+//        heightConstrain = images.heightAnchor.constraint(equalToConstant: 250)
         
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let image = images.image {
+            let height = images.frame.width / image.getAspectRatio()
+            images.heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse()
+        heightConstrain.isActive = false
+        images.image = nil
     }
 }
