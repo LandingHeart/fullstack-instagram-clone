@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "shinan",
+    "username": "postgres",
     "password": "admin",
     "database": "insdb",
     "host": "localhost",
@@ -8,7 +8,7 @@
     "logging": false
   },
   "test": {
-    "username": "shinan",
+    "username": "postgres",
     "password": "admin",
     "database": "insdb",
     "host": "127.0.0.1",
