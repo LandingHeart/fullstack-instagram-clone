@@ -12,8 +12,7 @@ class HomeViewController: UIViewController {
     //Request Model
     var posts: [Post] = []
     let postManager = PostManager()
-    let imageManager = ImageManager()
-    var postImages: [UIImage] = []
+    var isImageLoaded = false
     
     //View model
     var postCellViewModels: [PostCellViewModel] = []
@@ -30,12 +29,17 @@ class HomeViewController: UIViewController {
         style()
         layout()
     }
+    
     //MARK: - Setup Table
     private func setupTable() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.reuseId)
-//        tableView.rowHeight = PostCell.rowHeight
+        tableView.register(PostImageCell.self, forCellReuseIdentifier: PostImageCell.cellIdentifier)
+        tableView.register(PostHeaderCell.self, forCellReuseIdentifier: PostHeaderCell.cellIdentifier)
+        tableView.register(PostActionCell.self, forCellReuseIdentifier: PostActionCell.cellIdentifier)
+        tableView.register(PostCommentCell.self, forCellReuseIdentifier: PostCommentCell.cellIdentifier)
+        tableView.estimatedRowHeight = 400
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
     }
 }
@@ -49,17 +53,95 @@ extension HomeViewController: UITableViewDelegate {
 }
 //MARK: - TableView Data Source Method
 extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return postCellViewModels.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !postCellViewModels.isEmpty {
-            let cell = tableView.dequeueReusableCell(withIdentifier: PostCell.reuseId) as! PostCell
-            let vm = postCellViewModels[indexPath.row]
-            vm.configure(with: cell)
-            return cell
+        if !postCellViewModels.isEmpty { // we have the posts
+            let rowAt = indexPath.row
+            let vm = postCellViewModels[indexPath.section]
+            switch rowAt {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PostHeaderCell.cellIdentifier, for: indexPath) as! PostHeaderCell
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PostImageCell.cellIdentifier, for: indexPath) as! PostImageCell
+                if let image = vm.postImage {
+                    cell.loadedImages = image
+                } else {
+                    let token = ImageSource.shared.fetchImage(urlString: vm.imageUrl) { [weak self] image in
+                        guard let strongSelf = self else { return }
+                        strongSelf.postCellViewModels[indexPath.section].postImage = image
+                        DispatchQueue.main.async {
+                            tableView.reloadRows(at: [indexPath], with: .automatic)
+                        }
+                    }
+                    cell.onReuse = {
+                        if let token = token {
+                            ImageSource.shared.cancelLoad(token)
+                        }
+                    }
+                }
+                return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PostActionCell.cellIdentifier, for: indexPath) as! PostActionCell
+                return cell
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: PostCommentCell.cellIdentifier, for: indexPath) as! PostCommentCell
+                cell.comment.text = vm.description
+                return cell
+            default:
+                fatalError("Unexpected switch by cellForRowAt")
+            }
         }
         return UITableViewCell()
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 70
+        case 1:
+            return 300
+        case 2:
+            return 88
+        case 3:
+            return 60
+        default:
+            fatalError("Unexpected switch by estimatedHeightForRowAt")
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let rowAt = indexPath.row
+        switch rowAt {
+        case 0:
+            return 70
+        case 1:
+            if let image = postCellViewModels[indexPath.section].postImage {
+                let imageWidth = image.size.width
+                let imageHeight = image.size.height
+                guard imageWidth > 0 && imageHeight > 0 else { return UITableView.automaticDimension }
+                
+                //images always be the full width of the screen
+                let requiredWidth = tableView.frame.width
+                
+                let widthRatio = requiredWidth / imageWidth
+                
+                let requiredHeight = imageHeight * widthRatio
+    //            print(requiredHeight)
+                return requiredHeight
+            } else {
+                return UITableView.automaticDimension
+            }
+        case 2:
+            return 88
+        case 3:
+            return UITableView.automaticDimension
+        default:
+            return UITableView.automaticDimension
+        }
     }
 }
 //MARK: - Networking
@@ -106,8 +188,8 @@ extension HomeViewController {
         }
     }
     private func configuireWithPost() {
-        postCellViewModels = posts.map({ post in
-            return PostCellViewModel(imageUrl: post.postImgUrl)
+        postCellViewModels = posts.map({
+            return PostCellViewModel(imageUrl: $0.postImgUrl, description: $0.description)
         })
     }
 }
@@ -116,7 +198,6 @@ extension HomeViewController {
 extension HomeViewController {
     private func style() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .blue
     }
 }
 
