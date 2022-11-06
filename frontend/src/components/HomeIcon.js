@@ -1,11 +1,23 @@
 import { useState } from "react";
-import HomeoutLinedIcon from "@mui/icons-material/HomeOutlined";
 import PostModal from "./PostModal";
 import HomeOutlined from "@mui/icons-material/HomeOutlined";
+import { Button } from "@mui/material";
+import React, { Component } from 'react';
 
 export default function HomeIcon(){
-
-    return(<HomeOutlined/>)
-
-
+    
+      function HomePage() {
+        alert('This is home page!');
+      }
+    
+    return(
+    <div>
+        <button onClick={HomePage}>
+        <HomeOutlined/>
+        </button>
+    </div>
+    
+    )
 }
+
+
