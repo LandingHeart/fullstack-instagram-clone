@@ -45,13 +45,13 @@ class MainViewController: UITabBarController {
         
     }
     private func setupBars() {
-        homeNC.navigationBar.tintColor = .systemBackground
+        homeNC.navigationBar.tintColor = .label
         
-        videoNC.navigationBar.tintColor = .systemBackground
+        videoNC.navigationBar.tintColor = .label
         
-        shopNC.navigationBar.tintColor = .systemBackground
+        shopNC.navigationBar.tintColor = .label
         
-        profileNC.navigationBar.tintColor = .systemBackground
+        profileNC.navigationBar.tintColor = .label
         
         tabBar.backgroundColor = .systemBackground
         tabBar.tintColor = .label

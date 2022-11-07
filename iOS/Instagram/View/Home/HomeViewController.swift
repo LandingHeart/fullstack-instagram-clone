@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     //component
     let tableView = UITableView()
     let refreshControl = UIRefreshControl()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +27,7 @@ class HomeViewController: UIViewController {
         setupTable()
         style()
         layout()
+        setNavBar()
     }
     
     //MARK: - Setup Table
