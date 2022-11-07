@@ -5,14 +5,9 @@ import { Button } from "@mui/material";
 import React, { Component } from 'react';
 
 export default function HomeIcon(){
-    
-      function HomePage() {
-        alert('This is home page!');
-      }
-    
     return(
     <div>
-        <button onClick={HomePage}>
+        <button onClick={alert=""}>
         <HomeOutlined/>
         </button>
     </div>
