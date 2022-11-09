@@ -17,11 +17,11 @@ class PostActionCell: UITableViewCell {
     let HStack = UIStackView()
     
     
-    let likeButton = UIButton()
+    let likeButton = MainButton(systemName: "heart", size: 30)
     
-    let commentButton = UIButton()
+    let commentButton = MainButton(systemName: "message", size: 27)
     
-    let bookmarkButton = UIButton()
+    let bookmarkButton = MainButton(systemName: "bookmark", size: 27)
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -54,17 +54,6 @@ extension PostActionCell {
         HStack.axis = .horizontal
         HStack.alignment = .center
         
-        likeButton.translatesAutoresizingMaskIntoConstraints = false
-        likeButton.setImage(UIImage.actionButton(systemName: "heart", size: 30), for: .normal)
-        likeButton.tintColor = .label
-        
-        commentButton.translatesAutoresizingMaskIntoConstraints = false
-        commentButton.setImage(UIImage.actionButton(systemName: "message", size: 27), for: .normal)
-        commentButton.tintColor = .label
-        
-        bookmarkButton.translatesAutoresizingMaskIntoConstraints = false
-        bookmarkButton.setImage(UIImage.actionButton(systemName: "bookmark", size: 27), for: .normal)
-        bookmarkButton.tintColor = .label
     }
     //MARK: - layout
     private func layout() {
