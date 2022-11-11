@@ -6,12 +6,7 @@ import React, { Component } from 'react';
 
 export default function HomeIcon(){
     return(
-    <div>
-        <button onClick={alert=""}>
-        <HomeOutlined/>
-        </button>
-    </div>
-    
+         <HomeOutlined/>
     )
 }
 
