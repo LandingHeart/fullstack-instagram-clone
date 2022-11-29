@@ -11,8 +11,11 @@
 - express js 4.18.1
 - sequelize
 - heroku, netlify TBD
+- morgan (logging HTTP request)
+- winston
 
 #### Table of contents
+
 [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
 [mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
 

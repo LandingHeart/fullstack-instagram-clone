@@ -15,6 +15,14 @@
   "engines": {
     "node": "16.18.0"
   },
+  "jest": {
+    "roots": [
+      "specs/"
+    ],
+    "moduleDirectories": [
+      "specs/"
+    ]
+  },
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -23,6 +31,9 @@
     "@mui/styled-engine-sc": "^5.10.3",
     "@mui/styles": "^5.10.3",
     "@reduxjs/toolkit": "^1.8.5",
+    "@testing-library/jest-dom": "^5.16.4",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "axios": "^0.27.2",
     "express": "^4.18.1",
     "formik": "^2.2.9",
