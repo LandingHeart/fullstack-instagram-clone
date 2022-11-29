@@ -1,13 +1,14 @@
 "use strict";
 const { Model } = require("sequelize");
-const User = require("./index").user;
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
-    // Post.belongsTo(User, {
-    //   foreignKey: "userId",
-    //   onDelete: "CASCADE",
-    //   as: "post"
-    // });
+    static associate(models) {
+      Post.belongsTo(models.user, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        as: "post"
+      });
+    }
   }
   Post.init(
     {
