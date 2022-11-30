@@ -3,15 +3,17 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     static associate(models) {
-      Post.belongsTo(models.user, {
-        foreignKey: "userId",
-        onDelete: "CASCADE",
-        as: "post"
-      });
+      Post.belongsTo(models.user);
     }
   }
   Post.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
       title: { type: DataTypes.STRING(255), required: true, allowNull: false },
       postImgUrl: {
         type: DataTypes.STRING,
