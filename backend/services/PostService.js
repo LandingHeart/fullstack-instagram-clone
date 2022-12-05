@@ -1,15 +1,17 @@
-const Post = require("../models/index").post;
+const { Post } = require("../models/post");
 const { Op } = require("sequelize");
 
 module.exports = class PostService {
-  static async findAll() {
-    try {
-      const allPost = await Post.findAll();
-      return allPost;
-    } catch (error) {
-      console.log(`could not find all post${error}`);
-    }
-  }
+  // static async findAll() {
+  //   try {
+  //     console.log(Post);
+  //     const allPost = await Post.findAll();
+  //     console.log(Post.findAll());
+  //     return allPost;
+  //   } catch (error) {
+  //     console.log(`could not find all post${error}`);
+  //   }
+  // }
 
   static async searchPostWithTitle(title) {
     try {
@@ -20,7 +22,7 @@ module.exports = class PostService {
           },
         },
       });
-      return post
+      return post;
     } catch (error) {
       console.log(`could not find all post${error} with title ${title}`);
     }

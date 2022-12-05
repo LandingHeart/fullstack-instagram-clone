@@ -4,7 +4,10 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasMany(models.post);
+      User.hasMany(models.posts, {
+        foreignKey: "id",
+        onDelete: "CASCADE",
+      });
     }
     async validatePassword(password) {}
   }
@@ -29,9 +32,8 @@ module.exports = (sequelize, DataTypes) => {
       last_edit_date: DataTypes.DATE,
     },
     {
-      freezeTableName: true,
       sequelize,
-      modelName: "user",
+      modelName: "Users",
     }
   );
 
