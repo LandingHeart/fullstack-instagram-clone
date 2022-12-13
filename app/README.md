@@ -48,3 +48,15 @@ should see server started at port 8080, go to http://localhost:8080/api/post to 
    db data inserted
 
 Should see the data being added to db tables
+
+Create a .env file, Copy paste .env.example to .env
+
+#### Frontend Setup/installation
+
+```sh
+cd client
+npm install
+npm run dev
+```
+
+go to [localhost:3010](http://localhost:3010/)

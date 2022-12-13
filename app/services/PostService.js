@@ -1,4 +1,4 @@
-const Post = require("../models/index").post;
+const Post = require("../models/index").posts;
 const { Op } = require("sequelize");
 
 module.exports = class PostService {
@@ -20,7 +20,7 @@ module.exports = class PostService {
           },
         },
       });
-      return post
+      return post;
     } catch (error) {
       console.log(`could not find all post${error} with title ${title}`);
     }

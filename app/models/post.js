@@ -16,19 +16,18 @@ module.exports = (sequelize, DataTypes) => {
       postImgUrl: {
         type: DataTypes.STRING,
         required: true,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: DataTypes.STRING(255),
         required: true,
-        allowNull: false
+        allowNull: false,
       },
-      last_edit_date: Date.now()
+      last_edit_date: Date.now(),
     },
     {
-      freezeTableName: true,
       sequelize,
-      modelName: "post"
+      modelName: "posts",
     }
   );
 

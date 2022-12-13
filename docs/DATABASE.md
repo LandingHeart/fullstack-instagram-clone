@@ -16,4 +16,16 @@ psql insdb
 insdb=# \list
 ```
 
+If user does not exist, create user by
+
+```sh
+createuser postgres
+psql postgres
+insdb=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
+```
+
+| Role name | list of roles | member of |
+| --------- | ------------- | --------- |
+| postgres  |               |           |
+
 Should see the data being added to db tables,

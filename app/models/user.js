@@ -1,15 +1,8 @@
 "use strict";
 const { Model } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {
-      User.hasMany(models.post, {
-        foreignKey: "userId",
-        onDelete: "CASCADE",
-        as: "user"
-      });
-    }
+    static associate(models) {}
     async validatePassword(password) {}
   }
 
@@ -20,16 +13,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
-        allowNull: false
+        allowNull: false,
       },
       userame: { type: DataTypes.STRING(255), required: true },
       password: { type: DataTypes.STRING(20), required: true },
-      last_edit_date: DataTypes.DATE
+      last_edit_date: DataTypes.DATE,
     },
     {
-      freezeTableName: true,
       sequelize,
-      modelName: "user"
+      modelName: "users",
     }
   );
 
