@@ -13,7 +13,7 @@
     "build": "webpack --mode production"
   },
   "engines": {
-    "node": "16.18.0"
+    "node": "16.14.2"
   },
   "jest": {
     "roots": [

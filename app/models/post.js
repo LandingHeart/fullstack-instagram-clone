@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const User = require("./index").user;
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     // Post.belongsTo(User, {
@@ -15,19 +14,18 @@ module.exports = (sequelize, DataTypes) => {
       postImgUrl: {
         type: DataTypes.STRING,
         required: true,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: DataTypes.STRING(255),
         required: true,
-        allowNull: false
+        allowNull: false,
       },
-      last_edit_date: Date.now()
+      last_edit_date: Date.now(),
     },
     {
-      freezeTableName: true,
       sequelize,
-      modelName: "post"
+      modelName: "posts",
     }
   );
 

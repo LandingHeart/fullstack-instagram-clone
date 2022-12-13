@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const Post = require("./index").post;
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
@@ -21,16 +20,15 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
-        allowNull: false
+        allowNull: false,
       },
       userame: { type: DataTypes.STRING(255), required: true },
       password: { type: DataTypes.STRING(20), required: true },
-      last_edit_date: DataTypes.DATE
+      last_edit_date: DataTypes.DATE,
     },
     {
-      freezeTableName: true,
       sequelize,
-      modelName: "user"
+      modelName: "users",
     }
   );
 

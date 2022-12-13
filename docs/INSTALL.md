@@ -18,7 +18,7 @@ node --version
 nvm install 16.18.0
 nvm use 16.18.0
 node --version
-16.18.0
+16.14.2
 ```
 
 #### nodenv
