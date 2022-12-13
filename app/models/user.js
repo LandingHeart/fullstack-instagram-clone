@@ -2,14 +2,7 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {
-      // define association/relation here, one to many, many to many
-      // User.hasMany(Post, {
-      //   foreignKey: "userId",
-      //   onDelete: "CASCADE",
-      //   as: "user"
-      // });
-    }
+    static associate(models) {}
     async validatePassword(password) {}
   }
 
