@@ -11,15 +11,15 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use(require("./routes"));
-
 app.use(morganMiddleware);
+
+app.use(require("./routes"));
 
 app.get("/api/status", (req, res) => {
   logger.info("Checking the API status: Everything is OK");
   res.status(200).send({
     status: "UP",
-    message: "The API is up and running!"
+    message: "The API is up and running!",
   });
 });
 
