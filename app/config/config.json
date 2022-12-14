@@ -4,16 +4,14 @@
     "password": "admin",
     "database": "insdb",
     "host": "localhost",
-    "dialect": "postgres",
-    "logging": false
+    "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "admin",
     "database": "insdb",
     "host": "127.0.0.1",
-    "dialect": "postgres",
-    "logging": false
+    "dialect": "postgres"
   },
   "production": {
     "use_env_variable": "DATABASE_URL",

@@ -1,6 +1,6 @@
 const Post = require("../models/index").posts;
 const { Op } = require("sequelize");
-
+const logger = require("../utils/logger");
 module.exports = class PostService {
   static async findAll() {
     try {
