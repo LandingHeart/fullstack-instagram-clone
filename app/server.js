@@ -21,6 +21,7 @@ app.get("/api/status", (req, res) => {
     status: "UP",
     message: "The API is up and running!",
   });
+  res.send("okay");
 });
 
 app.listen(PORT, () => {
