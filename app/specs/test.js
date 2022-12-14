@@ -1,5 +1,4 @@
-// sample test case
-const mathOperations = require("../../services/testServices");
+const mathOperations = require("../services/testServices");
 
 describe("Calculator Tests", () => {
   test("Addition of 2 numbers", () => {
