@@ -39,13 +39,9 @@ git push origin featureName
 
 ```
 Please follow this if you want to contribute and become a collaborator. 
-[github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-
-Get recent updates to main branch
-
-```sh
-git pull origin main
-```
+[github offical doc](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+<br/>
+[How to contribute to Open source](https://dev.to/codesphere/how-to-start-contributing-to-open-source-projects-on-github-534n)
 
 #### React
 
