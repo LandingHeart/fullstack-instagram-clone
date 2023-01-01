@@ -19,11 +19,6 @@
 [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
 [mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
 
-#### Sprint diffculties point system
-
-- Each ticket will have a point associated with them from 1-5
-- 1 points ticket is the easiest and 5 points is the hardest
-
 #### Github work flow, commands Developoment lifecycle :round_pushpin:
 
 - git checkout -b fsc-featureName
@@ -37,6 +32,7 @@ git commit -m "message"
 git push origin featureName
 
 ```
+Please follow this if you want to contribute. 
 
 Get recent updates to main branch
 
