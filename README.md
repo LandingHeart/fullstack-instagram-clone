@@ -50,7 +50,7 @@ We use React with Javascript for our frontend codebase.
 We largely follow this react code style guidelines, [react syntax guidelines](https://github.com/pillarstudio/standards/blob/master/reactjs-guidelines.md), for creating components and file name.
 
 
-##License 
+## License 
 
 MIT License
 
