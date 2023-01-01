@@ -26,7 +26,9 @@ This project is to teach and show student how to work on a collaboration project
 - [Tools](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/TOOLS.md)
 
 #### Github work flow, commands Developoment lifecycle :round_pushpin:
+And all pull request should be made towards branch staging, only when it pass staging then it can made towards main. The merge for staging should be squash merge.
 
+Only when all checks pass for main then it can be merge. The merge should be merge. 
 - git checkout -b fsc-featureName
 - first when you start a new branch using following commands :pencil2:
 - name your branch by fsc-featureName
