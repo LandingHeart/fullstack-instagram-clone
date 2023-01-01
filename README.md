@@ -1,3 +1,7 @@
+# Project Motivation
+
+This project is to teach and show student how to work on a collaboration project. And thus learning about the tech stacks.
+
 # Getting Started
 
 #### Project Stack:
@@ -16,8 +20,10 @@
 
 #### Table of contents
 
-[INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
-[mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+- [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
+- [mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+- [Database](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/DATABASE.md)
+- [Tools](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/TOOLS.md)
 
 #### Github work flow, commands Developoment lifecycle :round_pushpin:
 
@@ -32,7 +38,7 @@ git commit -m "message"
 git push origin featureName
 
 ```
-Please follow this if you want to contribute. 
+Please follow this if you want to contribute and become a collaborator. 
 [github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 
 Get recent updates to main branch
