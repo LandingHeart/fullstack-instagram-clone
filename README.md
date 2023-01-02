@@ -18,6 +18,9 @@ This project is to teach and show student how to work on a collaboration project
 - morgan (logging HTTP request)
 - winston
 
+## CI/CD Pipeline
+[circle ci](https://circleci.com/blog/what-is-a-ci-cd-pipeline/) - (WIP)
+
 #### Table of contents
 
 - [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
