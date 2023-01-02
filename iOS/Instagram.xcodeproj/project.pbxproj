@@ -91,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				3B65C62E28FF1B9D0095799E /* MainControllers */,
-				3B0E3127295FD37300321407 /* Login */,
 				3B65C62F28FF1BB50095799E /* HomeTab */,
 				3B65C63028FF1BC50095799E /* SearchTab */,
 				3B0E312A295FD38C00321407 /* VideoTab */,
@@ -99,13 +98,6 @@
 				3B0E3128295FD37800321407 /* ProfileTab */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		3B0E3127295FD37300321407 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		3B0E3128295FD37800321407 /* ProfileTab */ = {
@@ -139,41 +131,6 @@
 				3B55E2362919ADEF007969B0 /* MainButton.swift */,
 			);
 			path = Button;
-			sourceTree = "<group>";
-		};
-		3B0E312C295FD3C500321407 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		3B0E312D295FD3ED00321407 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		3B0E312E295FD3F900321407 /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shop;
-			sourceTree = "<group>";
-		};
-		3B0E312F295FD40600321407 /* Video */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Video;
-			sourceTree = "<group>";
-		};
-		3B0E3130295FD40B00321407 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Search;
 			sourceTree = "<group>";
 		};
 		3B0E3131295FD41300321407 /* Home */ = {
@@ -234,12 +191,12 @@
 		3B5AC85028FB781F00BD8402 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3B0E312C295FD3C500321407 /* Login */,
+				3BDEB2BE2962960E0041F33C /* Login */,
 				3B0E3131295FD41300321407 /* Home */,
-				3B0E3130295FD40B00321407 /* Search */,
-				3B0E312F295FD40600321407 /* Video */,
-				3B0E312E295FD3F900321407 /* Shop */,
-				3B0E312D295FD3ED00321407 /* Profile */,
+				3BDEB2BF296296170041F33C /* Search */,
+				3BDEB2C0296296240041F33C /* Video */,
+				3BDEB2C12962962D0041F33C /* Shop */,
+				3BDEB2C2296296350041F33C /* Profile */,
 				3B55E2312919A252007969B0 /* CustomView */,
 			);
 			path = View;
@@ -328,6 +285,41 @@
 				3BE44E5E291303310000A3E7 /* PostCommentCell.swift */,
 			);
 			path = PostCell;
+			sourceTree = "<group>";
+		};
+		3BDEB2BE2962960E0041F33C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3BDEB2BF296296170041F33C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3BDEB2C0296296240041F33C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		3BDEB2C12962962D0041F33C /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		3BDEB2C2296296350041F33C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
