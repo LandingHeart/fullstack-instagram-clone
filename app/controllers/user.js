@@ -1,5 +1,5 @@
 const UserService = require("../services/UserService");
-
+const User = require("../models/index").users;
 module.exports = class User {
   static async apiGetAlluser(req, res, next) {
     try {
