@@ -130,7 +130,7 @@ extension HomeViewController: UITableViewDataSource {
                 let widthRatio = requiredWidth / imageWidth
                 
                 let requiredHeight = imageHeight * widthRatio
-    //            print(requiredHeight)
+                
                 return requiredHeight
             } else {
                 return UITableView.automaticDimension
