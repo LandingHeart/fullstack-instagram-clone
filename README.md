@@ -2,6 +2,14 @@
 
 This project is to teach and show student how to work on a collaboration project. And thus learning about the tech stacks.
 
+#### Table of contents
+
+- [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
+- [mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
+- [Database](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/DATABASE.md)
+- [Tools](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/TOOLS.md)
+- [Trello Board Join](https://trello.com/invite/b/QPkaa9nd/ATTI97cd43252a4c140940eafe428016a43d7AECAE38/fullstack-instagram-clone)
+
 # Getting Started
 
 #### Project Stack:
@@ -20,14 +28,6 @@ This project is to teach and show student how to work on a collaboration project
 
 ## CI/CD Pipeline
 [circle ci](https://circleci.com/blog/what-is-a-ci-cd-pipeline/) - (WIP)
-
-#### Table of contents
-
-- [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
-- [mac cheat sheet](https://github.com/0nn0/terminal-mac-cheatsheet)
-- [Database](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/DATABASE.md)
-- [Tools](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/TOOLS.md)
-- [Trello Board Join](https://trello.com/invite/b/QPkaa9nd/ATTI97cd43252a4c140940eafe428016a43d7AECAE38/fullstack-instagram-clone)
 
 #### Github work flow, commands Developoment lifecycle :round_pushpin:
 And all pull request should be made towards branch staging, only when it pass staging then it can made towards main. The merge for staging should be squash merge.
