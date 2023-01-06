@@ -10,7 +10,11 @@ import UIKit
 final class LoginTextField: UIView {
     
     let HStack = UIStackView()
+    
+    let clearButton = UIButton()
+    
     let eyeButton = UIButton()
+    
     let textField = UITextField()
     
     var delegate: UITextFieldDelegate? {
@@ -36,8 +40,11 @@ final class LoginTextField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     private func setup() {
+        clearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
+        clearButton.setImage(UIImage(systemName: "x.circle.fill"), for: .normal)
+        clearButton.tintColor = .label
         eyeButton.addTarget(self, action: #selector(toggleSecureMode), for: .touchUpInside)
-        eyeButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         eyeButton.tintColor = .label
     }
     private func style() {
@@ -52,21 +59,26 @@ final class LoginTextField: UIView {
     private func layout() {
         addSubview(HStack)
         HStack.addArrangedSubview(textField)
+        HStack.addArrangedSubview(clearButton)
         HStack.addArrangedSubview(eyeButton)
         
         translatesAutoresizingMaskIntoConstraints = false
         HStack.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
         eyeButton.translatesAutoresizingMaskIntoConstraints = false
         
         textField.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        clearButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         eyeButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         NSLayoutConstraint.activate([
             HStack.centerYAnchor.constraint(equalTo: centerYAnchor),
             HStack.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
             textField.leadingAnchor.constraint(equalTo: HStack.leadingAnchor),
+            clearButton.widthAnchor.constraint(equalToConstant: 44),
+            clearButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             eyeButton.widthAnchor.constraint(equalToConstant: 44),
-            eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+            eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
     override func layoutSubviews() {
@@ -81,12 +93,16 @@ extension LoginTextField {
         textField.isSecureTextEntry.toggle()
         eyeButton.setImage(UIImage(systemName: targetImage), for: .normal)
     }
+    @objc func clearTextField() {
+        textField.text = ""
+    }
 }
 
 //MARK: - External function
 extension LoginTextField {
     func enableSecureMode(enable input: Bool = true) {
         textField.isSecureTextEntry = input
+        clearButton.isHidden = input
         eyeButton.isHidden = !input
     }
 }
