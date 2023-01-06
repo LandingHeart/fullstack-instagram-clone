@@ -41,11 +41,7 @@
     "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations#a063aa6535a3f580623581bf866cef2d609531ba",
     "sequelize-cli": "^6.4.1",
     "socket.io": "^4.5.2",
-    "winston": "^3.8.2",
-    "@storybook/addon-knobs": "^6.3.1",
-    "@storybook/addon-storyshots": "^6.3.12",
-    "@storybook/addon-viewport": "^6.3.12",
-    "@storybook/react": "^6.3.12"
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
