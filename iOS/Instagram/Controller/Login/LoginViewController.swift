@@ -21,6 +21,8 @@ final class LoginViewController: UIViewController {
     
     let signInButton = RoundButton()
     
+    let orSeparator = OrSeparatorView()
+    
     var username: String? {
         usernameField.textField.text
     }
@@ -35,14 +37,15 @@ final class LoginViewController: UIViewController {
         layout()
     }
 }
-//MARK: - Setup & Style * layout
 extension LoginViewController {
+    //MARK: - setup
     private func setup() {
         usernameField.delegate = self
         passwordField.delegate = self
         signInButton.setTitle("Sign In", for: [])
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
+    //MARK: - style
     private func style() {
         textStack.axis = .vertical
         textStack.spacing = 6
@@ -62,6 +65,7 @@ extension LoginViewController {
         errorPrompt.numberOfLines = 0
         
     }
+    //MARK: - layout
     private func layout() {
         view.addSubview(textStack)
         view.addSubview(logo)
@@ -69,6 +73,7 @@ extension LoginViewController {
         textStack.addArrangedSubview(passwordField)
         view.addSubview(errorPrompt)
         view.addSubview(signInButton)
+        view.addSubview(orSeparator)
         
         logo.translatesAutoresizingMaskIntoConstraints = false
         textStack.translatesAutoresizingMaskIntoConstraints = false
@@ -76,6 +81,7 @@ extension LoginViewController {
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         errorPrompt.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
+        orSeparator.translatesAutoresizingMaskIntoConstraints = false
         
         usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -99,6 +105,12 @@ extension LoginViewController {
             signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signInButton.widthAnchor.constraint(equalTo: textStack.widthAnchor),
             signInButton.heightAnchor.constraint(equalToConstant: 47),
+            
+            orSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            /// set orSeparator's Y coordinate to defined by view's bottomAnchor to adapt different screens size. Otherwise it may goes out of screen or break layout consistancy.
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 15),
+            orSeparator.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.75),
+            orSeparator.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
     
@@ -124,6 +136,7 @@ extension LoginViewController {
     
     @objc func didTapSignIn() {
         if login() {
+            errorPrompt.isHidden = true
             signInButton.isEnabled = true
             signInButton.configuration?.showsActivityIndicator = true
             signInButton.setTitle("", for: .normal)

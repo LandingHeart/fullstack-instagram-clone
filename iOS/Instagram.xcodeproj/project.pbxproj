@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B4BD0A729661B7000AE4454 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0A629661B7000AE4454 /* LoginTextField.swift */; };
+		3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */; };
+		3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */; };
 		3B55E2332919A262007969B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2322919A262007969B0 /* RoundButton.swift */; };
 		3B55E2352919A609007969B0 /* HomeViewControllerNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */; };
 		3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2362919ADEF007969B0 /* MainButton.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		3B4BD0A629661B7000AE4454 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrSeparatorView.swift; sourceTree = "<group>"; };
+		3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		3B55E2322919A262007969B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNavBar.swift; sourceTree = "<group>"; };
 		3B55E2362919ADEF007969B0 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3B0E312B295FD3B500321407 /* Button */,
+				3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				3B4BD0A629661B7000AE4454 /* LoginTextField.swift */,
+				3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
@@ -388,6 +395,7 @@
 				3B55E2332919A262007969B0 /* RoundButton.swift in Sources */,
 				3B4BD0A729661B7000AE4454 /* LoginTextField.swift in Sources */,
 				3BB03D852904A2A1009872DB /* User.swift in Sources */,
+				3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */,
 				3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */,
 				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
