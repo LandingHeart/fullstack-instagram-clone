@@ -11,11 +11,22 @@ final class LoginViewController: UIViewController {
     
     let logo = UIImageView()
     
-    let VStack = UIStackView()
+    let textStack = UIStackView()
 
-    let emailField = LoginTextField()
+    let usernameField = LoginTextField()
     
     let passwordField = LoginTextField(frame: CGRect(), secureMode: true)
+    
+    let errorPrompt = UILabel()
+    
+    let signInButton = RoundButton()
+    
+    var username: String? {
+        usernameField.textField.text
+    }
+    var password: String? {
+        passwordField.textField.text
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,37 +38,46 @@ final class LoginViewController: UIViewController {
 //MARK: - Setup & Style * layout
 extension LoginViewController {
     private func setup() {
-        emailField.delegate = self
+        usernameField.delegate = self
         passwordField.delegate = self
+        signInButton.setTitle("Sign In", for: [])
+        signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
     private func style() {
-        VStack.axis = .vertical
-        VStack.spacing = 6
-        VStack.distribution = .fillEqually
+        textStack.axis = .vertical
+        textStack.spacing = 6
+        textStack.distribution = .fillEqually
         
         logo.image = UIImage(named: "Instagram")
         logo.contentMode = .scaleAspectFit
         
-        emailField.textField.placeholder = "Phone number, username or email"
-        emailField.textField.returnKeyType = .next
-        
+        usernameField.textField.placeholder = "Phone number, username or email"
+        usernameField.textField.returnKeyType = .next
         
         passwordField.textField.placeholder = "Password"
         passwordField.textField.returnKeyType = .go
         
+        errorPrompt.textColor = .systemRed
+        errorPrompt.isHidden = true
+        errorPrompt.numberOfLines = 0
+        
     }
     private func layout() {
-        view.addSubview(VStack)
+        view.addSubview(textStack)
         view.addSubview(logo)
-        VStack.addArrangedSubview(emailField)
-        VStack.addArrangedSubview(passwordField)
+        textStack.addArrangedSubview(usernameField)
+        textStack.addArrangedSubview(passwordField)
+        view.addSubview(errorPrompt)
+        view.addSubview(signInButton)
         
         logo.translatesAutoresizingMaskIntoConstraints = false
-        VStack.translatesAutoresizingMaskIntoConstraints = false
-        emailField.translatesAutoresizingMaskIntoConstraints = false
+        textStack.translatesAutoresizingMaskIntoConstraints = false
+        usernameField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.translatesAutoresizingMaskIntoConstraints = false
+        errorPrompt.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
         
-        emailField.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
 
         NSLayoutConstraint.activate([
@@ -65,13 +85,23 @@ extension LoginViewController {
             logo.heightAnchor.constraint(equalToConstant: 100),
             logo.topAnchor.constraint(equalTo: view.topAnchor, constant: (K.screenHeight * 0.25)),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            VStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
-            VStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            VStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
-            VStack.heightAnchor.constraint(equalToConstant: 100),
             
+            textStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
+            textStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
+            textStack.heightAnchor.constraint(equalToConstant: 100),
+            
+            errorPrompt.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
+            errorPrompt.leadingAnchor.constraint(equalToSystemSpacingAfter: textStack.leadingAnchor, multiplier: 1),
+            errorPrompt.trailingAnchor.constraint(equalTo: textStack.trailingAnchor),
+            
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 6),
+            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signInButton.widthAnchor.constraint(equalTo: textStack.widthAnchor),
+            signInButton.heightAnchor.constraint(equalToConstant: 47),
         ])
     }
+    
 }
 
 //MARK: - TextFieldDelegate
@@ -91,4 +121,26 @@ extension LoginViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    @objc func didTapSignIn() {
+        if login() {
+            signInButton.isEnabled = true
+            signInButton.configuration?.showsActivityIndicator = true
+            signInButton.setTitle("", for: .normal)
+        }
+    }
+    
+    private func login() -> Bool {
+        guard username != "", password != "" else {
+            configureErrorPrompt("Username or Password can not be blank")
+            return false
+        }
+        return true
+    }
+    
+    private func configureErrorPrompt(_ text: String) {
+        errorPrompt.isHidden = false
+        errorPrompt.text = text
+    }
+    
 }

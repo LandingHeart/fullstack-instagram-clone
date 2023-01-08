@@ -47,6 +47,7 @@ final class LoginTextField: UIView {
         eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         eyeButton.tintColor = .label
     }
+    //MARK: - Style
     private func style() {
         backgroundColor = .secondarySystemFill
         
@@ -56,6 +57,7 @@ final class LoginTextField: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 300, height: 60)
     }
+    //MARK: - Layout
     private func layout() {
         addSubview(HStack)
         HStack.addArrangedSubview(textField)
@@ -81,6 +83,8 @@ final class LoginTextField: UIView {
             eyeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
+    
+    /// Override this function will make the View rounded
     override func layoutSubviews() {
         layer.cornerRadius = 10
         clipsToBounds = true
