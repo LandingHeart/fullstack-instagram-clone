@@ -12,7 +12,7 @@ node --version
 18.0.0
 ```
 
-#### nvm command to use node version 16.18.0
+#### nvm command to use node version 16.14.2
 
 ```sh
 nvm install 16.14.2
@@ -21,7 +21,7 @@ node --version
 16.14.2
 ```
 
-#### nodenv
+#### or you can use nodenv to set node version
 
 ```sh
 nodenv install 16.14.2
