@@ -60,27 +60,3 @@ createdb insdb
 psql insdb
 insdb=#
 ```
-
-When you see insdb=# means you are connected. <br/>
-
-#### start backend server
-
-Run the backend server
-
-```sh
-cd backend
-npm install
-npm run dev
-```
-
-Should see server started at port 8080 at console, go to http://localhost:8080/api/post to get a json response
-
-#### start frontend server
-
-```sh
-cd frontend
-npm install
-npm run dev
-```
-
-[localhost:3010](http://localhost:3010/)
