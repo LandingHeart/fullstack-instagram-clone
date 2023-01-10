@@ -12,20 +12,20 @@ node --version
 18.0.0
 ```
 
-#### nvm command to use node version 16.18.0
+#### nvm command to use node version 16.14.2
 
 ```sh
-nvm install 16.18.0
-nvm use 16.18.0
+nvm install 16.14.2
+nvm use 16.14.2
 node --version
 16.14.2
 ```
 
-#### nodenv
+#### or you can use nodenv to set node version
 
 ```sh
-nodenv install 16.18.0
-nodenv global 16.18.0
+nodenv install 16.14.2
+nodenv global 16.14.2
 ```
 
 #### Install PostgreSQL with brew
@@ -60,27 +60,3 @@ createdb insdb
 psql insdb
 insdb=#
 ```
-
-When you see insdb=# means you are connected. <br/>
-
-#### start backend server
-
-Run the backend server
-
-```sh
-cd backend
-npm install
-npm run dev
-```
-
-Should see server started at port 8080 at console, go to http://localhost:8080/api/post to get a json response
-
-#### start frontend server
-
-```sh
-cd frontend
-npm install
-npm run dev
-```
-
-[localhost:3010](http://localhost:3010/)
