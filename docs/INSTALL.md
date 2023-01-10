@@ -15,8 +15,8 @@ node --version
 #### nvm command to use node version 16.18.0
 
 ```sh
-nvm install 16.18.0
-nvm use 16.18.0
+nvm install 16.14.2
+nvm use 16.14.2
 node --version
 16.14.2
 ```
@@ -24,8 +24,8 @@ node --version
 #### nodenv
 
 ```sh
-nodenv install 16.18.0
-nodenv global 16.18.0
+nodenv install 16.14.2
+nodenv global 16.14.2
 ```
 
 #### Install PostgreSQL with brew
