@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol LoginDelegate: AnyObject {
+    func didLogin(_ sender: LoginViewController)
+}
+
 final class LoginViewController: UIViewController {
     
+    /// UIComponent
     let logo = UIImageView()
     
     let textStack = UIStackView()
@@ -23,12 +28,18 @@ final class LoginViewController: UIViewController {
     
     let orSeparator = OrSeparatorView()
     
+    let footer = LoginFooterView(frame: CGRect(), labelText: "Don't have an account?", buttonText: "Sign Up")
+    
+    
+    /// LoginComponent
     var username: String? {
         usernameField.textField.text
     }
     var password: String? {
         passwordField.textField.text
     }
+    
+    weak var delegate: LoginDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +85,7 @@ extension LoginViewController {
         view.addSubview(errorPrompt)
         view.addSubview(signInButton)
         view.addSubview(orSeparator)
+        view.addSubview(footer)
         
         logo.translatesAutoresizingMaskIntoConstraints = false
         textStack.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +94,7 @@ extension LoginViewController {
         errorPrompt.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         orSeparator.translatesAutoresizingMaskIntoConstraints = false
+        footer.translatesAutoresizingMaskIntoConstraints = false
         
         usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -108,9 +121,14 @@ extension LoginViewController {
             
             orSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             /// set orSeparator's Y coordinate to defined by view's bottomAnchor to adapt different screens size. Otherwise it may goes out of screen or break layout consistancy.
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 15),
+            footer.topAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 7),
             orSeparator.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.75),
             orSeparator.heightAnchor.constraint(equalToConstant: 40),
+            
+            footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: footer.topAnchor, multiplier: 12),
+            footer.heightAnchor.constraint(equalToConstant: 96),
         ])
     }
     
@@ -140,6 +158,7 @@ extension LoginViewController {
             signInButton.isEnabled = true
             signInButton.configuration?.showsActivityIndicator = true
             signInButton.setTitle("", for: .normal)
+            delegate?.didLogin(self)
         }
     }
     

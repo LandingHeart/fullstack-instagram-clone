@@ -31,7 +31,7 @@ extension OrSeparatorView {
     //MARK: - style
     private func style() {
         orLabel.textAlignment = .center
-        orLabel.text = "or"
+        orLabel.text = "OR"
         orLabel.font = UIFont.preferredFont(forTextStyle: .body)
         orLabel.contentMode = .scaleAspectFit
     }
