@@ -22,7 +22,7 @@ final class LoginViewController: UIViewController {
     
     let passwordField = LoginTextField(frame: CGRect(), secureMode: true)
     
-    let errorPrompt = UILabel()
+    let forgotPassword = UIButton(type: .system)
     
     let signInButton = RoundButton()
     
@@ -53,8 +53,9 @@ extension LoginViewController {
     private func setup() {
         usernameField.delegate = self
         passwordField.delegate = self
-        signInButton.setTitle("Sign In", for: [])
+        signInButton.setTitle("Log in", for: [])
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        configureSignInButton(enable: false)
     }
     //MARK: - style
     private func style() {
@@ -71,9 +72,8 @@ extension LoginViewController {
         passwordField.textField.placeholder = "Password"
         passwordField.textField.returnKeyType = .go
         
-        errorPrompt.textColor = .systemRed
-        errorPrompt.isHidden = true
-        errorPrompt.numberOfLines = 0
+        forgotPassword.titleLabel?.font = UIFont.boldSystemFont(ofSize: K.defaultFontSize)
+        forgotPassword.setTitle("Forgot Password?", for: .normal)
         
     }
     //MARK: - layout
@@ -82,7 +82,7 @@ extension LoginViewController {
         view.addSubview(logo)
         textStack.addArrangedSubview(usernameField)
         textStack.addArrangedSubview(passwordField)
-        view.addSubview(errorPrompt)
+        view.addSubview(forgotPassword)
         view.addSubview(signInButton)
         view.addSubview(orSeparator)
         view.addSubview(footer)
@@ -91,7 +91,7 @@ extension LoginViewController {
         textStack.translatesAutoresizingMaskIntoConstraints = false
         usernameField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.translatesAutoresizingMaskIntoConstraints = false
-        errorPrompt.translatesAutoresizingMaskIntoConstraints = false
+        forgotPassword.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         orSeparator.translatesAutoresizingMaskIntoConstraints = false
         footer.translatesAutoresizingMaskIntoConstraints = false
@@ -110,11 +110,10 @@ extension LoginViewController {
             textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
             textStack.heightAnchor.constraint(equalToConstant: 100),
             
-            errorPrompt.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
-            errorPrompt.leadingAnchor.constraint(equalToSystemSpacingAfter: textStack.leadingAnchor, multiplier: 1),
-            errorPrompt.trailingAnchor.constraint(equalTo: textStack.trailingAnchor),
+            forgotPassword.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
+            forgotPassword.trailingAnchor.constraint(equalTo: textStack.trailingAnchor),
             
-            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 6),
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 15),
             signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signInButton.widthAnchor.constraint(equalTo: textStack.widthAnchor),
             signInButton.heightAnchor.constraint(equalToConstant: 47),
@@ -144,6 +143,14 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        configureSignInButton(enable: validInput())
+    }
+    
+    func validInput() -> Bool {
+        return username != "" && password != ""
+    }
 }
 
 //MARK: - Action
@@ -154,7 +161,6 @@ extension LoginViewController {
     
     @objc func didTapSignIn() {
         if login() {
-            errorPrompt.isHidden = true
             signInButton.isEnabled = true
             signInButton.configuration?.showsActivityIndicator = true
             signInButton.setTitle("", for: .normal)
@@ -163,16 +169,19 @@ extension LoginViewController {
     }
     
     private func login() -> Bool {
-        guard username != "", password != "" else {
-            configureErrorPrompt("Username or Password can not be blank")
+        guard validInput() else {
             return false
         }
         return true
     }
     
-    private func configureErrorPrompt(_ text: String) {
-        errorPrompt.isHidden = false
-        errorPrompt.text = text
+    private func configureSignInButton(enable: Bool) {
+        if enable {
+            signInButton.isEnabled = true
+            signInButton.backgroundColor = UIColor.systemBlue
+        } else {
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = UIColor.lightBlue
+        }
     }
-    
 }

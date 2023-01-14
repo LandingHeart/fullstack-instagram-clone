@@ -11,6 +11,7 @@
 		3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */; };
 		3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */; };
 		3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */; };
+		3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AE29735A8A00AE4454 /* UIColor.swift */; };
 		3B55E2332919A262007969B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2322919A262007969B0 /* RoundButton.swift */; };
 		3B55E2352919A609007969B0 /* HomeViewControllerNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */; };
 		3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2362919ADEF007969B0 /* MainButton.swift */; };
@@ -47,6 +48,7 @@
 		3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrSeparatorView.swift; sourceTree = "<group>"; };
 		3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFooterView.swift; sourceTree = "<group>"; };
+		3B4BD0AE29735A8A00AE4454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3B55E2322919A262007969B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNavBar.swift; sourceTree = "<group>"; };
 		3B55E2362919ADEF007969B0 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				3B8D32A5290718740069A015 /* ImageSource.swift */,
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3BDEB2D62965E7940041F33C /* Constant.swift */,
+				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
 				3B5AC83D28FB772B00BD8402 /* HomeViewController.swift in Sources */,
+				3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */,
 				3B55E2352919A609007969B0 /* HomeViewControllerNavBar.swift in Sources */,
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,

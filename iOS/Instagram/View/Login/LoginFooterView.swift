@@ -48,6 +48,9 @@ extension LoginFooterView {
         HStack.spacing = 8
         
         label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        
+        button.titleLabel?.font = UIFont.systemFont(ofSize: K.defaultFontSize, weight: .bold)
         
         configureTopBorder()
     }
