@@ -28,6 +28,8 @@ final class LoginViewController: UIViewController {
     
     let orSeparator = OrSeparatorView()
     
+    let loginOption = LoginOptionView()
+    
     let footer = LoginFooterView(frame: CGRect(), labelText: "Don't have an account?", buttonText: "Sign Up")
     
     
@@ -85,6 +87,7 @@ extension LoginViewController {
         view.addSubview(forgotPassword)
         view.addSubview(signInButton)
         view.addSubview(orSeparator)
+        view.addSubview(loginOption)
         view.addSubview(footer)
         
         logo.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +97,7 @@ extension LoginViewController {
         forgotPassword.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         orSeparator.translatesAutoresizingMaskIntoConstraints = false
+        loginOption.translatesAutoresizingMaskIntoConstraints = false
         footer.translatesAutoresizingMaskIntoConstraints = false
         
         usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
@@ -120,9 +124,14 @@ extension LoginViewController {
             
             orSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             /// set orSeparator's Y coordinate to defined by view's bottomAnchor to adapt different screens size. Otherwise it may goes out of screen or break layout consistancy.
-            footer.topAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 7),
+            loginOption.topAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 1),
             orSeparator.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.75),
             orSeparator.heightAnchor.constraint(equalToConstant: 40),
+            
+            loginOption.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginOption.widthAnchor.constraint(equalToConstant: 130),
+            loginOption.heightAnchor.constraint(equalToConstant: 50),
+            footer.topAnchor.constraint(equalToSystemSpacingBelow: loginOption.bottomAnchor, multiplier: 2),
             
             footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),

@@ -25,6 +25,8 @@
 		3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85828FE1B6500BD8402 /* ShopViewController.swift */; };
 		3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85A28FE1B7300BD8402 /* ProfileViewController.swift */; };
 		3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */; };
+		3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4322973D55200CB5303 /* LoginOptionView.swift */; };
+		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
 		3B65C63528FF1C020095799E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* Post.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
@@ -64,6 +66,8 @@
 		3B5AC85828FE1B6500BD8402 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		3B5AC85A28FE1B7300BD8402 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		3B64A4322973D55200CB5303 /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
+		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B65C63428FF1C020095799E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3BDEB2D62965E7940041F33C /* Constant.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
+				3B64A4342973D92300CB5303 /* UIView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				3B4BD0A629661B7000AE4454 /* LoginTextField.swift */,
 				3B4BD0A8296A9FF000AE4454 /* OrSeparatorView.swift */,
 				3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */,
+				3B64A4322973D55200CB5303 /* LoginOptionView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				3BB03D852904A2A1009872DB /* User.swift in Sources */,
 				3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */,
 				3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */,
+				3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */,
 				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
@@ -418,6 +425,7 @@
 				3B8D32A6290718740069A015 /* ImageSource.swift in Sources */,
 				3B65C63528FF1C020095799E /* Post.swift in Sources */,
 				3BDB48262902335F00E0FBA4 /* PostCell.swift in Sources */,
+				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
 				3BB03D882904A2B7009872DB /* UserManager.swift in Sources */,
 				3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */,
