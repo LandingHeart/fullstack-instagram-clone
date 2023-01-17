@@ -37,7 +37,7 @@
 		3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */; };
 		3BB03D852904A2A1009872DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D842904A2A1009872DB /* User.swift */; };
 		3BB03D882904A2B7009872DB /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D872904A2B7009872DB /* UserManager.swift */; };
-		3BDB48262902335F00E0FBA4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB48252902335F00E0FBA4 /* PostCell.swift */; };
+		3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB48252902335F00E0FBA4 /* PostImageCell.swift */; };
 		3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */; };
 		3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D329629F140041F33C /* LoginViewController.swift */; };
 		3BDEB2D72965E7940041F33C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D62965E7940041F33C /* Constant.swift */; };
@@ -78,7 +78,7 @@
 		3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		3BB03D842904A2A1009872DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BB03D872904A2B7009872DB /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		3BDB48252902335F00E0FBA4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		3BDB48252902335F00E0FBA4 /* PostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
 		3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
 		3BDEB2D329629F140041F33C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDEB2D62965E7940041F33C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -212,6 +212,7 @@
 		3B5AC85028FB781F00BD8402 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B64A4362976626700CB5303 /* Icons */,
 				3BDEB2BE2962960E0041F33C /* Login */,
 				3B0E3131295FD41300321407 /* Home */,
 				3B55E2312919A252007969B0 /* CustomView */,
@@ -222,17 +223,48 @@
 		3B5AC85328FE1B0500BD8402 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */,
-				3B65C63628FF1E950095799E /* APICaller.swift */,
+				3B64A439297662AA00CB5303 /* Model */,
+				3B64A438297662A100CB5303 /* UIKit */,
+				3B64A4372976629100CB5303 /* APICaller */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3B64A4362976626700CB5303 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
 				3B6C54D6290253C9005972E4 /* ProfileImageView.swift */,
-				3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		3B64A4372976629100CB5303 /* APICaller */ = {
+			isa = PBXGroup;
+			children = (
+				3B65C63628FF1E950095799E /* APICaller.swift */,
 				3B8D32A5290718740069A015 /* ImageSource.swift */,
+			);
+			path = APICaller;
+			sourceTree = "<group>";
+		};
+		3B64A438297662A100CB5303 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */,
+				3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */,
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
-				3BDEB2D62965E7940041F33C /* Constant.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
 				3B64A4342973D92300CB5303 /* UIView.swift */,
 			);
-			path = Utils;
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		3B64A439297662AA00CB5303 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BDEB2D62965E7940041F33C /* Constant.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3B65C62C28FF1B6E0095799E /* Model */ = {
@@ -298,8 +330,8 @@
 		3BDB482729023E9900E0FBA4 /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
-				3BDB48252902335F00E0FBA4 /* PostCell.swift */,
 				3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */,
+				3BDB48252902335F00E0FBA4 /* PostImageCell.swift */,
 				3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */,
 				3BE44E5E291303310000A3E7 /* PostCommentCell.swift */,
 			);
@@ -424,7 +456,7 @@
 				3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */,
 				3B8D32A6290718740069A015 /* ImageSource.swift in Sources */,
 				3B65C63528FF1C020095799E /* Post.swift in Sources */,
-				3BDB48262902335F00E0FBA4 /* PostCell.swift in Sources */,
+				3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */,
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
 				3BB03D882904A2B7009872DB /* UserManager.swift in Sources */,

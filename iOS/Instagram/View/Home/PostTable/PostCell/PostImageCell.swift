@@ -1,5 +1,5 @@
 //
-//  PostCell.swift
+//  PostImageCell.swift
 //  Instagram
 //
 //  Created by Huang Yan on 10/20/22.
