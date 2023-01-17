@@ -19,13 +19,17 @@ class RoundButton: UIButton {
         style()
         layout()
     }
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: 200, height: 50)
+    }
     func style() {
-        backgroundColor = .cyan
+        configuration = .filled()
+        backgroundColor = .systemBlue
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         titleLabel?.textColor = .label
     }
     func layout() {
-        translatesAutoresizingMaskIntoConstraints = false
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -73,7 +73,7 @@ extension HomeViewController: UITableViewDataSource {
                     cell.loadedImages = image
                 } else {
                     let token = ImageSource.shared.fetchImage(urlString: vm.imageUrl) { [weak self] image in
-                        guard let strongSelf = self else { return }
+                        guard let strongSelf = self, let image = image else { return }
                         strongSelf.postCellViewModels[indexPath.section].postImage = image
                         DispatchQueue.main.async {
                             tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -130,7 +130,7 @@ extension HomeViewController: UITableViewDataSource {
                 let widthRatio = requiredWidth / imageWidth
                 
                 let requiredHeight = imageHeight * widthRatio
-    //            print(requiredHeight)
+                
                 return requiredHeight
             } else {
                 return UITableView.automaticDimension
