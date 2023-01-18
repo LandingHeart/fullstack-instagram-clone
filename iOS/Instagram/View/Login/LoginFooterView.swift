@@ -52,7 +52,6 @@ extension LoginFooterView {
         
         button.titleLabel?.font = UIFont.systemFont(ofSize: K.defaultFontSize, weight: .bold)
         
-        configureTopBorder()
     }
     
     //MARK: - layout
@@ -61,6 +60,7 @@ extension LoginFooterView {
         HStack.addArrangedSubview(label)
         HStack.addArrangedSubview(button)
         
+        translatesAutoresizingMaskIntoConstraints = false
         HStack.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,10 +70,9 @@ extension LoginFooterView {
             HStack.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
-    private func configureTopBorder() {
-        let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0, y: 0, width: K.screenWidth, height: 0.5)
-        topBorder.backgroundColor = UIColor.lightGray.cgColor
-        layer.addSublayer(topBorder)
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        addBorder(side: .top, borderWidth: 0.5, borderColor: .lightGray)
     }
 }

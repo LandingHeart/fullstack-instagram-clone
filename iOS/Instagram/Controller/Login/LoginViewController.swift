@@ -17,7 +17,7 @@ final class LoginViewController: UIViewController {
     let logo = UIImageView()
     
     let textStack = UIStackView()
-
+    
     let usernameField = LoginTextField()
     
     let passwordField = LoginTextField(frame: CGRect(), secureMode: true)
@@ -56,7 +56,9 @@ extension LoginViewController {
         usernameField.delegate = self
         passwordField.delegate = self
         signInButton.setTitle("Log in", for: [])
+        signInButton.setTitleColor(.systemBackground, for: .disabled)
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        footer.button.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         configureSignInButton(enable: false)
     }
     //MARK: - style
@@ -92,17 +94,11 @@ extension LoginViewController {
         
         logo.translatesAutoresizingMaskIntoConstraints = false
         textStack.translatesAutoresizingMaskIntoConstraints = false
-        usernameField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
         forgotPassword.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
-        orSeparator.translatesAutoresizingMaskIntoConstraints = false
-        loginOption.translatesAutoresizingMaskIntoConstraints = false
-        footer.translatesAutoresizingMaskIntoConstraints = false
         
         usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
-
+        
         NSLayoutConstraint.activate([
             logo.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.5),
             logo.heightAnchor.constraint(equalToConstant: 100),
@@ -168,15 +164,6 @@ extension LoginViewController {
         self.view.endEditing(true)
     }
     
-    @objc func didTapSignIn() {
-        if login() {
-            signInButton.isEnabled = true
-            signInButton.configuration?.showsActivityIndicator = true
-            signInButton.setTitle("", for: .normal)
-            delegate?.didLogin(self)
-        }
-    }
-    
     private func login() -> Bool {
         guard validInput() else {
             return false
@@ -192,5 +179,17 @@ extension LoginViewController {
             signInButton.isEnabled = false
             signInButton.backgroundColor = UIColor.lightBlue
         }
+    }
+    //MARK: - objc
+    @objc func didTapSignIn() {
+        if login() {
+            signInButton.isEnabled = true
+            signInButton.configuration?.showsActivityIndicator = true
+            signInButton.setTitle("", for: .normal)
+            delegate?.didLogin(self)
+        }
+    }
+    @objc func didTapSignUp() {
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
 }

@@ -41,6 +41,8 @@
 		3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */; };
 		3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D329629F140041F33C /* LoginViewController.swift */; };
 		3BDEB2D72965E7940041F33C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D62965E7940041F33C /* Constant.swift */; };
+		3BE43927297756520016AB56 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE43926297756520016AB56 /* SignupViewController.swift */; };
+		3BE4392A297879C90016AB56 /* SignupMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE43929297879C90016AB56 /* SignupMethodButton.swift */; };
 		3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */; };
 		3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE44E5E291303310000A3E7 /* PostCommentCell.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
 		3BDEB2D329629F140041F33C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDEB2D62965E7940041F33C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		3BE43926297756520016AB56 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		3BE43929297879C90016AB56 /* SignupMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupMethodButton.swift; sourceTree = "<group>"; };
 		3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionCell.swift; sourceTree = "<group>"; };
 		3BE44E5E291303310000A3E7 /* PostCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				3BDEB2D229629F070041F33C /* Login */,
+				3BE4392B297879D20016AB56 /* Signup */,
 				3B65C62E28FF1B9D0095799E /* MainControllers */,
 				3B65C62F28FF1BB50095799E /* HomeTab */,
 				3B65C63028FF1BC50095799E /* SearchTab */,
@@ -214,6 +219,7 @@
 			children = (
 				3B64A4362976626700CB5303 /* Icons */,
 				3BDEB2BE2962960E0041F33C /* Login */,
+				3BE43928297879AA0016AB56 /* Signup */,
 				3B0E3131295FD41300321407 /* Home */,
 				3B55E2312919A252007969B0 /* CustomView */,
 			);
@@ -250,11 +256,11 @@
 		3B64A438297662A100CB5303 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3B64A4342973D92300CB5303 /* UIView.swift */,
 				3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */,
 				3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */,
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
-				3B64A4342973D92300CB5303 /* UIView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -357,6 +363,22 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3BE43928297879AA0016AB56 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				3BE43929297879C90016AB56 /* SignupMethodButton.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		3BE4392B297879D20016AB56 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				3BE43926297756520016AB56 /* SignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +459,7 @@
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
 				3BDEB2D72965E7940041F33C /* Constant.swift in Sources */,
+				3BE4392A297879C90016AB56 /* SignupMethodButton.swift in Sources */,
 				3B55E2332919A262007969B0 /* RoundButton.swift in Sources */,
 				3B4BD0A729661B7000AE4454 /* LoginTextField.swift in Sources */,
 				3BB03D852904A2A1009872DB /* User.swift in Sources */,
@@ -449,6 +472,7 @@
 				3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */,
 				3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */,
 				3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */,
+				3BE43927297756520016AB56 /* SignupViewController.swift in Sources */,
 				3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */,
 				3B65C63728FF1E950095799E /* APICaller.swift in Sources */,
 				3B5AC85728FE1B5E00BD8402 /* VideoViewController.swift in Sources */,

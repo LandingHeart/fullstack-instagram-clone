@@ -41,6 +41,7 @@ extension OrSeparatorView {
         addSubview(orLabel)
         addSubview(rightBar)
         
+        translatesAutoresizingMaskIntoConstraints = false
         leftBar.translatesAutoresizingMaskIntoConstraints = false
         orLabel.translatesAutoresizingMaskIntoConstraints = false
         rightBar.translatesAutoresizingMaskIntoConstraints = false
@@ -51,12 +52,12 @@ extension OrSeparatorView {
             orLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             orLabel.widthAnchor.constraint(equalToConstant: 30),
             
-            leftBar.heightAnchor.constraint(equalToConstant: 3),
+            leftBar.heightAnchor.constraint(equalToConstant: 1),
             leftBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             leftBar.centerYAnchor.constraint(equalTo: orLabel.centerYAnchor),
             orLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: leftBar.trailingAnchor, multiplier: 1),
             
-            rightBar.heightAnchor.constraint(equalToConstant: 3),
+            rightBar.heightAnchor.constraint(equalToConstant: 1),
             rightBar.leadingAnchor.constraint(equalToSystemSpacingAfter: orLabel.trailingAnchor, multiplier: 1),
             rightBar.centerYAnchor.constraint(equalTo: orLabel.centerYAnchor),
             rightBar.trailingAnchor.constraint(equalTo: trailingAnchor),
