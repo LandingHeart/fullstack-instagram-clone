@@ -35,12 +35,19 @@ final class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        setupNavBar()
         setupButton()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         didTapPhoneButton()
     }
+    //MARK: - Private function
+    private func setupNavBar() {
+        navigationController?.setBackbuttonTitle("")
+        setNavBarTintColor(UIColor.label)
+    }
+    
     private func setupButton() {
         phoneButton.addTarget(self, action: #selector(didTapPhoneButton), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(didTapEmailButton), for: .touchUpInside)

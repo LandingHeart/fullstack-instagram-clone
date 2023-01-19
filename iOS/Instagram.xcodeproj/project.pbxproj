@@ -30,6 +30,7 @@
 		3B65C63528FF1C020095799E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* Post.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
+		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7936D7290DABEA001770D4 /* UIImage.swift */; };
 		3B8D32A6290718740069A015 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D32A5290718740069A015 /* ImageSource.swift */; };
 		3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F51162904879C00FA37F5 /* PostManager.swift */; };
@@ -73,6 +74,7 @@
 		3B65C63428FF1C020095799E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B7936D7290DABEA001770D4 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3B8D32A5290718740069A015 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		3B8F51162904879C00FA37F5 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */,
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
+				3B725A2D2979CCCB00A137FE /* UINavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			files = (
 				3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
+				3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
 				3B5AC83D28FB772B00BD8402 /* HomeViewController.swift in Sources */,
