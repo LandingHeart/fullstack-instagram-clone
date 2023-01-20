@@ -31,9 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupDelegate() {
         loginVC.delegate = self
     }
-    private func makeLoginNC() -> UINavigationController {
-        let nc = UINavigationController(rootViewController: loginVC)
-        nc.configureBackIndicator()
+    private func makeLoginNC() -> IGUINavigationController {
+        let nc = IGUINavigationController(rootViewController: loginVC)
         return nc
     }
 }
