@@ -34,6 +34,13 @@ extension UIView {
         case right
         case buttom
     }
+    
+    
+    /// Adding a single side from a  CALayer object as the border to a view
+    /// - Parameters:
+    ///   - side: specify the side to append a
+    ///   - borderWidth: thinckness of the border
+    ///   - borderColor: color of the border
     func addBorder(side: BorderSide, borderWidth: CGFloat = 0.5, borderColor: UIColor = .label) {
         var x: CGFloat
         var y: CGFloat
@@ -54,5 +61,11 @@ extension UIView {
         border.frame = CGRect(x: x, y: y, width: width, height: height)
         border.backgroundColor = borderColor.cgColor
         layer.addSublayer(border)
+    }
+    
+    func addSubviews(_ views: UIView...) {
+        views.forEach { view in
+            addSubview(view)
+        }
     }
 }

@@ -69,10 +69,8 @@ extension SignupViewController {
 //MARK: - layout
 extension SignupViewController {
     private func layout() {
-        view.addSubview(topLabel)
-        view.addSubview(buttonStack)
-        buttonStack.addArrangedSubview(phoneButton)
-        buttonStack.addArrangedSubview(emailButton)
+        view.addSubviews(topLabel, buttonStack)
+        buttonStack.addArrangedSubviews(phoneButton, emailButton)
         
         NSLayoutConstraint.activate([
             topLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),

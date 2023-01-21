@@ -80,62 +80,6 @@ extension LoginViewController {
         forgotPassword.setTitle("Forgot Password?", for: .normal)
         
     }
-    //MARK: - layout
-    private func layout() {
-        view.addSubview(textStack)
-        view.addSubview(logo)
-        textStack.addArrangedSubview(usernameField)
-        textStack.addArrangedSubview(passwordField)
-        view.addSubview(forgotPassword)
-        view.addSubview(signInButton)
-        view.addSubview(orSeparator)
-        view.addSubview(loginOption)
-        view.addSubview(footer)
-        
-        logo.translatesAutoresizingMaskIntoConstraints = false
-        textStack.translatesAutoresizingMaskIntoConstraints = false
-        forgotPassword.translatesAutoresizingMaskIntoConstraints = false
-        
-        usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        
-        NSLayoutConstraint.activate([
-            logo.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.5),
-            logo.heightAnchor.constraint(equalToConstant: 100),
-            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: (K.screenHeight * 0.25)),
-            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            textStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
-            textStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
-            textStack.heightAnchor.constraint(equalToConstant: 100),
-            
-            forgotPassword.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
-            forgotPassword.trailingAnchor.constraint(equalTo: textStack.trailingAnchor),
-            
-            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 15),
-            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signInButton.widthAnchor.constraint(equalTo: textStack.widthAnchor),
-            signInButton.heightAnchor.constraint(equalToConstant: 47),
-            
-            orSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            /// set orSeparator's Y coordinate to defined by view's bottomAnchor to adapt different screens size. Otherwise it may goes out of screen or break layout consistancy.
-            loginOption.topAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 1),
-            orSeparator.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.75),
-            orSeparator.heightAnchor.constraint(equalToConstant: 40),
-            
-            loginOption.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginOption.widthAnchor.constraint(equalToConstant: 130),
-            loginOption.heightAnchor.constraint(equalToConstant: 50),
-            footer.topAnchor.constraint(equalToSystemSpacingBelow: loginOption.bottomAnchor, multiplier: 2),
-            
-            footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: footer.topAnchor, multiplier: 12),
-            footer.heightAnchor.constraint(equalToConstant: 96),
-        ])
-    }
-    
 }
 
 //MARK: - TextFieldDelegate
@@ -191,5 +135,55 @@ extension LoginViewController {
     }
     @objc func didTapSignUp() {
         navigationController?.pushViewController(SignupViewController(), animated: true)
+    }
+    
+    //MARK: - layout
+    private func layout() {
+        view.addSubviews(textStack, logo)
+        textStack.addArrangedSubviews(usernameField, passwordField)
+        view.addSubviews(forgotPassword, signInButton, orSeparator, loginOption, footer)
+        
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        textStack.translatesAutoresizingMaskIntoConstraints = false
+        forgotPassword.translatesAutoresizingMaskIntoConstraints = false
+        
+        usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
+        NSLayoutConstraint.activate([
+            logo.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.5),
+            logo.heightAnchor.constraint(equalToConstant: 100),
+            logo.topAnchor.constraint(equalTo: view.topAnchor, constant: (K.screenHeight * 0.25)),
+            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            textStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
+            textStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
+            textStack.heightAnchor.constraint(equalToConstant: 100),
+            
+            forgotPassword.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
+            forgotPassword.trailingAnchor.constraint(equalTo: textStack.trailingAnchor),
+            
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 15),
+            signInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signInButton.widthAnchor.constraint(equalTo: textStack.widthAnchor),
+            signInButton.heightAnchor.constraint(equalToConstant: 47),
+            
+            orSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            /// set orSeparator's Y coordinate to defined by view's bottomAnchor to adapt different screens size. Otherwise it may goes out of screen or break layout consistancy.
+            loginOption.topAnchor.constraint(equalToSystemSpacingBelow: orSeparator.bottomAnchor, multiplier: 1),
+            orSeparator.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.75),
+            orSeparator.heightAnchor.constraint(equalToConstant: 40),
+            
+            loginOption.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginOption.widthAnchor.constraint(equalToConstant: 130),
+            loginOption.heightAnchor.constraint(equalToConstant: 50),
+            footer.topAnchor.constraint(equalToSystemSpacingBelow: loginOption.bottomAnchor, multiplier: 2),
+            
+            footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            view.bottomAnchor.constraint(equalToSystemSpacingBelow: footer.topAnchor, multiplier: 12),
+            footer.heightAnchor.constraint(equalToConstant: 96),
+        ])
     }
 }

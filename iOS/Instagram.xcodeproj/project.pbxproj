@@ -32,6 +32,7 @@
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
+		3B725A34297C7A6900A137FE /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A33297C7A6900A137FE /* UIStackView.swift */; };
 		3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7936D7290DABEA001770D4 /* UIImage.swift */; };
 		3B8D32A6290718740069A015 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D32A5290718740069A015 /* ImageSource.swift */; };
 		3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F51162904879C00FA37F5 /* PostManager.swift */; };
@@ -77,6 +78,7 @@
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
+		3B725A33297C7A6900A137FE /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		3B7936D7290DABEA001770D4 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3B8D32A5290718740069A015 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		3B8F51162904879C00FA37F5 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
 				3B725A2D2979CCCB00A137FE /* UINavigationController.swift */,
+				3B725A33297C7A6900A137FE /* UIStackView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
 				3BB03D882904A2B7009872DB /* UserManager.swift in Sources */,
+				3B725A34297C7A6900A137FE /* UIStackView.swift in Sources */,
 				3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
