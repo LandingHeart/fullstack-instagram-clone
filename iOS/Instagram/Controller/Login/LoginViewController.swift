@@ -35,10 +35,10 @@ final class LoginViewController: UIViewController {
     
     /// LoginComponent
     var username: String? {
-        usernameField.textField.text
+        usernameField.text
     }
     var password: String? {
-        passwordField.textField.text
+        passwordField.text
     }
     
     weak var delegate: LoginDelegate?
@@ -49,6 +49,11 @@ final class LoginViewController: UIViewController {
         style()
         layout()
     }
+    //MARK: - Private function
+    private func validInput() -> Bool {
+        return !usernameField.isEmpty && !passwordField.isEmpty
+    }
+    
 }
 extension LoginViewController {
     //MARK: - setup
@@ -72,6 +77,7 @@ extension LoginViewController {
         
         usernameField.textField.placeholder = "Phone number, username or email"
         usernameField.textField.returnKeyType = .next
+        usernameField.displayClearButton(false)
         
         passwordField.textField.placeholder = "Password"
         passwordField.textField.returnKeyType = .go
@@ -95,11 +101,9 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         configureSignInButton(enable: validInput())
+        usernameField.displayClearButton(!usernameField.isEmpty)
     }
     
-    func validInput() -> Bool {
-        return username != "" && password != ""
-    }
 }
 
 //MARK: - Action
@@ -158,7 +162,7 @@ extension LoginViewController {
             
             textStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
             textStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
+            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.8),
             textStack.heightAnchor.constraint(equalToConstant: 100),
             
             forgotPassword.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
