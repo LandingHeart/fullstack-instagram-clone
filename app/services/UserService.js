@@ -8,6 +8,18 @@ module.exports = class UserService {
       return allUser;
     } catch (error) {
       console.log(`could not find all user${error}`);
+      return error
+    }
+  }
+
+  static async createUser(body) {
+    try {
+      const user = await User.create(body);
+      return user;
+    } catch (error) {
+      console.log(`could not create user with email ${body.email}`);
+      console.log(error);
+      return error
     }
   }
 };

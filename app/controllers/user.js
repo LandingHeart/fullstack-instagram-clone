@@ -1,3 +1,4 @@
+const { json } = require("sequelize");
 const UserService = require("../services/UserService");
 
 module.exports = class User {
@@ -16,10 +17,20 @@ module.exports = class User {
     }
   }
 
-  static async apiCreateNewuser(req, res, next) {
+  static async apiCreateNewUser(req, res, next) {
+    const body = req.body;
     try {
+      const user = await UserService.createUser(body);
+      if (user.errors != null) {
+        throw Error("user exist")
+      }
+      res.send(user);
     } catch (error) {
-      res.status(500).json({ error: error });
+      if (error.message == "user exist") {
+        res.status(409).json({ error: error.message})
+        return
+      }
+      res.status(500).json({ error: error.message})
     }
   }
 
