@@ -16,13 +16,22 @@ module.exports = class PostService {
       const post = await Post.findAll({
         where: {
           title: {
-            [Op.like]: "%" + title,
+            [Op.like]: "%" + title + "%",
           },
         },
       });
       return post;
     } catch (error) {
       console.log(`could not find all post${error} with title ${title}`);
+    }
+  }
+
+  static async createPost(body) {
+    try {
+      const post = await Post.create(body);
+      return post;
+    } catch (error) {
+      console.log(`could not create post`);
     }
   }
 };
