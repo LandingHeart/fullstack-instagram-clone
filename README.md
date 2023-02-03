@@ -6,6 +6,31 @@ This project is to teach and show student how to work on a collaboration project
 
 Follow the install instruction doc to get the project started, and environment setup.
 
+## Quick start Guide
+
+Make sure npm, node is install by following the [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/update_all_docs/docs/INSTALL.md)
+
+```ssh
+npm install
+```
+
+server start at local 8080
+
+```ssh
+cd views
+npm install
+npm run build
+```
+
+```ssh
+npm run dev
+cd client
+npm run dev
+```
+
+frontend server start at local 3000
+backend server start at local 8080
+
 ## Table of contents
 
 - [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
@@ -23,7 +48,7 @@ Follow the install instruction doc to get the project started, and environment s
 - MUI
 - express js 4.18.1
 - sequelize
-- heroku, netlify TBD
+- heroku, netify TBD
 - morgan (logging HTTP request)
 - winston
 
