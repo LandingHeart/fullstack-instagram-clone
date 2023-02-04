@@ -5,7 +5,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "./configs/.env") });
 const PORT = process.env.PORT || 8080;
 const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
-const DIST_DIR = path.join(__dirname, "./views/dist");
+const DIST_DIR = path.join(__dirname, "views/dist");
 const HTML_FILE = path.join(DIST_DIR, "index.html");
 
 app.use(express.static(DIST_DIR));
