@@ -23,14 +23,6 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-// app.get(PORT, (req, res) => {
-//   res.sendFile(HTML_FILE);
-// });
-
-app.get("/*", (req, res, next) => {
-  res.sendFile(path.join(HTML_FILE));
-});
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
