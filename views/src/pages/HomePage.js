@@ -12,6 +12,7 @@ export default function HomePage() {
 
   return (
     <MainLayout>
+      <button onClick={() => dispatch(fetchPosts())}>click</button>
       {loading === false &&
         posts.map((ele, index) => (
           <CardFeed key={index} title={ele.title} postImgUrl={ele.postImgUrl} />

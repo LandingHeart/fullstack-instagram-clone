@@ -11,7 +11,6 @@ const HTML_FILE = path.join(DIST_DIR, "index.html");
 const logger = require("./utils/logger");
 
 app.use(express.json());
-app.use(cors());
 app.use(morganMiddleware);
 app.use(require("./routes"));
 app.use(express.static(DIST_DIR));
@@ -24,8 +23,12 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(HTML_FILE);
+// app.get(PORT, (req, res) => {
+//   res.sendFile(HTML_FILE);
+// });
+
+app.get("/*", (req, res, next) => {
+  res.sendFile(path.join(HTML_FILE));
 });
 
 app.listen(PORT, () => {
