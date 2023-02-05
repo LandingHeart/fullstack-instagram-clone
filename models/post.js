@@ -6,6 +6,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init(
     {
+      id: {
+        allowNull: true,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
       title: { type: DataTypes.STRING(255), required: true, allowNull: false },
       postImgUrl: {
         type: DataTypes.STRING,
@@ -22,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "posts",
+      tableName: "posts",
     }
   );
 

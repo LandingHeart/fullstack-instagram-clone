@@ -11,11 +11,13 @@ module.exports = {
         type: Sequelize.DataTypes.STRING(255),
         required: true,
         allowNull: false,
+        unique: true,
       },
       username: {
         type: Sequelize.DataTypes.STRING(255),
         required: true,
         allowNull: false,
+        unique: true,
       },
       password: {
         type: Sequelize.DataTypes.STRING,
