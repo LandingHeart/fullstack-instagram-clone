@@ -6,4 +6,6 @@ const userController = require("../../controllers/user");
 router.get("/user", userController.apiGetAlluser);
 router.get("/user=:id", userController.apiGetOneuser);
 
+router.post("/user", userController.apiCreateNewUser);
+
 module.exports = router;
