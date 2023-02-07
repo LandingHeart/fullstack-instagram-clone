@@ -6,11 +6,22 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        noUpdate: {
+          readOnly: true,
+        },
       },
       email: {
         type: Sequelize.DataTypes.STRING(255),
         required: true,
         allowNull: false,
+        unique: true,
+        noUpdate: {
+          readOnly: true,
+        },
+      },
+      phone: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: true,
         unique: true,
       },
       username: {
@@ -18,9 +29,12 @@ module.exports = {
         required: true,
         allowNull: false,
         unique: true,
+        noUpdate: {
+          readOnly: true,
+        },
       },
       password: {
-        type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.STRING(20),
         required: true,
         allowNull: false,
       },

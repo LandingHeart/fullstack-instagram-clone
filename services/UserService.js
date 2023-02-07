@@ -22,4 +22,19 @@ module.exports = class UserService {
       return error;
     }
   }
+
+  static async updateUser(body, username) {
+    try {
+      const user = await User.update(body, {
+        where: {
+          username: {
+            [Op.match]: username,
+          },
+        },
+      });
+      return user;
+    } catch (error) {
+      console.log(`could not update user with username ${username}`);
+    }
+  }
 };

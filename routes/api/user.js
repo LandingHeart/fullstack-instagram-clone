@@ -8,4 +8,6 @@ router.get("/user=:id", userController.apiGetOneuser);
 
 router.post("/user", userController.apiCreateNewUser);
 
+router.put("/user=:username", userController.apiUpdateOneuser);
+
 module.exports = router;

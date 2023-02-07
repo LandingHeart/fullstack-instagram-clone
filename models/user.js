@@ -14,17 +14,31 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
+        noUpdate: {
+          readOnly: true,
+        },
       },
       email: {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
         allowNull: false,
+        noUpdate: {
+          readOnly: true,
+        },
+      },
+      phone: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        unique: true,
       },
       username: {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
+        noUpdate: {
+          readOnly: true,
+        },
       },
       password: {
         type: DataTypes.STRING(20),

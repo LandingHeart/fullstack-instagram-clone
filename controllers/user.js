@@ -23,7 +23,7 @@ module.exports = class User {
       if (user.errors != null) {
         throw Error("user exist");
       }
-      res.send(user);
+      res.status(201).send(user);
     } catch (error) {
       if (error.message == "user exist") {
         res.status(409).json({ error: error.message });
@@ -34,9 +34,15 @@ module.exports = class User {
   }
 
   static async apiUpdateOneuser(req, res, next) {
+    const body = req.body
     try {
+      if (body.email != null || body.username != null || body.id != null) {
+        throw Error("can not change email or username");
+      }
+      const user = await UserService.updateUser(req.body, req.params.username);
+      res.send(user);
     } catch (error) {
-      res.status(500).json({ error: error });
+      res.status(500).json({ error: error.message });
     }
   }
 
