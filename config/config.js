@@ -51,7 +51,6 @@ module.exports = {
   },
   production: {
     dialect: "postgres",
-    port: 5432,
     dialectOptions: {
       ssl: {
         require: true,
