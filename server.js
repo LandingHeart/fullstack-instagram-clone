@@ -23,9 +23,9 @@ app.get("/api/status", (req, res) => {
   res.send("okay");
 });
 
-app.get("/*", (req, res) => {
-  res.sendFile(HTML_FILE);
-});
+// app.get("/*", (req, res) => {
+//   res.sendFile(HTML_FILE);
+// });
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
