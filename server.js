@@ -15,9 +15,9 @@ app.use(express.json());
 app.use(morganMiddleware);
 // app.use(require("./routes"));
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
 
 app.get("/api/post", postController.apiGetAllpost);
 
