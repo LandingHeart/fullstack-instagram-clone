@@ -18,6 +18,7 @@ module.exports = class UserService {
       return user != null ? user : null;
     } catch (error) {
       console.log(`could not find one user and an error was occured`);
+      return error;
     }
   }
 
@@ -29,6 +30,32 @@ module.exports = class UserService {
       console.log(`could not create user with email ${body.email}`);
       console.log(error);
       return error;
+    }
+  }
+
+  static async updateUser(req) {
+    try {
+      const user = await User.findByPk(req.params.id);
+      if (user != null) {
+        user.set(req.body);
+        await user.save();
+        return user;
+      } else {
+        console.log("user not found");
+        throw Error("user not found");
+      }
+    } catch (error) {
+      // Two types of error:
+      // (1) user not found
+      // (2)try to update a attribute that results confliction of unique property
+      console.log(`could not update user`);
+      if (error.message == "user not found") {
+        return error;
+      } else if (error.message == "Validation error") {
+        return Error("Attribute confliction");
+      } else {
+        return error
+      }
     }
   }
 };
