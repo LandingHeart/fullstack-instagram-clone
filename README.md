@@ -10,6 +10,8 @@ Follow the install instruction doc to get the project started, and environment s
 
 Make sure npm, node is install by following the [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/update_all_docs/docs/INSTALL.md)
 
+Create .env file and copy paste .env.example to .env.
+
 ```ssh
 npm install
 ```

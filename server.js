@@ -13,7 +13,7 @@ app.use(express.static(DIST_DIR));
 
 app.use(express.json());
 app.use(morganMiddleware);
-// app.use(require("./routes"));
+app.use(require("./routes"));
 
 // app.get("/", (req, res) => {
 //   res.send("hello world");
@@ -22,17 +22,15 @@ app.use(morganMiddleware);
 app.get("/api/post", postController.apiGetAllpost);
 
 app.get("/api/status", (req, res) => {
-  logger.info("Checking the API status: Everything is OK");
   res.status(200).send({
     status: "UP",
     message: "The API is up and running!",
   });
-  res.send("okay");
 });
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(HTML_FILE);
-// });
+app.get("/*", (req, res) => {
+  res.sendFile(HTML_FILE);
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
