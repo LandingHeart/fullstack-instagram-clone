@@ -11,6 +11,12 @@ module.exports = class User {
 
   static async apiGetOneuser(req, res, next) {
     try {
+      const user = await UserService.findOne(req.params.id);
+      if (user != null) {
+        res.send(user);
+      } else {
+        res.status(404).json({ error: "user not found" });
+      }
     } catch (error) {
       res.status(500).json({ error: error });
     }

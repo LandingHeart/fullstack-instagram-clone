@@ -12,6 +12,15 @@ module.exports = class UserService {
     }
   }
 
+  static async findOne(id) {
+    try {
+      const user = await User.findByPk(id);
+      return user != null ? user : null;
+    } catch (error) {
+      console.log(`could not find one user and an error was occured`);
+    }
+  }
+
   static async createUser(body) {
     try {
       const user = await User.create(body);
