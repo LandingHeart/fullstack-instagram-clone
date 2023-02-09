@@ -22,6 +22,19 @@ module.exports = class User {
       res.status(500).json({ error: error });
     }
   }
+  //Login
+  static async apiLoginUser(req, res, next) {
+    try {
+      const result = await UserService.login(req.body);
+      if (result) {
+        res.status(200).json({ status: "success" });
+      } else {
+        res.status(401).json({ status: "Unauthorzied"})
+      }
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
   //Create
   static async apiCreateNewUser(req, res, next) {
     const body = req.body;
@@ -48,7 +61,7 @@ module.exports = class User {
       }
       const user = await UserService.updateUser({ id, password });
       if (user == null) {
-        res.status(501).json( {error: "unknown error"});
+        res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
@@ -63,7 +76,7 @@ module.exports = class User {
       }
       const user = await UserService.updateUser({ id, phone });
       if (user == null) {
-        res.status(501).json( {error: "unknown error"});
+        res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
