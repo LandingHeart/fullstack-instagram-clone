@@ -8,4 +8,7 @@ router.get("/user=:id", userController.apiGetOneuser);
 
 router.post("/user", userController.apiCreateNewUser);
 
+router.patch("/user/updatePassword", userController.apiUpdateUserPassword);
+router.patch("/user/updatePhone", userController.apiUpdateUserPhone);
+
 module.exports = router;

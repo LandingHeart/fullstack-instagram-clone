@@ -13,6 +13,11 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      phone: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: true,
+        unique: true,
+      },
       username: {
         type: Sequelize.DataTypes.STRING(255),
         required: true,
