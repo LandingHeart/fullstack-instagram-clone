@@ -1,7 +1,9 @@
 const User = require("../models/index").users;
 const { Op } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 module.exports = class UserService {
+  //Read
   static async findAll() {
     try {
       const allUser = await User.findAll();
@@ -21,10 +23,34 @@ module.exports = class UserService {
       return error;
     }
   }
-
+  //Login
+  static async login(body) {
+    try {
+      const user = await User.findOne({ where: { email: body.email } });
+      if (!user) {
+        var err = Error(`user not found`);
+        err.status = 400;
+        throw err;
+      }
+      if (await bcrypt.compare(body.password, user.password)) {
+        return user;
+      } else {
+        var err = Error(`incorrect password`);
+        err.status = 401;
+        throw err;
+      }
+    } catch (error) {
+      console.log(`could not login user`);
+      return error;
+    }
+  }
+  //Create
   static async createUser(body) {
     try {
-      const user = await User.create(body);
+      const hash = await bcrypt.hash(body.password, 10);
+      var data = body;
+      data.password = hash;
+      const user = await User.create(data);
       return user;
     } catch (error) {
       console.log(`could not create user with email ${body.email}`);
@@ -32,7 +58,7 @@ module.exports = class UserService {
       return error;
     }
   }
-
+  //Update
   static async updateUser(content) {
     try {
       const user = await User.findByPk(content.id);
@@ -45,18 +71,7 @@ module.exports = class UserService {
         throw Error("user not found");
       }
     } catch (error) {
-      // Two types of error:
-      // (1) user not found
-      // (2)try to update a attribute that results confliction of unique property
       console.log(`could not update user`);
-      return null;
-      // if (error.message == "user not found") {
-      //   return error;
-      // } else if (error.message == "Validation error") {
-      //   return Error("Attribute confliction");
-      // } else {
-      //   return error;
-      // }
     }
   }
 };

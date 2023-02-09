@@ -1,3 +1,4 @@
+const user = require("../models/user");
 const UserService = require("../services/UserService");
 
 module.exports = class User {
@@ -20,6 +21,19 @@ module.exports = class User {
       }
     } catch (error) {
       res.status(500).json({ error: error });
+    }
+  }
+  //Login
+  static async apiLoginUser(req, res, next) {
+    try {
+      const user = await UserService.login(req.body);
+      if (user instanceof Error) {
+        throw user;
+      } else {
+        res.status(200).json(user);
+      }
+    } catch (error) {
+      res.status(error.status).json({ error: error.message });
     }
   }
   //Create
@@ -48,7 +62,7 @@ module.exports = class User {
       }
       const user = await UserService.updateUser({ id, password });
       if (user == null) {
-        res.status(501).json( {error: "unknown error"});
+        res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
@@ -63,7 +77,7 @@ module.exports = class User {
       }
       const user = await UserService.updateUser({ id, phone });
       if (user == null) {
-        res.status(501).json( {error: "unknown error"});
+        res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
