@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const useBcrypt = require("sequelize-bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {}
@@ -44,10 +43,6 @@ module.exports = (sequelize, DataTypes) => {
       tableName: "users",
     }
   );
-  useBcrypt(User, {
-    field: "password",
-    rounds: 10,
-    compare: "authenticate",
-  });
+
   return User;
 };

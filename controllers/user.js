@@ -1,3 +1,4 @@
+const user = require("../models/user");
 const UserService = require("../services/UserService");
 
 module.exports = class User {
@@ -25,14 +26,14 @@ module.exports = class User {
   //Login
   static async apiLoginUser(req, res, next) {
     try {
-      const result = await UserService.login(req.body);
-      if (result) {
-        res.status(200).json({ status: "success" });
+      const user = await UserService.login(req.body);
+      if (user instanceof Error) {
+        throw user;
       } else {
-        res.status(401).json({ status: "Unauthorzied"})
+        res.status(200).json(user);
       }
     } catch (error) {
-      res.status(500).json(error);
+      res.status(error.status).json({ error: error.message });
     }
   }
   //Create

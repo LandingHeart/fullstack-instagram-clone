@@ -1,5 +1,6 @@
 const User = require("../models/index").users;
 const { Op } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 module.exports = class UserService {
   //Read
@@ -26,15 +27,30 @@ module.exports = class UserService {
   static async login(body) {
     try {
       const user = await User.findOne({ where: { email: body.email } });
-      return user.authenticate(body.password);
+      if (!user) {
+        var err = Error(`user not found`);
+        err.status = 400;
+        throw err;
+      }
+      if (await bcrypt.compare(body.password, user.password)) {
+        return user;
+      } else {
+        var err = Error(`incorrect password`);
+        err.status = 401;
+        throw err;
+      }
     } catch (error) {
       console.log(`could not login user`);
+      return error;
     }
   }
   //Create
   static async createUser(body) {
     try {
-      const user = await User.create(body);
+      const hash = await bcrypt.hash(body.password, 10);
+      var data = body;
+      data.password = hash;
+      const user = await User.create(data);
       return user;
     } catch (error) {
       console.log(`could not create user with email ${body.email}`);
