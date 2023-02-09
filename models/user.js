@@ -14,14 +14,12 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
-        noUpdate: true,
       },
       email: {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
         allowNull: false,
-        noUpdate: true,
       },
       phone: {
         type: DataTypes.INTEGER,
@@ -32,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(255),
         required: true,
         unique: true,
-        noUpdate: true,
       },
       password: {
         type: DataTypes.STRING(20),

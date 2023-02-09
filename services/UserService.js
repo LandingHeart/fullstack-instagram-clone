@@ -33,13 +33,13 @@ module.exports = class UserService {
     }
   }
 
-  static async updateUser(req) {
+  static async updateUser(content) {
     try {
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(content.id);
       if (user != null) {
-        user.set(req.body);
+        user.set(content);
         await user.save();
-        return user;
+        return user.dataValues;
       } else {
         console.log("user not found");
         throw Error("user not found");
@@ -49,13 +49,14 @@ module.exports = class UserService {
       // (1) user not found
       // (2)try to update a attribute that results confliction of unique property
       console.log(`could not update user`);
-      if (error.message == "user not found") {
-        return error;
-      } else if (error.message == "Validation error") {
-        return Error("Attribute confliction");
-      } else {
-        return error
-      }
+      return null;
+      // if (error.message == "user not found") {
+      //   return error;
+      // } else if (error.message == "Validation error") {
+      //   return Error("Attribute confliction");
+      // } else {
+      //   return error;
+      // }
     }
   }
 };

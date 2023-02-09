@@ -40,21 +40,32 @@ module.exports = class User {
     }
   }
   //Update
-  static async apiUpdateOneuser(req, res, next) {
+  static async apiUpdateUserPassword(req, res, next) {
     try {
-      const user = await UserService.updateUser(req);
-      if (user.id != null) {
-        res.send(user);
-      } else {
-        const error = user;
-        if (error.message == "user not found") {
-          res.status(404).json({ error: "user not found" });
-        } else if (error.message == "Attribute confliction") {
-          res.status(409).json({ error: "Attribute confliction" });
-        } else {
-          throw Error("unkown error")
-        }
+      const { id, password } = req.body;
+      if (!id) {
+        res.status(401);
       }
+      const user = await UserService.updateUser({ id, password });
+      if (user == null) {
+        res.status(501).json( {error: "unknown error"});
+      }
+      res.status(206).json(user);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+  static async apiUpdateUserPhone(req, res, next) {
+    try {
+      const { id, phone } = req.body;
+      if (!id) {
+        res.status(401);
+      }
+      const user = await UserService.updateUser({ id, phone });
+      if (user == null) {
+        res.status(501).json( {error: "unknown error"});
+      }
+      res.status(206).json(user);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

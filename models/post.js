@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
-        noUpdate: true,
       },
       title: { type: DataTypes.STRING(255), required: true, allowNull: false },
       postImgUrl: {
