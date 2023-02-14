@@ -1,5 +1,5 @@
-const user = require("../models/user");
 const UserService = require("../services/UserService");
+const jwt = require("jsonwebtoken");
 
 module.exports = class User {
   //Read
@@ -26,10 +26,13 @@ module.exports = class User {
   //Login
   static async apiLoginUser(req, res, next) {
     try {
-      const user = await UserService.login(req.body);
+      let user = await UserService.login(req.body);
       if (user instanceof Error) {
         throw user;
       } else {
+        console.log(user);
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        user.accessToken = accessToken;
         res.status(200).json(user);
       }
     } catch (error) {
