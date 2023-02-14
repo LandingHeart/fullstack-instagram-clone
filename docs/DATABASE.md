@@ -21,7 +21,7 @@ If user does not exist, create user by
 ```sh
 createuser postgres
 psql postgres
-insdb=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
+postgres=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
 ```
 
 | Role name | list of roles | member of |
