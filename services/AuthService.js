@@ -1,6 +1,6 @@
 const RefreshToken = require("../models/index").refreshTokens;
 const jwt = require("jsonwebtoken");
-
+require("dotenv").config();
 module.exports = class AuthService {
   //checking
   static authenticateAccessToken(token) {
