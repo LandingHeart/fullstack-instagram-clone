@@ -28,7 +28,7 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.get("/*", (req, res) => {
+app.use("*", (req, res) => {
   res.sendFile(HTML_FILE);
 });
 

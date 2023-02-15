@@ -1,7 +1,6 @@
 "use strict";
 
 const fs = require("fs");
-require("dotenv").config();
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
@@ -10,8 +9,9 @@ const db = {};
 const config = require(__dirname + "/../config/config.js")[env];
 
 let sequelize;
+
 if (env === "production") {
-  sequelize = new Sequelize(config.DATABASE_URL, {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres",
     port: 5432,
     ssl: true,
@@ -23,7 +23,12 @@ if (env === "production") {
     },
   });
 } else {
-  sequelize = new Sequelize(config);
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
 }
 
 fs.readdirSync(__dirname)
