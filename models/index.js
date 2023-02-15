@@ -7,22 +7,22 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const db = {};
 const config = require(__dirname + "/../config/config.js")[env];
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-let sequelize;
 
+let sequelize;
 if (env === "production") {
   sequelize = new Sequelize(config.DATABASE_URL, {
-    logging: function (sql) {
-      console.log(colors(sql));
+    dialect: "postgres",
+    port: 5432,
+    ssl: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
     },
   });
 } else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
+  sequelize = new Sequelize(config);
 }
 
 fs.readdirSync(__dirname)
