@@ -50,6 +50,15 @@ module.exports = class AuthService {
   //delete refresh token
   static async deleteToken(token) {
     try {
+      const tokenFromDB = await RefreshToken.findByPk(token);
+      if (tokenFromDB == null) {
+        let error = Error();
+        error.status = 400;
+        error.message = "token not found";
+        throw error;
+      }
+      await tokenFromDB.destroy();
+      return;
     } catch (error) {
       return error;
     }

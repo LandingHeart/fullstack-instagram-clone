@@ -11,8 +11,8 @@ router.post("/user/register", userController.apiCreateNewUser);
 
 //Auth
 router.post("/user/login", userController.apiLoginUser);
-router.post("/user/logout", AuthController.deleteToken);
 router.post("/user/token", AuthController.renewAccessToken);
+router.delete("/user/logout", AuthController.deleteToken);
 
 router.patch("/user/updatePassword", userController.apiUpdateUserPassword);
 router.patch("/user/updatePhone",AuthController.authenticateToken,userController.apiUpdateUserPhone);

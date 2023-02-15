@@ -36,8 +36,13 @@ module.exports = class Auth {
   }
   static async deleteToken(req, res, next) {
     try {
+      const result = await AuthService.deleteToken(req.body.token);
+      if (result instanceof Error) {
+        return res.status(result.status).json(result);
+      }
+      return res.status(204).send();
     } catch (error) {
-      res.status(500).json({ error: "unknown error" });
+      return res.status(500).json({ error: "unknown error" });
     }
   }
 };
