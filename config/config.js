@@ -1,30 +1,3 @@
-// {
-//   "development": {
-//     "username": "postgres",
-//     "password": "admin",
-//     "database": "insdb",
-//     "host": "localhost",
-//     "dialect": "postgres"
-//   },
-//   "test": {
-//     "username": "postgres",
-//     "password": "admin",
-//     "database": "insdb",
-//     "host": "127.0.0.1",
-//     "dialect": "postgres"
-//   },
-//   "production": {
-//     "use_env_variable": "DATABASE_URL",
-//     "dialect": "postgres",
-//     "dialectOptions": {
-//       "ssl": {
-//         "require": true,
-//         "rejectUnauthorized": false
-//       }
-//     }
-//   }
-// }
-
 require("dotenv").config();
 module.exports = {
   development: {
@@ -52,6 +25,8 @@ module.exports = {
   production: {
     dialect: "postgres",
     database: process.env.DATABASE_URL,
+    port: 5432,
+    ssl: true,
     dialectOptions: {
       ssl: {
         require: true,
