@@ -14,9 +14,10 @@ Create .env file and copy paste .env.example to .env.
 
 ```ssh
 npm install
+npm run dev
 ```
 
-server start at local 8080
+server start at backend local 8080
 
 ```ssh
 cd views
@@ -24,14 +25,7 @@ npm install
 npm run build
 ```
 
-```ssh
-npm run dev
-cd client
-npm run dev
-```
-
 frontend server start at local 3000
-backend server start at local 8080
 
 ## Table of contents
 
