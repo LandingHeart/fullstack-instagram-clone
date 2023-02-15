@@ -6,15 +6,20 @@ const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const db = {};
-const logger = require("../utils/logger");
 const config = require(__dirname + "/../config/config.js")[env];
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 let sequelize;
 
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config, {
-    logging: function (sql) {
-      console.log(colors(sql));
+if (env === "production") {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: "postgres",
+    port: 5432,
+    ssl: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
     },
   });
 } else {

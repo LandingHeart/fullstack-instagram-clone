@@ -18,6 +18,7 @@ app.use(require("./routes"));
 //   res.send("hello world");
 // });
 
+// app.get("/api/post", postController.apiGetAllpost);
 
 app.get("/api/status", (req, res) => {
   res.status(200).send({
@@ -26,7 +27,7 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.get("/*", (req, res) => {
+app.use("*", (req, res) => {
   res.sendFile(HTML_FILE);
 });
 
