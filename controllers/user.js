@@ -1,5 +1,5 @@
 const UserService = require("../services/UserService");
-const jwt = require("jsonwebtoken");
+const AuthService = require("../services/AuthService");
 
 module.exports = class User {
   //Read
@@ -30,9 +30,10 @@ module.exports = class User {
       if (user instanceof Error) {
         throw user;
       } else {
-        console.log(user);
-        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+        const accessToken = AuthService.generateAccessToken(user);
+        const refreshToken = await AuthService.generateRefreshToken(user);
         user.accessToken = accessToken;
+        user.refreshToken = refreshToken;
         res.status(200).json(user);
       }
     } catch (error) {
