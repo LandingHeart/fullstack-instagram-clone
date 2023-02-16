@@ -26,6 +26,21 @@ module.exports = class PostService {
     }
   }
 
+  static async searchPostWithId(id) {
+    try {
+      const post = await Post.findOne({
+        where: {
+          id: {
+            [Op.like]: "%" + id + "%",
+          },
+        },
+      });
+      return post;
+    } catch (error) {
+      console.log(`could not find all post${error} with id ${id}`);
+    }
+  }
+
   static async createPost(body) {
     try {
       const post = await Post.create(body);
