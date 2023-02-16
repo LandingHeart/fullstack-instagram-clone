@@ -13,7 +13,8 @@ app.use(express.static(DIST_DIR));
 
 app.use(express.json());
 app.use(morganMiddleware);
-app.use(require("./routes"));
+app.use("/", require("./routes"));
+app.use(express.static(path.join(__dirname, "./views/public")));
 
 // app.get("/", (req, res) => {
 //   res.send("hello world");
@@ -28,10 +29,12 @@ app.get("/api/status", (req, res) => {
   });
 });
 
+// app.use("*", (req, res) => {
+//   res.sendFile(HTML_FILE);
+// });
 app.use("*", (req, res) => {
-  res.sendFile(HTML_FILE);
+  res.sendFile(path.join(__dirname, "./views/public/", "index.html"));
 });
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
