@@ -36,9 +36,9 @@ brew install postgresql@14
 
 #### Install postgresql with chocolatey
 
-[doc](https://danabases.net/posts/2020-2-15-postgres-chocolatey/)
-[chocolatey](https://community.chocolatey.org/packages/postgresql) make sure to install as admin
-
+[chocolatey](https://community.chocolatey.org/packages/postgresql) make sure to install as admin, follow chocolatey instruction to set up the database
+[Easy Postgres Installation and Setup on Windows with Chocolatey](https://danabases.net/posts/2020-2-15-postgres-chocolatey/)
+[stack overflow start postgres on windows](https://stackoverflow.com/questions/36629963/how-can-i-start-postgresql-on-windows)
 Start the postgres database
 
 ```sh
