@@ -29,14 +29,14 @@ module.exports = class UserService {
       const user = await User.findOne({ where: { email: body.email } });
       if (!user) {
         var err = Error(`user not found`);
-        err.status = 400;
+        err.status = 401;
         throw err;
       }
       if (await bcrypt.compare(body.password, user.password)) {
-        return user;
+        return user.dataValues;
       } else {
         var err = Error(`incorrect password`);
-        err.status = 401;
+        err.status = 403;
         throw err;
       }
     } catch (error) {
