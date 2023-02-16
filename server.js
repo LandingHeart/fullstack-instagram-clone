@@ -7,7 +7,6 @@ const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
 const DIST_DIR = path.join(__dirname, "views/dist");
 const HTML_FILE = path.join(DIST_DIR, "index.html");
-const postController = require("./controllers/post");
 
 app.use(express.static(DIST_DIR));
 

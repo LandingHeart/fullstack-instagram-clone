@@ -1,5 +1,5 @@
-const user = require("../models/user");
 const UserService = require("../services/UserService");
+const AuthService = require("../services/AuthService");
 
 module.exports = class User {
   //Read
@@ -26,10 +26,14 @@ module.exports = class User {
   //Login
   static async apiLoginUser(req, res, next) {
     try {
-      const user = await UserService.login(req.body);
+      let user = await UserService.login(req.body);
       if (user instanceof Error) {
         throw user;
       } else {
+        const accessToken = AuthService.generateAccessToken(user);
+        const refreshToken = await AuthService.generateRefreshToken(user);
+        user.accessToken = accessToken;
+        user.refreshToken = refreshToken;
         res.status(200).json(user);
       }
     } catch (error) {
