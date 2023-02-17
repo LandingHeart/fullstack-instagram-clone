@@ -6,20 +6,12 @@ const PORT = process.env.PORT || 8080;
 const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
 const DIST_DIR = path.join(__dirname, "views/dist");
-const HTML_FILE = path.join(DIST_DIR, "index.html");
 
 app.use(express.static(DIST_DIR));
-
 app.use(express.json());
 app.use(morganMiddleware);
 app.use("/", require("./routes"));
 app.use(express.static(path.join(__dirname, "./views/public")));
-
-// app.get("/", (req, res) => {
-//   res.send("hello world");
-// });
-
-// app.get("/api/post", postController.apiGetAllpost);
 
 app.get("/api/status", (req, res) => {
   res.status(200).send({
@@ -28,10 +20,7 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-// app.use("*", (req, res) => {
-//   res.sendFile(HTML_FILE);
-// });
-app.use("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/public/", "index.html"));
 });
 app.listen(PORT, () => {

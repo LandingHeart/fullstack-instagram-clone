@@ -5,10 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
     "build-client-watch": "webpack -w",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore views",
-    "dev-ser": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "dev-test": "webpack serve --mode development",
     "client": "webpack serve --mode development",
     "test": "cross-env NODE_ENV=test jest --runInBand",

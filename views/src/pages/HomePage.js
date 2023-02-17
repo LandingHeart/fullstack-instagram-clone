@@ -7,12 +7,12 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const { loading, posts } = useSelector((state) => state.posts);
   useEffect(() => {
-    // dispatch(fetchPosts());
+    dispatch(fetchPosts());
   }, []);
 
   return (
     <MainLayout>
-      <button onClick={() => dispatch(fetchPosts())}>click</button>
+      <div>lksjdfk</div>
       {loading === false &&
         posts?.map((ele, index) => (
           <CardFeed key={index} title={ele.title} postImgUrl={ele.postImgUrl} />

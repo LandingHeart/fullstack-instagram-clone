@@ -10,24 +10,16 @@ module.exports = {
     path: __dirname + "/views/public/",
     filename: "bundle.js",
   },
-  //   plugins: [
-  //     new HtmlWebpackPlugin({
-  //       template: path.resolve(__dirname, "public", "index.html"),
-  //       favicon: path.resolve(__dirname, "public", "favicon.ico"),
-  //       manifest: path.resolve(__dirname, "public", "manifest.json"),
-  //     }),
-  //   ],
-  //   devServer: {
-  //     static: {
-  //       directory: path.join(__dirname, "public"),
-  //     },
-  //     hot: true,
-  //     historyApiFallback: true,
-  //   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
+    hot: true,
+    historyApiFallback: true,
+  },
   resolve: {
     extensions: [".js", ".jsx"],
   },
-
   devtool: "eval-source-map",
   module: {
     rules: [
