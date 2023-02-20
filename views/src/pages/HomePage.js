@@ -12,7 +12,6 @@ export default function HomePage() {
 
   return (
     <MainLayout>
-      <div>lksjdfk</div>
       {loading === false &&
         posts?.map((ele, index) => (
           <CardFeed key={index} title={ele.title} postImgUrl={ele.postImgUrl} />

@@ -14,6 +14,12 @@ const styles = (theme) => ({
     display: "flex",
     justifyContent: "center",
     flex: "1",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderBottom: "1px solid rgba(219,219,219, 1)",
+    padding: "20px",
   },
 });
 function Navbar({ classes }) {
@@ -21,7 +27,7 @@ function Navbar({ classes }) {
     <AppBar position="static">
       <Grid className={classes.appbar}>
         <img src={logo} style={{ width: "102.41px", height: "28.99px" }} />
-        <Typography style={{ color: "black" }}>Navbar</Typography>
+        <Typography style={{ color: "black" }}></Typography>
       </Grid>
     </AppBar>
   );
