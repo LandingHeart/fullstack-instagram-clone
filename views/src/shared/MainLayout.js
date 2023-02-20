@@ -8,7 +8,6 @@ const styles = (theme) => ({
   main_content_container: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
   },
