@@ -8,12 +8,10 @@ import { ThemeProvider } from "@mui/material";
 import theme from "./theme.js";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <App />
-      </ThemeProvider>
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );
