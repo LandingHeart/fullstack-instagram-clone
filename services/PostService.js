@@ -31,13 +31,13 @@ module.exports = class PostService {
       const post = await Post.findOne({
         where: {
           id: {
-            [Op.like]: "%" + id + "%",
+            [Op.like]: id,
           },
         },
       });
       return post;
     } catch (error) {
-      console.log(`could not find all post${error} with id ${id}`);
+      console.log(`could not find all post${error} with id `, id);
     }
   }
 
