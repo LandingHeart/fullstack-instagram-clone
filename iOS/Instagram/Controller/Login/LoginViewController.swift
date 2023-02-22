@@ -40,6 +40,9 @@ final class LoginViewController: UIViewController {
     var password: String? {
         passwordField.text
     }
+    private var validInput: Bool {
+        return !usernameField.isEmpty && !passwordField.isEmpty
+    }
     
     weak var delegate: LoginDelegate?
     
@@ -48,10 +51,6 @@ final class LoginViewController: UIViewController {
         setup()
         style()
         layout()
-    }
-    //MARK: - Private function
-    private func validInput() -> Bool {
-        return !usernameField.isEmpty && !passwordField.isEmpty
     }
     
 }
@@ -100,7 +99,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        configureSignInButton(enable: validInput())
+        configureSignInButton(enable: validInput)
         usernameField.displayClearButton()
     }
     
@@ -113,7 +112,7 @@ extension LoginViewController {
     }
     
     private func login() -> Bool {
-        guard validInput() else {
+        guard validInput else {
             return false
         }
         return true
@@ -184,10 +183,10 @@ extension LoginViewController {
             loginOption.heightAnchor.constraint(equalToConstant: 50),
             footer.topAnchor.constraint(equalToSystemSpacingBelow: loginOption.bottomAnchor, multiplier: 2),
             
-            footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: footer.topAnchor, multiplier: 12),
-            footer.heightAnchor.constraint(equalToConstant: 96),
+            footer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            footer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            footer.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }

@@ -130,6 +130,6 @@ extension LoginTextField {
     }
     @objc func clearTextField() {
         textField.text = ""
+        textField.delegate?.textFieldDidChangeSelection?(textField)
     }
 }
-
