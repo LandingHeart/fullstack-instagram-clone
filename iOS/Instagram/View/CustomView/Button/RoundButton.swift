@@ -11,25 +11,21 @@ class RoundButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         style()
-        layout()
     }
     init(title: String?) {
         super.init(frame: CGRect())
         setTitle(title, for: .normal)
         style()
-        layout()
     }
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 200, height: 50)
     }
     func style() {
+        translatesAutoresizingMaskIntoConstraints = false
         configuration = .filled()
         backgroundColor = .systemBlue
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         titleLabel?.textColor = .label
-    }
-    func layout() {
-        
     }
     override func layoutSubviews() {
         super.layoutSubviews()

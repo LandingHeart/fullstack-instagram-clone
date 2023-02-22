@@ -16,6 +16,7 @@ extension UIViewController {
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
     
     }
+    
     func setTabBarImage(
         systemName: String,
         configuration: UIImage.SymbolConfiguration = .init(scale: .large),
@@ -25,5 +26,8 @@ extension UIViewController {
         }
             tabBarItem = UITabBarItem(title: title ?? tabBarItem.title, image: image, tag: tabBarItem.tag)
     }
-
+    
+    func setNavBarTintColor(_ color: UIColor?) {
+        navigationController?.navigationBar.tintColor = color
+    }
 }

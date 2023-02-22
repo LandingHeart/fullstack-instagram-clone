@@ -50,6 +50,7 @@ extension LoginOptionView {
         HStack.addArrangedSubview(google)
         HStack.addArrangedSubview(facebook)
         
+        translatesAutoresizingMaskIntoConstraints = false
         HStack.translatesAutoresizingMaskIntoConstraints = false
         google.translatesAutoresizingMaskIntoConstraints = false
         facebook.translatesAutoresizingMaskIntoConstraints = false

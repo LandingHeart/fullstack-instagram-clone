@@ -17,7 +17,7 @@ final class LoginViewController: UIViewController {
     let logo = UIImageView()
     
     let textStack = UIStackView()
-
+    
     let usernameField = LoginTextField()
     
     let passwordField = LoginTextField(frame: CGRect(), secureMode: true)
@@ -35,10 +35,13 @@ final class LoginViewController: UIViewController {
     
     /// LoginComponent
     var username: String? {
-        usernameField.textField.text
+        usernameField.text
     }
     var password: String? {
-        passwordField.textField.text
+        passwordField.text
+    }
+    private var validInput: Bool {
+        return !usernameField.isEmpty && !passwordField.isEmpty
     }
     
     weak var delegate: LoginDelegate?
@@ -49,6 +52,7 @@ final class LoginViewController: UIViewController {
         style()
         layout()
     }
+    
 }
 extension LoginViewController {
     //MARK: - setup
@@ -56,7 +60,9 @@ extension LoginViewController {
         usernameField.delegate = self
         passwordField.delegate = self
         signInButton.setTitle("Log in", for: [])
+        signInButton.setTitleColor(.systemBackground, for: .disabled)
         signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        footer.button.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         configureSignInButton(enable: false)
     }
     //MARK: - style
@@ -70,6 +76,7 @@ extension LoginViewController {
         
         usernameField.textField.placeholder = "Phone number, username or email"
         usernameField.textField.returnKeyType = .next
+        usernameField.displayClearButton()
         
         passwordField.textField.placeholder = "Password"
         passwordField.textField.returnKeyType = .go
@@ -78,31 +85,74 @@ extension LoginViewController {
         forgotPassword.setTitle("Forgot Password?", for: .normal)
         
     }
+}
+
+//MARK: - TextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField.text != "" {
+            // try to login
+        }
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        configureSignInButton(enable: validInput)
+        usernameField.displayClearButton()
+    }
+    
+}
+
+//MARK: - Action
+extension LoginViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func login() -> Bool {
+        guard validInput else {
+            return false
+        }
+        return true
+    }
+    
+    private func configureSignInButton(enable: Bool) {
+        if enable {
+            signInButton.isEnabled = true
+            signInButton.backgroundColor = UIColor.systemBlue
+        } else {
+            signInButton.isEnabled = false
+            signInButton.backgroundColor = UIColor.lightBlue
+        }
+    }
+    //MARK: - objc
+    @objc func didTapSignIn() {
+        if login() {
+            signInButton.isEnabled = true
+            signInButton.configuration?.showsActivityIndicator = true
+            signInButton.setTitle("", for: .normal)
+            delegate?.didLogin(self)
+        }
+    }
+    @objc func didTapSignUp() {
+        navigationController?.pushViewController(SignupViewController(), animated: true)
+    }
+    
     //MARK: - layout
     private func layout() {
-        view.addSubview(textStack)
-        view.addSubview(logo)
-        textStack.addArrangedSubview(usernameField)
-        textStack.addArrangedSubview(passwordField)
-        view.addSubview(forgotPassword)
-        view.addSubview(signInButton)
-        view.addSubview(orSeparator)
-        view.addSubview(loginOption)
-        view.addSubview(footer)
+        view.addSubviews(textStack, logo)
+        textStack.addArrangedSubviews(usernameField, passwordField)
+        view.addSubviews(forgotPassword, signInButton, orSeparator, loginOption, footer)
         
         logo.translatesAutoresizingMaskIntoConstraints = false
         textStack.translatesAutoresizingMaskIntoConstraints = false
-        usernameField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
         forgotPassword.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
-        orSeparator.translatesAutoresizingMaskIntoConstraints = false
-        loginOption.translatesAutoresizingMaskIntoConstraints = false
-        footer.translatesAutoresizingMaskIntoConstraints = false
         
         usernameField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         passwordField.setContentHuggingPriority(.defaultHigh, for: .vertical)
-
+        
         NSLayoutConstraint.activate([
             logo.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.5),
             logo.heightAnchor.constraint(equalToConstant: 100),
@@ -111,7 +161,7 @@ extension LoginViewController {
             
             textStack.topAnchor.constraint(equalToSystemSpacingBelow: logo.bottomAnchor, multiplier: 3),
             textStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.9),
+            textStack.widthAnchor.constraint(equalToConstant: K.screenWidth * 0.8),
             textStack.heightAnchor.constraint(equalToConstant: 100),
             
             forgotPassword.topAnchor.constraint(equalToSystemSpacingBelow: textStack.bottomAnchor, multiplier: 1),
@@ -133,64 +183,10 @@ extension LoginViewController {
             loginOption.heightAnchor.constraint(equalToConstant: 50),
             footer.topAnchor.constraint(equalToSystemSpacingBelow: loginOption.bottomAnchor, multiplier: 2),
             
-            footer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            footer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: footer.topAnchor, multiplier: 12),
-            footer.heightAnchor.constraint(equalToConstant: 96),
+            footer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            footer.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            footer.heightAnchor.constraint(equalToConstant: 50),
         ])
-    }
-    
-}
-
-//MARK: - TextFieldDelegate
-extension LoginViewController: UITextFieldDelegate {
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if textField.text != "" {
-            // try to login
-        }
-        return true
-    }
-    
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        configureSignInButton(enable: validInput())
-    }
-    
-    func validInput() -> Bool {
-        return username != "" && password != ""
-    }
-}
-
-//MARK: - Action
-extension LoginViewController {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    @objc func didTapSignIn() {
-        if login() {
-            signInButton.isEnabled = true
-            signInButton.configuration?.showsActivityIndicator = true
-            signInButton.setTitle("", for: .normal)
-            delegate?.didLogin(self)
-        }
-    }
-    
-    private func login() -> Bool {
-        guard validInput() else {
-            return false
-        }
-        return true
-    }
-    
-    private func configureSignInButton(enable: Bool) {
-        if enable {
-            signInButton.isEnabled = true
-            signInButton.backgroundColor = UIColor.systemBlue
-        } else {
-            signInButton.isEnabled = false
-            signInButton.backgroundColor = UIColor.lightBlue
-        }
     }
 }
