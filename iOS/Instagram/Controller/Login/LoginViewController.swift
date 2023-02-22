@@ -77,7 +77,7 @@ extension LoginViewController {
         
         usernameField.textField.placeholder = "Phone number, username or email"
         usernameField.textField.returnKeyType = .next
-        usernameField.displayClearButton(false)
+        usernameField.displayClearButton()
         
         passwordField.textField.placeholder = "Password"
         passwordField.textField.returnKeyType = .go
@@ -101,7 +101,7 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         configureSignInButton(enable: validInput())
-        usernameField.displayClearButton(!usernameField.isEmpty)
+        usernameField.displayClearButton()
     }
     
 }

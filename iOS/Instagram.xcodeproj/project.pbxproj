@@ -264,12 +264,12 @@
 			isa = PBXGroup;
 			children = (
 				3B64A4342973D92300CB5303 /* UIView.swift */,
+				3B725A33297C7A6900A137FE /* UIStackView.swift */,
 				3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */,
 				3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */,
 				3B7936D7290DABEA001770D4 /* UIImage.swift */,
 				3B4BD0AE29735A8A00AE4454 /* UIColor.swift */,
 				3B725A2D2979CCCB00A137FE /* UINavigationController.swift */,
-				3B725A33297C7A6900A137FE /* UIStackView.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";

@@ -57,8 +57,8 @@ final class LoginTextField: UIView {
         textField.placeholder = placeholder
     }
     
-    public func displayClearButton(_ input: Bool) {
-        clearButton.isHidden = !input
+    public func displayClearButton() {
+        clearButton.isHidden = isEmpty
     }
     
     public func enableSecureMode(enable input: Bool = true) {

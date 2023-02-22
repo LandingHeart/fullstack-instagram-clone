@@ -27,20 +27,29 @@ final class SignupViewController: UIViewController {
         return stack
     }()
     
-    let phoneButton = SignupMethodButton(title: "Phone")
+    let phoneButton: SignupMethodButton = {
+        let view = SignupMethodButton(title: "Phone")
+        view.isSelected(true)
+        return view
+    }()
     
-    let emailButton = SignupMethodButton(title: "Email")
+    let emailButton: SignupMethodButton = {
+        let view = SignupMethodButton(title: "Email")
+        view.isSelected(false)
+        return view
+    }()
     
-    let usernameField: LoginTextField = {
+    let emailField: LoginTextField = {
         let view = LoginTextField()
         view.configureTextField(placeholder: "Phone number")
-        view.displayClearButton(false)
+        view.displayClearButton()
         return view
     }()
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         layout()
         setupNavBar()
         setupButton()
@@ -64,26 +73,31 @@ final class SignupViewController: UIViewController {
     }
     
     private func setupDelegate() {
-        usernameField.delegate = self
+        emailField.delegate = self
     }
 }
 //MARK: - actions
 
 extension SignupViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     @objc func didTapPhoneButton() {
         phoneButton.isSelected(true)
         emailButton.isSelected(false)
+        emailField.configureTextField(placeholder: "Phone")
     }
     @objc func didTapEmailButton() {
         emailButton.isSelected(true)
         phoneButton.isSelected(false)
+        emailField.configureTextField(placeholder: "Email")
     }
 }
 
 //MARK: - layout
 extension SignupViewController {
     private func layout() {
-        view.addSubviews(topLabel, buttonStack, usernameField)
+        view.addSubviews(topLabel, buttonStack, emailField)
         buttonStack.addArrangedSubviews(phoneButton, emailButton)
         
         NSLayoutConstraint.activate([
@@ -97,18 +111,25 @@ extension SignupViewController {
             buttonStack.heightAnchor.constraint(equalToConstant: 50),
             buttonStack.topAnchor.constraint(equalToSystemSpacingBelow: topLabel.bottomAnchor, multiplier: 1),
             
-            usernameField.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
-            usernameField.topAnchor.constraint(equalToSystemSpacingBelow: buttonStack.bottomAnchor, multiplier: 2),
-            usernameField.widthAnchor.constraint(equalTo: topLabel.widthAnchor),
-            usernameField.heightAnchor.constraint(equalToConstant: 50),
+            emailField.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
+            emailField.topAnchor.constraint(equalToSystemSpacingBelow: buttonStack.bottomAnchor, multiplier: 2),
+            emailField.widthAnchor.constraint(equalTo: topLabel.widthAnchor),
+            emailField.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 }
 //MARK: - TextField delegate
 extension SignupViewController: UITextFieldDelegate {
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField.text != "" {
+            // try to login
+        }
+        return true
+    }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        usernameField.displayClearButton(!usernameField.isEmpty)
+        emailField.displayClearButton()
     }
 }
