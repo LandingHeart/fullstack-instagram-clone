@@ -5,18 +5,9 @@ const styles = (theme) => ({
   body: {
     backgroundColor: "white",
   },
-  navbar_container: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderBottom: "1px solid rgba(219,219,219, 1)",
-    height: "60px",
-  },
   main_content_container: {
     display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
     backgroundColor: "#fff",
   },
@@ -24,10 +15,17 @@ const styles = (theme) => ({
 function MainLayout({ children, classes }) {
   return (
     <div className={classes.body}>
-      <div className={classes.navbar_container}>
-        <Navbar />
-      </div>
-      <main className={classes.main_content_container}>{children}</main>
+      <Navbar />
+      <main className={classes.main_content_container}>
+        <section className={classes.main_content_col1}>{children}</section>
+        <section className={classes.main_content_col2}>
+          <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>b</li>
+          </ul>
+        </section>
+      </main>
     </div>
   );
 }
