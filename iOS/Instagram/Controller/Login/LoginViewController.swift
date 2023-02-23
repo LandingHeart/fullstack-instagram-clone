@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(_ sender: LoginViewController)
+    func didLogin()
 }
 
 final class LoginViewController: UIViewController {
@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
     
     
     /// LoginComponent
-    var username: String? {
+    var email: String? {
         usernameField.text
     }
     var password: String? {
@@ -87,36 +87,12 @@ extension LoginViewController {
     }
 }
 
-//MARK: - TextFieldDelegate
-extension LoginViewController: UITextFieldDelegate {
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if textField.text != "" {
-            // try to login
-        }
-        return true
-    }
-    
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        configureSignInButton(enable: validInput)
-        usernameField.displayClearButton()
-    }
-    
-}
-
 //MARK: - Action
 extension LoginViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    private func login() -> Bool {
-        guard validInput else {
-            return false
-        }
-        return true
-    }
     
     private func configureSignInButton(enable: Bool) {
         if enable {
@@ -129,13 +105,37 @@ extension LoginViewController {
     }
     //MARK: - objc
     @objc func didTapSignIn() {
-        if login() {
-            signInButton.isEnabled = true
-            signInButton.configuration?.showsActivityIndicator = true
-            signInButton.setTitle("", for: .normal)
-            delegate?.didLogin(self)
+            guard let email = email, let password = password else {
+                return
+            }
+            loadingRequest(true)
+            IGService.shared.loginUser(email: email , password: password) { [weak self] result in
+                switch result {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self?.delegate?.didLogin()
+                        self?.loadingRequest(false)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    DispatchQueue.main.async {
+                        self?.loadingRequest(false)
+                    }
+                }
+            }
         }
-    }
+
+        private func loadingRequest(_ isloading: Bool) {
+            if isloading {
+                configureSignInButton(enable: false)
+                signInButton.configuration?.showsActivityIndicator = true
+                signInButton.setTitle("", for: .normal)
+            } else {
+                configureSignInButton(enable: true)
+                signInButton.configuration?.showsActivityIndicator = false
+                signInButton.setTitle("Log in", for: .normal)
+            }
+        }
     @objc func didTapSignUp() {
         navigationController?.pushViewController(SignupViewController(), animated: true)
     }
@@ -188,5 +188,23 @@ extension LoginViewController {
             footer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             footer.heightAnchor.constraint(equalToConstant: 50),
         ])
+    }
+}
+
+
+//MARK: - TextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField.text != "" {
+            // try to login
+        }
+        return true
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        configureSignInButton(enable: validInput)
+        usernameField.displayClearButton()
     }
 }
