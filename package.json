@@ -8,14 +8,14 @@
     "build-client-watch": "webpack -w",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore views",
     "dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "webpack --mode production && node server.js",
     "dev-test": "webpack serve --mode development",
     "client": "webpack serve --mode development",
     "test": "cross-env NODE_ENV=test jest --runInBand",
     "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "npm install && webpack --mode production"
   },
   "jest": {
     "testEnvironment": "node",
