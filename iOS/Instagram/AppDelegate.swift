@@ -22,13 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         setupDelegate()
-        window?.rootViewController = UINavigationController(rootViewController: loginVC)
+        let loginNC = makeLoginNC()
+        window?.rootViewController = loginNC
         
         return true
     }
-    
+    //MARK: - Private
     private func setupDelegate() {
         loginVC.delegate = self
+    }
+    private func makeLoginNC() -> IGUINavigationController {
+        let nc = IGUINavigationController(rootViewController: loginVC)
+        return nc
     }
 }
 

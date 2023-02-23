@@ -48,7 +48,7 @@ class ProfileImageView: UIView {
                                       radius: CGFloat(midPoint-(lineWidth/2)),
                                       startAngle: CGFloat(0),
                                       endAngle: CGFloat(Double.pi*2),
-                                      clockwise: true)
+                                      clockwise: false)
         if let sl = shapeLayer {
             sl.path = circlePath.cgPath
             sl.fillColor = UIColor.clear.cgColor

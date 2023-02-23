@@ -9,11 +9,12 @@ import UIKit
 
 final class LoginTextField: UIView {
     
-    let HStack = UIStackView()
+    /// UIComponent
+    private let HStack = UIStackView()
     
-    let clearButton = UIButton()
+    private let clearButton = UIButton()
     
-    let eyeButton = UIButton()
+    private let eyeButton = UIButton()
     
     let textField = UITextField()
     
@@ -22,6 +23,16 @@ final class LoginTextField: UIView {
             textField.delegate = delegate
         }
     }
+    
+    /// Logic
+    var isEmpty: Bool {
+        return textField.text == ""
+    }
+    var text: String? {
+        return textField.text
+    }
+    
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -39,14 +50,34 @@ final class LoginTextField: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    //MARK: - Public function
+    public func configureTextField(placeholder: String) {
+        textField.placeholder = placeholder
+    }
+    
+    public func displayClearButton() {
+        clearButton.isHidden = isEmpty
+    }
+    
+    public func enableSecureMode(enable input: Bool = true) {
+        textField.isSecureTextEntry = input
+        clearButton.isHidden = input
+        eyeButton.isHidden = !input
+    }
+    
+    //MARK: - Private function
     private func setup() {
         clearButton.addTarget(self, action: #selector(clearTextField), for: .touchUpInside)
         clearButton.setImage(UIImage(systemName: "x.circle.fill"), for: .normal)
         clearButton.tintColor = .label
+        
         eyeButton.addTarget(self, action: #selector(toggleSecureMode), for: .touchUpInside)
         eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         eyeButton.tintColor = .label
     }
+    
     //MARK: - Style
     private func style() {
         backgroundColor = .secondarySystemFill
@@ -99,14 +130,6 @@ extension LoginTextField {
     }
     @objc func clearTextField() {
         textField.text = ""
-    }
-}
-
-//MARK: - External function
-extension LoginTextField {
-    func enableSecureMode(enable input: Bool = true) {
-        textField.isSecureTextEntry = input
-        clearButton.isHidden = input
-        eyeButton.isHidden = !input
+        textField.delegate?.textFieldDidChangeSelection?(textField)
     }
 }
