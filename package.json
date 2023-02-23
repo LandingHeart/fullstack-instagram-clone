@@ -15,7 +15,7 @@
     "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "heroku-postbuild": "cd views && npm install && npm run build"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "jest": {
     "testEnvironment": "node",
