@@ -25,6 +25,15 @@
 		3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85828FE1B6500BD8402 /* ShopViewController.swift */; };
 		3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85A28FE1B7300BD8402 /* ProfileViewController.swift */; };
 		3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */; };
+		3B5BE95729A5EDBE005253A4 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE95629A5EDBE005253A4 /* UserCredential.swift */; };
+		3B5BE95929A5EE48005253A4 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE95829A5EE48005253A4 /* Optional.swift */; };
+		3B5BE95B29A6DE1F005253A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE95A29A6DE1F005253A4 /* AuthService.swift */; };
+		3B5BE95E29A6F141005253A4 /* IGRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE95D29A6F141005253A4 /* IGRequest.swift */; };
+		3B5BE96029A6F14E005253A4 /* IGService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE95F29A6F14E005253A4 /* IGService.swift */; };
+		3B5BE96229A6F15B005253A4 /* IGEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE96129A6F15B005253A4 /* IGEndpoint.swift */; };
+		3B5BE96429A6F34D005253A4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE96329A6F34D005253A4 /* String.swift */; };
+		3B5BE96629A73178005253A4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE96529A73178005253A4 /* UserDefaults.swift */; };
+		3B5BE96829A7325E005253A4 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE96729A7325E005253A4 /* LocalState.swift */; };
 		3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4322973D55200CB5303 /* LoginOptionView.swift */; };
 		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
 		3B65C63528FF1C020095799E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* Post.swift */; };
@@ -35,7 +44,7 @@
 		3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F51162904879C00FA37F5 /* PostManager.swift */; };
 		3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */; };
 		3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */; };
-		3BB03D852904A2A1009872DB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D842904A2A1009872DB /* User.swift */; };
+		3BB03D852904A2A1009872DB /* IGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D842904A2A1009872DB /* IGUser.swift */; };
 		3BB03D882904A2B7009872DB /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D872904A2B7009872DB /* UserManager.swift */; };
 		3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB48252902335F00E0FBA4 /* PostImageCell.swift */; };
 		3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */; };
@@ -66,6 +75,15 @@
 		3B5AC85828FE1B6500BD8402 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		3B5AC85A28FE1B7300BD8402 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B5AC85C28FE1DE100BD8402 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		3B5BE95629A5EDBE005253A4 /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
+		3B5BE95829A5EE48005253A4 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		3B5BE95A29A6DE1F005253A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3B5BE95D29A6F141005253A4 /* IGRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGRequest.swift; sourceTree = "<group>"; };
+		3B5BE95F29A6F14E005253A4 /* IGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGService.swift; sourceTree = "<group>"; };
+		3B5BE96129A6F15B005253A4 /* IGEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGEndpoint.swift; sourceTree = "<group>"; };
+		3B5BE96329A6F34D005253A4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3B5BE96529A73178005253A4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		3B5BE96729A7325E005253A4 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
 		3B64A4322973D55200CB5303 /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B65C63428FF1C020095799E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -76,7 +94,7 @@
 		3B8F51162904879C00FA37F5 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
-		3BB03D842904A2A1009872DB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BB03D842904A2A1009872DB /* IGUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
 		3BB03D872904A2B7009872DB /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3BDB48252902335F00E0FBA4 /* PostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
 		3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
@@ -189,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				3B5AC83828FB772B00BD8402 /* AppDelegate.swift */,
+				3B5BE95C29A6F10C005253A4 /* APICaller */,
+				3B5BE95529A5ED79005253A4 /* UserCredential */,
 				3B65C62C28FF1B6E0095799E /* Model */,
 				3B5AC85028FB781F00BD8402 /* View */,
 				3B0E3126295FD32A00321407 /* Controller */,
@@ -230,6 +250,25 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		3B5BE95529A5ED79005253A4 /* UserCredential */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BE95629A5EDBE005253A4 /* UserCredential.swift */,
+				3B5BE95A29A6DE1F005253A4 /* AuthService.swift */,
+			);
+			path = UserCredential;
+			sourceTree = "<group>";
+		};
+		3B5BE95C29A6F10C005253A4 /* APICaller */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BE95D29A6F141005253A4 /* IGRequest.swift */,
+				3B5BE95F29A6F14E005253A4 /* IGService.swift */,
+				3B5BE96129A6F15B005253A4 /* IGEndpoint.swift */,
+			);
+			path = APICaller;
+			sourceTree = "<group>";
+		};
 		3B64A4362976626700CB5303 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +302,10 @@
 			isa = PBXGroup;
 			children = (
 				3BDEB2D62965E7940041F33C /* Constant.swift */,
+				3B5BE95829A5EE48005253A4 /* Optional.swift */,
+				3B5BE96329A6F34D005253A4 /* String.swift */,
+				3B5BE96529A73178005253A4 /* UserDefaults.swift */,
+				3B5BE96729A7325E005253A4 /* LocalState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,7 +356,7 @@
 		3BB03D862904A2AA009872DB /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3BB03D842904A2A1009872DB /* User.swift */,
+				3BB03D842904A2A1009872DB /* IGUser.swift */,
 				3BB03D872904A2B7009872DB /* UserManager.swift */,
 			);
 			path = User;
@@ -429,6 +472,7 @@
 			files = (
 				3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
+				3B5BE96429A6F34D005253A4 /* String.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
 				3B5AC83D28FB772B00BD8402 /* HomeViewController.swift in Sources */,
@@ -438,29 +482,37 @@
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
 				3BDEB2D72965E7940041F33C /* Constant.swift in Sources */,
 				3B55E2332919A262007969B0 /* RoundButton.swift in Sources */,
+				3B5BE95929A5EE48005253A4 /* Optional.swift in Sources */,
 				3B4BD0A729661B7000AE4454 /* LoginTextField.swift in Sources */,
-				3BB03D852904A2A1009872DB /* User.swift in Sources */,
+				3BB03D852904A2A1009872DB /* IGUser.swift in Sources */,
 				3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */,
 				3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */,
 				3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */,
 				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
+				3B5BE96029A6F14E005253A4 /* IGService.swift in Sources */,
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
 				3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */,
 				3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */,
 				3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */,
 				3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */,
+				3B5BE96629A73178005253A4 /* UserDefaults.swift in Sources */,
 				3B65C63728FF1E950095799E /* APICaller.swift in Sources */,
+				3B5BE95E29A6F141005253A4 /* IGRequest.swift in Sources */,
 				3B5AC85728FE1B5E00BD8402 /* VideoViewController.swift in Sources */,
 				3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */,
 				3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */,
 				3B8D32A6290718740069A015 /* ImageSource.swift in Sources */,
+				3B5BE96829A7325E005253A4 /* LocalState.swift in Sources */,
 				3B65C63528FF1C020095799E /* Post.swift in Sources */,
+				3B5BE95B29A6DE1F005253A4 /* AuthService.swift in Sources */,
 				3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */,
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
+				3B5BE96229A6F15B005253A4 /* IGEndpoint.swift in Sources */,
 				3BB03D882904A2B7009872DB /* UserManager.swift in Sources */,
 				3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */,
+				3B5BE95729A5EDBE005253A4 /* UserCredential.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

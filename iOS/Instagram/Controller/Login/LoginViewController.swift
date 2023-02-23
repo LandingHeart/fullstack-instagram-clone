@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginDelegate: AnyObject {
-    func didLogin(_ sender: LoginViewController)
+    func didLogin()
 }
 
 final class LoginViewController: UIViewController {
@@ -34,7 +34,7 @@ final class LoginViewController: UIViewController {
     
     
     /// LoginComponent
-    var username: String? {
+    var email: String? {
         usernameField.textField.text
     }
     var password: String? {
@@ -158,7 +158,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
     func validInput() -> Bool {
-        return username != "" && password != ""
+        return email != "" && password != ""
     }
 }
 
@@ -169,19 +169,35 @@ extension LoginViewController {
     }
     
     @objc func didTapSignIn() {
-        if login() {
-            signInButton.isEnabled = true
-            signInButton.configuration?.showsActivityIndicator = true
-            signInButton.setTitle("", for: .normal)
-            delegate?.didLogin(self)
+        guard let email = email, let password = password else {
+            return
+        }
+        configureSignInButton(enable: false)
+        loadingRequest(true)
+        IGService.shared.loginUser(email: email , password: password) { [weak self] result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self?.delegate?.didLogin()
+                    self?.loadingRequest(false)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.loadingRequest(false)
+                }
+            }
         }
     }
     
-    private func login() -> Bool {
-        guard validInput() else {
-            return false
+    private func loadingRequest(_ isloading: Bool) {
+        if isloading {
+            signInButton.configuration?.showsActivityIndicator = true
+            signInButton.setTitle("", for: .normal)
+        } else {
+            signInButton.configuration?.showsActivityIndicator = false
+            signInButton.setTitle("Log in", for: .normal)
         }
-        return true
     }
     
     private func configureSignInButton(enable: Bool) {
@@ -192,5 +208,9 @@ extension LoginViewController {
             signInButton.isEnabled = false
             signInButton.backgroundColor = UIColor.lightBlue
         }
+    }
+    
+    private func validateInput() -> Bool {
+        return true
     }
 }

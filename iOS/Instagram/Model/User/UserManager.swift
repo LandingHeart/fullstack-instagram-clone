@@ -10,7 +10,7 @@ class UserManager {
     
     private var baseUrl: String = "http://localhost:8080/api/user"
     
-    public func fetchPost(completion: @escaping(Result<User,NetworkError>) -> Void) {
+    public func fetchPost(completion: @escaping(Result<IGUser,NetworkError>) -> Void) {
         guard let url = URL(string: baseUrl) else {
             completion(.failure(.decodingError))
             return
@@ -26,7 +26,7 @@ class UserManager {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
-                let result = try decoder.decode(User.self, from: data)
+                let result = try decoder.decode(IGUser.self, from: data)
                 completion(.success(result))
             } catch {
                 completion(.failure(.decodingError))
