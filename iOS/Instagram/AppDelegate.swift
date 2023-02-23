@@ -53,7 +53,7 @@ extension AppDelegate {
 
 //MARK: - LoginDelegate
 extension AppDelegate: LoginDelegate {
-    func didLogin(_ sender: LoginViewController) {
+    func didLogin() {
         setRootVC(mainVC)
     }
 }
