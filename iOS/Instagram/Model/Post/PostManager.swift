@@ -10,7 +10,7 @@ class PostManager {
     
     private var baseUrl: String = "http://localhost:8080/api/post"
     
-    public func fetchPost(completion: @escaping(Result<[Post],NetworkError>) -> Void) {
+    public func fetchPost(completion: @escaping(Result<[IGPost],NetworkError>) -> Void) {
         guard let url = URL(string: baseUrl) else {
             completion(.failure(.decodingError))
             return
@@ -26,7 +26,7 @@ class PostManager {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
-                let result = try decoder.decode([Post].self, from: data)
+                let result = try decoder.decode([IGPost].self, from: data)
                 completion(.success(result))
             } catch {
                 completion(.failure(.decodingError))

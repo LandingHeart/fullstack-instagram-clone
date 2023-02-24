@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         setupDelegate()
-        let loginNC = makeLoginNC()
-        window?.rootViewController = loginNC
+//        let loginNC = makeLoginNC()
+        window?.rootViewController = mainVC
         
         return true
     }

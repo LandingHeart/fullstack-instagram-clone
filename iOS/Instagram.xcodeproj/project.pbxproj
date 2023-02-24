@@ -13,10 +13,10 @@
 		3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */; };
 		3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AE29735A8A00AE4454 /* UIColor.swift */; };
 		3B55E2332919A262007969B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2322919A262007969B0 /* RoundButton.swift */; };
-		3B55E2352919A609007969B0 /* HomeViewControllerNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */; };
+		3B55E2352919A609007969B0 /* MainFeedViewControllerNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */; };
 		3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2362919ADEF007969B0 /* MainButton.swift */; };
 		3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83828FB772B00BD8402 /* AppDelegate.swift */; };
-		3B5AC83D28FB772B00BD8402 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83C28FB772B00BD8402 /* HomeViewController.swift */; };
+		3B5AC83D28FB772B00BD8402 /* MainFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */; };
 		3B5AC84228FB772C00BD8402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AC84128FB772C00BD8402 /* Assets.xcassets */; };
 		3B5AC84528FB772C00BD8402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AC84328FB772C00BD8402 /* LaunchScreen.storyboard */; };
 		3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85128FE166A00BD8402 /* MainViewController.swift */; };
@@ -34,9 +34,15 @@
 		3B5BE97729A74440005253A4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE97629A74440005253A4 /* UserDefaults.swift */; };
 		3B5BE97929A74718005253A4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE97829A74718005253A4 /* AuthService.swift */; };
 		3B5BE97C29A74741005253A4 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE97B29A74741005253A4 /* UserCredential.swift */; };
+		3B5BE97E29A85B07005253A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE97D29A85B07005253A4 /* HomeViewController.swift */; };
+		3B5BE98029A85BDA005253A4 /* IGPostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE97F29A85BD9005253A4 /* IGPostListView.swift */; };
+		3B5BE98229A85C57005253A4 /* HomeViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98129A85C57005253A4 /* HomeViewController+NavBar.swift */; };
+		3B5BE98529A85FC1005253A4 /* IGPostListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */; };
+		3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */; };
+		3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */; };
 		3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4322973D55200CB5303 /* LoginOptionView.swift */; };
 		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
-		3B65C63528FF1C020095799E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* Post.swift */; };
+		3B65C63528FF1C020095799E /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* IGPost.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
@@ -65,11 +71,11 @@
 		3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFooterView.swift; sourceTree = "<group>"; };
 		3B4BD0AE29735A8A00AE4454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3B55E2322919A262007969B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNavBar.swift; sourceTree = "<group>"; };
+		3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewControllerNavBar.swift; sourceTree = "<group>"; };
 		3B55E2362919ADEF007969B0 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		3B5AC83528FB772B00BD8402 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5AC83828FB772B00BD8402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B5AC83C28FB772B00BD8402 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewController.swift; sourceTree = "<group>"; };
 		3B5AC84128FB772C00BD8402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B5AC84428FB772C00BD8402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B5AC84628FB772C00BD8402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,9 +94,15 @@
 		3B5BE97629A74440005253A4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		3B5BE97829A74718005253A4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3B5BE97B29A74741005253A4 /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
+		3B5BE97D29A85B07005253A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3B5BE97F29A85BD9005253A4 /* IGPostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostListView.swift; sourceTree = "<group>"; };
+		3B5BE98129A85C57005253A4 /* HomeViewController+NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NavBar.swift"; sourceTree = "<group>"; };
+		3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostListViewViewModel.swift; sourceTree = "<group>"; };
+		3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		3B64A4322973D55200CB5303 /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		3B65C63428FF1C020095799E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3B65C63428FF1C020095799E /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -126,6 +138,7 @@
 		3B0E3125295FD32100321407 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B5BE98329A85FAB005253A4 /* HomePage */,
 				3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -183,6 +196,7 @@
 		3B0E3131295FD41300321407 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3B5BE97F29A85BD9005253A4 /* IGPostListView.swift */,
 				3BDB48242902332100E0FBA4 /* PostTable */,
 			);
 			path = Home;
@@ -216,9 +230,9 @@
 		3B5AC83728FB772B00BD8402 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				3B5AC83828FB772B00BD8402 /* AppDelegate.swift */,
 				3B5BE97A29A74730005253A4 /* UserCredential */,
 				3B5BE96929A7436D005253A4 /* APICaller */,
-				3B5AC83828FB772B00BD8402 /* AppDelegate.swift */,
 				3B65C62C28FF1B6E0095799E /* Model */,
 				3B5AC85028FB781F00BD8402 /* View */,
 				3B0E3125295FD32100321407 /* ViewModel */,
@@ -267,6 +281,7 @@
 				3B5BE96A29A7437F005253A4 /* IGEndpoint.swift */,
 				3B5BE96E29A743C5005253A4 /* IGRequest.swift */,
 				3B5BE96C29A74396005253A4 /* IGService.swift */,
+				3B8D32A5290718740069A015 /* ImageSource.swift */,
 			);
 			path = APICaller;
 			sourceTree = "<group>";
@@ -278,6 +293,23 @@
 				3B5BE97B29A74741005253A4 /* UserCredential.swift */,
 			);
 			path = UserCredential;
+			sourceTree = "<group>";
+		};
+		3B5BE98329A85FAB005253A4 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */,
+				3B5BE98829A868DA005253A4 /* CollectionView */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		3B5BE98829A868DA005253A4 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		3B64A4362976626700CB5303 /* Icons */ = {
@@ -292,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				3B65C63628FF1E950095799E /* APICaller.swift */,
-				3B8D32A5290718740069A015 /* ImageSource.swift */,
 			);
 			path = APICaller;
 			sourceTree = "<group>";
@@ -343,8 +374,10 @@
 		3B65C62F28FF1BB50095799E /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				3B5AC83C28FB772B00BD8402 /* HomeViewController.swift */,
-				3B55E2342919A609007969B0 /* HomeViewControllerNavBar.swift */,
+				3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */,
+				3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */,
+				3B5BE98129A85C57005253A4 /* HomeViewController+NavBar.swift */,
+				3B5BE97D29A85B07005253A4 /* HomeViewController.swift */,
 			);
 			path = HomeTab;
 			sourceTree = "<group>";
@@ -360,7 +393,7 @@
 		3B65C63328FF1BF70095799E /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				3B65C63428FF1C020095799E /* Post.swift */,
+				3B65C63428FF1C020095799E /* IGPost.swift */,
 				3B8F51162904879C00FA37F5 /* PostManager.swift */,
 			);
 			path = Post;
@@ -394,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				3BDB482729023E9900E0FBA4 /* PostCell */,
+				3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */,
 			);
 			path = PostTable;
 			sourceTree = "<group>";
@@ -515,22 +549,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B4BD0A9296A9FF000AE4454 /* OrSeparatorView.swift in Sources */,
+				3B5BE98229A85C57005253A4 /* HomeViewController+NavBar.swift in Sources */,
 				3B5BE97929A74718005253A4 /* AuthService.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
 				3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
-				3B5AC83D28FB772B00BD8402 /* HomeViewController.swift in Sources */,
+				3B5AC83D28FB772B00BD8402 /* MainFeedViewController.swift in Sources */,
 				3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */,
-				3B55E2352919A609007969B0 /* HomeViewControllerNavBar.swift in Sources */,
+				3B55E2352919A609007969B0 /* MainFeedViewControllerNavBar.swift in Sources */,
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
+				3B5BE97E29A85B07005253A4 /* HomeViewController.swift in Sources */,
 				3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */,
 				3B5BE96D29A74396005253A4 /* IGService.swift in Sources */,
 				3B5BE97529A74425005253A4 /* String.swift in Sources */,
 				3BDEB2D72965E7940041F33C /* Constant.swift in Sources */,
 				3B5BE97729A74440005253A4 /* UserDefaults.swift in Sources */,
 				3B5BE96F29A743C5005253A4 /* IGRequest.swift in Sources */,
+				3B5BE98029A85BDA005253A4 /* IGPostListView.swift in Sources */,
 				3BE4392A297879C90016AB56 /* SignupMethodButton.swift in Sources */,
 				3B55E2332919A262007969B0 /* RoundButton.swift in Sources */,
 				3B4BD0A729661B7000AE4454 /* LoginTextField.swift in Sources */,
@@ -540,11 +577,13 @@
 				3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */,
 				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
+				3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */,
 				3B5BE97329A74410005253A4 /* Optional.swift in Sources */,
 				3B5BE97C29A74741005253A4 /* UserCredential.swift in Sources */,
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
 				3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */,
 				3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */,
+				3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */,
 				3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */,
 				3BE43927297756520016AB56 /* SignupViewController.swift in Sources */,
 				3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */,
@@ -553,8 +592,9 @@
 				3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */,
 				3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */,
 				3B5BE97129A743F5005253A4 /* LocalState.swift in Sources */,
+				3B5BE98529A85FC1005253A4 /* IGPostListViewViewModel.swift in Sources */,
 				3B8D32A6290718740069A015 /* ImageSource.swift in Sources */,
-				3B65C63528FF1C020095799E /* Post.swift in Sources */,
+				3B65C63528FF1C020095799E /* IGPost.swift in Sources */,
 				3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */,
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
