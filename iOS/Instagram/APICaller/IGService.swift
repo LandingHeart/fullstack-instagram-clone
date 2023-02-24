@@ -40,6 +40,7 @@ final class IGService {
             completion(.failure(URLError(.badURL)))
             return
         }
+        
         let jsonDictionary = ["email": email, "password": password]
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: jsonDictionary, options: .fragmentsAllowed)
@@ -55,6 +56,21 @@ final class IGService {
             }
         }
     }
-
+    
+    public func fetchAllPost(completion: @escaping(Result<[IGPost],Error>) -> Void ) {
+        guard let request = IGRequest.allPostRequest.urlRequest else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        execute(request, expecting: [IGPost].self) { result in
+            switch result {
+            case .success(let posts):
+                completion(.success(posts))
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(.failure(error))
+            }
+        }
+    }
     //MARK: - Private
 }

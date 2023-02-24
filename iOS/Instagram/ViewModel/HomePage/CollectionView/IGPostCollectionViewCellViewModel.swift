@@ -9,8 +9,22 @@ import Foundation
 
 final class IGPostCollectionViewCellViewModel {
     
-    init () {
-        
+//    let userIconURL: String
+    
+//    let username: String
+    
+    private let postImgUrl: URL?
+    
+    public let title: String
+    
+    public let description: String
+    
+//    public let likes: Int
+    
+    init (postImgUrl: String, title: String, description: String) {
+        self.postImgUrl = URL(string: postImgUrl)
+        self.title = title
+        self.description = description
     }
     
 }

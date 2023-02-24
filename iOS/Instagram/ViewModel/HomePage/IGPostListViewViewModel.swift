@@ -14,13 +14,17 @@ final class IGPostListViewViewModel: NSObject {
     
     private var posts = [IGPost]() {
         didSet {
-            
+            cellViewModels = posts.map({
+                return IGPostCollectionViewCellViewModel(postImgUrl: $0.postImgUrl,
+                                                         title: $0.title,
+                                                         description: $0.description)
+            })
         }
     }
     
     private var cellViewModels = [IGPostCollectionViewCellViewModel]()
     
-    weak var delegate: IGPostListViewViewModel?
+    weak var delegate: IGPostListViewViewModelDelegate?
     
     //MARK: - Init
     override init() {
@@ -29,7 +33,16 @@ final class IGPostListViewViewModel: NSObject {
     }
     
     private func fetchInitialPost() {
-        
+        IGService.shared.fetchAllPost { [weak self] result in
+            switch result {
+            case .success(let posts):
+                self?.posts = posts
+                self?.delegate?.didFetchInitialPost()
+            case .failure(let error):
+                //TODO: error handling
+                print(error.localizedDescription)
+            }
+        }
     }
     private func fetchMorePost() {
         //TODO: Reqire Backend pagination of post model
