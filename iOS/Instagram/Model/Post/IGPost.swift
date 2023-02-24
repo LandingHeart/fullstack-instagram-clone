@@ -17,11 +17,11 @@ struct IGPost: Codable{
     
     let description: String
     
-    let last_edit_date: Date
+    let last_edit_date: String?
     
-    let createdAt: Date
+    let createdAt: String
     
-    let updatedAt: Date
+    let updatedAt: String
     
 }
 
