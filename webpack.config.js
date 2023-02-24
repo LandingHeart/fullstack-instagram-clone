@@ -21,6 +21,12 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
   devtool: "eval-source-map",
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./views/public/index.html",
+      filename: "./index.html",
+    }),
+  ],
   module: {
     rules: [
       {
