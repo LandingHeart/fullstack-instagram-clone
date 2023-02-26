@@ -17,7 +17,8 @@ final class IGPostListViewViewModel: NSObject {
             cellViewModels = posts.map({
                 return IGPostCollectionViewCellViewModel(postImgUrl: $0.postImgUrl,
                                                          title: $0.title,
-                                                         description: $0.description)
+                                                         description: $0.description,
+                                                         imageAspectRatio: $0.aspectRatio)
             })
         }
     }
@@ -37,6 +38,11 @@ final class IGPostListViewViewModel: NSObject {
             switch result {
             case .success(let posts):
                 self?.posts = posts
+                for post in posts {
+                    ImageSource.shared.downloadImage(url: URL(string: post.postImgUrl)) { result in
+                        
+                    }
+                }
                 self?.delegate?.didFetchInitialPost()
             case .failure(let error):
                 //TODO: error handling
@@ -67,7 +73,14 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: K.screenWidth, height: K.screenHeight * 0.6)
+        let cellViewModel = cellViewModels[indexPath.row]
+        let headerHeight = 68.0, actionHeight = 40.0, likesHeight = 25.0, commentHeight = 45.0
+        var requiredHeight = headerHeight + actionHeight + likesHeight + commentHeight
+        let requiredImageHeight = collectionView.frame.width / cellViewModel.imageAspectRatio
+        requiredHeight += requiredImageHeight
+        
+        return CGSize(width: K.screenWidth, height: requiredHeight)
     }
     
 }
+

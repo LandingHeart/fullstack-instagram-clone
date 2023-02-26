@@ -60,7 +60,7 @@ class IGPostListView: UIView {
     }
     
     private func showCollectionView() {
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.3) { [weak self] in
             self?.spinner.stopAnimating()
             UIView.animate(withDuration: 1) {
                 self?.collectionView.alpha = 1

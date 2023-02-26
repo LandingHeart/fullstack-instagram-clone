@@ -15,6 +15,12 @@ struct IGPost: Codable{
     
     let postImgUrl: String
     
+    let width: Int
+    
+    let height: Int
+    
+    let aspectRatio: Double
+    
     let description: String
     
     let last_edit_date: String?

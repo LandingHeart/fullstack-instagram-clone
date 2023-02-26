@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class IGPostCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "IGPostCollectionViewCell"
@@ -82,15 +83,6 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    //MARK: - CellHeight
-    public var requiredHeight: CGFloat {
-        let headerHeight = 60.0, actionHeight = 60.0 , likesHeight = 25.0
-        let defaultCommentHeight = 60.0
-        var defaultImageHeight = 300.0
-        
-        return headerHeight + defaultImageHeight + actionHeight + likesHeight + defaultCommentHeight
-    }
-    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -135,32 +127,32 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
             imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             imageView.topAnchor.constraint(equalToSystemSpacingBelow: userIcon.bottomAnchor, multiplier: 1),
             //Modify this constraint for dynamic height
-            imageView.heightAnchor.constraint(equalToConstant: 300),
+            imageView.bottomAnchor.constraint(equalTo: likeButton.topAnchor),
             
             likeButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
             likeButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
-            likeButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
             likeButton.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
+            likeButton.bottomAnchor.constraint(equalTo: likesLabel.topAnchor),
             
             commentButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
             commentButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
-            commentButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
             commentButton.leftAnchor.constraint(equalToSystemSpacingAfter: likeButton.rightAnchor, multiplier: 1),
+            commentButton.bottomAnchor.constraint(equalTo: likesLabel.topAnchor),
             
             bookmarkButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
             bookmarkButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
-            bookmarkButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
             bookmarkButton.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
+            bookmarkButton.bottomAnchor.constraint(equalTo: likesLabel.topAnchor),
             
             likesLabel.heightAnchor.constraint(equalToConstant: 25),
             likesLabel.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
             likesLabel.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
-            likesLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor),
+            likesLabel.bottomAnchor.constraint(equalTo: commentView.topAnchor),
             
-            commentView.topAnchor.constraint(equalTo: likesLabel.bottomAnchor),
             commentView.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
             commentView.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
-            commentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
+            commentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 45),
+            commentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
     

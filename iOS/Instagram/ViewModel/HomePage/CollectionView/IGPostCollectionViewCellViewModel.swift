@@ -19,12 +19,15 @@ final class IGPostCollectionViewCellViewModel {
     
     public let description: String
     
+    public let imageAspectRatio: Double
+    
 //    public let likes: Int
     
-    init (postImgUrl: String, title: String, description: String) {
+    init (postImgUrl: String, title: String, description: String, imageAspectRatio: Double) {
         self.postImgUrl = URL(string: postImgUrl)
         self.title = title
         self.description = description
+        self.imageAspectRatio = imageAspectRatio
     }
     
 }
