@@ -35,7 +35,7 @@ class IGPostListView: UIView {
         layout()
         setupCollectionView()
         spinner.startAnimating()
-        showCollectionView()
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -65,6 +65,15 @@ class IGPostListView: UIView {
             UIView.animate(withDuration: 1) {
                 self?.collectionView.alpha = 1
             }
+            self?.collectionView.reloadData()
         }
     }
+}
+
+extension IGPostListView: IGPostListViewViewModelDelegate {
+    
+    func didFetchInitialPost() {
+        showCollectionView()
+    }
+    
 }

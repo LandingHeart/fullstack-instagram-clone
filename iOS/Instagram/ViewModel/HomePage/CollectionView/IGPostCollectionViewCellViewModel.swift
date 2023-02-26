@@ -13,7 +13,7 @@ final class IGPostCollectionViewCellViewModel {
     
 //    let username: String
     
-    private let postImgUrl: URL?
+    public let postImgUrl: URL?
     
     public let title: String
     

@@ -53,7 +53,7 @@ final class IGPostListViewViewModel: NSObject {
 
 extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return cellViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,11 +61,13 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
                                                             for: indexPath) as? IGPostCollectionViewCell else {
             return UICollectionViewCell()
         }
+        let cellViewModel = cellViewModels[indexPath.row]
+        cell.configure(with: cellViewModel)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: K.screenWidth, height: K.screenHeight * 0.5)
+        return CGSize(width: K.screenWidth, height: K.screenHeight * 0.6)
     }
     
 }

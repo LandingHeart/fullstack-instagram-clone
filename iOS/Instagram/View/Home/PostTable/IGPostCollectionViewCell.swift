@@ -11,6 +11,7 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "IGPostCollectionViewCell"
     
+    //Header
     private let userIcon: ProfileImageView = {
         let userIcon = ProfileImageView()
         userIcon.image = UIImage(named: "icon")
@@ -34,14 +35,63 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
-    
+    //content
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
+    //actions
+    private lazy var likeButton: MainButton = {
+        let button = MainButton(systemName: "heart", size: 30)
+        return button
+    }()
+    
+    private lazy var commentButton: MainButton = {
+        let button = MainButton(systemName: "message", size: 27)
+        return button
+    }()
+    
+    private lazy var bookmarkButton: MainButton = {
+        let button = MainButton(systemName: "bookmark", size: 27)
+        return button
+    }()
+    
+    private lazy var likesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = " 831,245 likes"
+        label.numberOfLines = 0
+        label.textAlignment = .left
+        label.font = .systemFont(ofSize: K.defaultFontSize, weight: .medium)
+        return label
+    }()
+    
+    private lazy var commentView: PostCommentView = {
+        let commentView = PostCommentView()
+        return commentView
+    }()
+    
+    //Logic
+    private var likesCount: Int = 0 {
+        didSet {
+            likesLabel.text = " \(likesCount) likes"
+        }
+    }
+    
+    //MARK: - CellHeight
+    public var requiredHeight: CGFloat {
+        let headerHeight = 60.0, actionHeight = 60.0 , likesHeight = 25.0
+        let defaultCommentHeight = 60.0
+        var defaultImageHeight = 300.0
+        
+        return headerHeight + defaultImageHeight + actionHeight + likesHeight + defaultCommentHeight
+    }
+    
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
@@ -53,12 +103,14 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
     
     private func layout() {
         //spacers
-        let leftSpacer = makeSpacer(width: 20, height: 60)
+        let leftSpacer = makeSpacer(width: 15, height: 60)
         let rightSpacer = makeSpacer(width: 20, height: 60)
         contentView.addSubviews(leftSpacer, rightSpacer)
         
-        contentView.addSubviews(userIcon, usernameLabel, moreButton)
-        
+        let actionButtonHeight: CGFloat = 40
+        let actionButtonWidth: CGFloat = 40
+        contentView.addSubviews(userIcon, usernameLabel, moreButton, imageView, likeButton,
+                                commentButton, bookmarkButton,likesLabel, commentView)
         NSLayoutConstraint.activate([
             userIcon.widthAnchor.constraint(equalToConstant: 60),
             userIcon.heightAnchor.constraint(equalToConstant: 60),
@@ -78,11 +130,57 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
             rightSpacer.topAnchor.constraint(equalTo: contentView.topAnchor),
             moreButton.centerYAnchor.constraint(equalTo: userIcon.centerYAnchor),
             moreButton.rightAnchor.constraint(equalTo: rightSpacer.leftAnchor),
-
+            
+            imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            imageView.topAnchor.constraint(equalToSystemSpacingBelow: userIcon.bottomAnchor, multiplier: 1),
+            //Modify this constraint for dynamic height
+            imageView.heightAnchor.constraint(equalToConstant: 300),
+            
+            likeButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
+            likeButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
+            likeButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
+            likeButton.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
+            
+            commentButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
+            commentButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
+            commentButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
+            commentButton.leftAnchor.constraint(equalToSystemSpacingAfter: likeButton.rightAnchor, multiplier: 1),
+            
+            bookmarkButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
+            bookmarkButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
+            bookmarkButton.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 1),
+            bookmarkButton.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
+            
+            likesLabel.heightAnchor.constraint(equalToConstant: 25),
+            likesLabel.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
+            likesLabel.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
+            likesLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor),
+            
+            commentView.topAnchor.constraint(equalTo: likesLabel.bottomAnchor),
+            commentView.leftAnchor.constraint(equalTo: userIcon.leftAnchor),
+            commentView.rightAnchor.constraint(equalTo: moreButton.rightAnchor),
+            commentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 60),
         ])
     }
     
+    override func prepareForReuse() {
+//        userIcon.image = nil
+//        usernameLabel.text = nil
+//        imageView.image = nil
+    }
+    
     public func configure(with viewModel: IGPostCollectionViewCellViewModel) {
-        
+        self.commentView.comment = viewModel.description
+        ImageSource.shared.downloadImage(url: viewModel.postImgUrl) { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.imageView.image = UIImage(data: data)
+                }
+            case .failure(let error):
+                print("Can not download Image: \(error.localizedDescription)")
+            }
+        }
     }
 }

@@ -40,6 +40,7 @@
 		3B5BE98529A85FC1005253A4 /* IGPostListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */; };
 		3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */; };
 		3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */; };
+		3B5BE98C29AAF185005253A4 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98B29AAF185005253A4 /* PostCommentView.swift */; };
 		3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4322973D55200CB5303 /* LoginOptionView.swift */; };
 		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
 		3B65C63528FF1C020095799E /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* IGPost.swift */; };
@@ -100,6 +101,7 @@
 		3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostListViewViewModel.swift; sourceTree = "<group>"; };
 		3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		3B5BE98B29AAF185005253A4 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		3B64A4322973D55200CB5303 /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B65C63428FF1C020095799E /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				3BDB48252902335F00E0FBA4 /* PostImageCell.swift */,
 				3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */,
 				3BE44E5E291303310000A3E7 /* PostCommentCell.swift */,
+				3B5BE98B29AAF185005253A4 /* PostCommentView.swift */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
 				3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */,
+				3B5BE98C29AAF185005253A4 /* PostCommentView.swift in Sources */,
 				3B5BE97329A74410005253A4 /* Optional.swift in Sources */,
 				3B5BE97C29A74741005253A4 /* UserCredential.swift in Sources */,
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
