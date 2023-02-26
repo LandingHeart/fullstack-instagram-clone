@@ -69,6 +69,8 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
         }
         let cellViewModel = cellViewModels[indexPath.row]
         cell.configure(with: cellViewModel)
+        let requiredImageHeight = collectionView.frame.width / cellViewModel.imageAspectRatio
+        cell.layout(ImageHeight: requiredImageHeight)
         return cell
     }
     
@@ -78,7 +80,6 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
         var requiredHeight = headerHeight + actionHeight + likesHeight + commentHeight
         let requiredImageHeight = collectionView.frame.width / cellViewModel.imageAspectRatio
         requiredHeight += requiredImageHeight
-        
         return CGSize(width: K.screenWidth, height: requiredHeight)
     }
     

@@ -86,14 +86,14 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layout()
+//        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("Unsupported")
     }
     
-    private func layout() {
+    func layout(ImageHeight: CGFloat) {
         //spacers
         let leftSpacer = makeSpacer(width: 15, height: 60)
         let rightSpacer = makeSpacer(width: 20, height: 60)
@@ -127,7 +127,7 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
             imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             imageView.topAnchor.constraint(equalToSystemSpacingBelow: userIcon.bottomAnchor, multiplier: 1),
             //Modify this constraint for dynamic height
-            imageView.bottomAnchor.constraint(equalTo: likeButton.topAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: ImageHeight),
             
             likeButton.heightAnchor.constraint(equalToConstant: actionButtonHeight),
             likeButton.widthAnchor.constraint(equalToConstant: actionButtonWidth),
@@ -157,6 +157,8 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        contentView.clearConstraints()
 //        userIcon.image = nil
 //        usernameLabel.text = nil
 //        imageView.image = nil
