@@ -68,4 +68,14 @@ extension UIView {
             addSubview(view)
         }
     }
+    
+    func makeSpacer(width: CGFloat, height: CGFloat) -> UIView {
+        let spacer = UIView()
+        spacer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            spacer.widthAnchor.constraint(equalToConstant: width),
+            spacer.heightAnchor.constraint(equalToConstant: height)
+        ])
+        return spacer
+    }
 }

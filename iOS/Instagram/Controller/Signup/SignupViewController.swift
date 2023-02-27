@@ -41,7 +41,7 @@ final class SignupViewController: UIViewController {
     
     private let usernameField: LoginTextField = {
         let view = LoginTextField()
-        view.configureTextField(placeholder: "Phone number")
+        view.configureTextField(placeholder: "Email address")
         view.textField.keyboardType = .emailAddress
         view.displayClearButton()
         return view
@@ -84,7 +84,8 @@ final class SignupViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        didTapPhoneButton()
+        didTapEmailButton()
+        usernameField.textField.becomeFirstResponder()
     }
     //MARK: - Public function
     
@@ -139,7 +140,7 @@ extension SignupViewController {
 extension SignupViewController {
     private func layout() {
         view.addSubviews(topLabel, buttonStack, usernameField, passwordField, signupButton, footer)
-        buttonStack.addArrangedSubviews(phoneButton, emailButton)
+        buttonStack.addArrangedSubviews(emailButton, phoneButton)
         
         NSLayoutConstraint.activate([
             topLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),

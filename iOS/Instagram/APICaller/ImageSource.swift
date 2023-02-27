@@ -7,19 +7,42 @@
 
 import UIKit
 
-class ImageSource {
+final class ImageSource {
     
     static let shared = ImageSource()
     
-    var cache = NSCache<NSString, UIImage>()
+    var oldCache = NSCache<NSString, UIImage>()
+    
+    var cache = NSCache<NSString, NSData>()
     
     var runningRequests = [UUID: URLSessionDataTask]()
     
     private init() {}
     
+    public func downloadImage(url: URL?, completion: @escaping(Result<Data, Error>) -> Void ) {
+        guard let url = url else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        let key = url.absoluteString as NSString
+        if let data = cache.object(forKey: key) {
+            completion(.success(data as Data))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+            self?.cache.setObject(data as NSData, forKey: key)
+            completion(.success(data))
+        }.resume()
+    }
+    
+    
     func fetchImage(urlString: String, completion: @escaping (UIImage?) -> Void) -> UUID? {
         
-        if let image = cache.object(forKey: urlString as NSString) {
+        if let image = oldCache.object(forKey: urlString as NSString) {
             completion(image)
             return nil
         }
@@ -41,7 +64,7 @@ class ImageSource {
                     completion(nil)
                     return
                 }
-                self?.cache.setObject(image, forKey: urlString as NSString)
+                self?.oldCache.setObject(image, forKey: urlString as NSString)
                 completion(image)
             }
         }

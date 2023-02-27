@@ -1,25 +1,25 @@
 //
-//  HomeViewControllerNavBar.swift
+//  HomeViewController+NavBar.swift
 //  Instagram
 //
-//  Created by Huang Yan on 11/7/22.
+//  Created by Huang Yan on 2/23/23.
 //
 
 import UIKit
 
 extension HomeViewController {
     func setNavBar() {
-        setLogoButton()
+        setNavButton()
         navStyle()
         navLayout()
     }
-    fileprivate func setLogoButton() {
+    fileprivate func setNavButton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Instagram"), style: .plain, target: self, action: #selector(didTappedLogo))
+        
         let planeButton = UIBarButtonItem(image: UIImage(systemName: "paperplane"), style: .plain, target: self, action: #selector(didTappedPlane))
         let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTappedLike))
         let plusButton = UIBarButtonItem(image: UIImage(systemName: "plus.app"), style: .plain, target: self, action: #selector(didTappedPlus))
         let spacer = UIBarButtonItem(customView: UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 40))) // space out between left and right
-        
         navigationItem.rightBarButtonItems = [planeButton, likeButton, plusButton, spacer]
         
     }

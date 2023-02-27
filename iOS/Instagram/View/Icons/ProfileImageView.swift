@@ -7,40 +7,50 @@
 
 import UIKit
 class ProfileImageView: UIView {
-    var internalUIImageView: UIImageView?
-    var shapeLayer: CAShapeLayer?
-    var image: UIImage? {
+    
+    private var internalUIImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private var shapeLayer: CAShapeLayer?
+    
+    public var image: UIImage? {
         didSet {
-            setupView()
+            internalUIImageView.image = image
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        layout()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("Unsupported")
     }
-    private func setupView() {
-        internalUIImageView = UIImageView()
-        guard let innerView = internalUIImageView else { return }
-        addSubview(innerView)
+    
+    //MARK: - Private
+    private func layout() {
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(internalUIImageView)
+        
         let padding: CGFloat = 4
-        innerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            innerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-            innerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-            innerView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
-            innerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
+            internalUIImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            internalUIImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            internalUIImageView.topAnchor.constraint(equalTo: topAnchor, constant: padding),
+            internalUIImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding)
         ])
-        innerView.image = image
         shapeLayer = CAShapeLayer()
     }
+    
     override func draw(_ rect: CGRect) {
         drawRingFittingInsideSquareView()
     }
+    
     internal func drawRingFittingInsideSquareView() {
         let midPoint: CGFloat = bounds.size.width/2
         let lineWidth: CGFloat =  2
@@ -49,12 +59,12 @@ class ProfileImageView: UIView {
                                       startAngle: CGFloat(0),
                                       endAngle: CGFloat(Double.pi*2),
                                       clockwise: false)
-        if let sl = shapeLayer {
-            sl.path = circlePath.cgPath
-            sl.fillColor = UIColor.clear.cgColor
-            sl.strokeColor = UIColor.lightGray.cgColor
-            sl.lineWidth = lineWidth
-            layer.addSublayer(sl)
+        if let shapeLayer = shapeLayer {
+            shapeLayer.path = circlePath.cgPath
+            shapeLayer.fillColor = UIColor.clear.cgColor
+            shapeLayer.strokeColor = UIColor.lightGray.cgColor
+            shapeLayer.lineWidth = lineWidth
+            layer.addSublayer(shapeLayer)
         }
     }
     override func layoutSubviews() {
@@ -63,8 +73,7 @@ class ProfileImageView: UIView {
         self.clipsToBounds = true
         shapeLayer?.removeFromSuperlayer()
         drawRingFittingInsideSquareView()
-        guard let imageView = self.internalUIImageView else {return}
-        imageView.layer.cornerRadius = imageView.frame.size.height / 2
-        imageView.clipsToBounds = true
+        internalUIImageView.layer.cornerRadius = internalUIImageView.frame.size.height / 2
+        internalUIImageView.clipsToBounds = true
     }
 }

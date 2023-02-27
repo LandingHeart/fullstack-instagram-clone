@@ -48,8 +48,12 @@ final class IGRequest {
     }
 
 
-    //convenience init
+    //convenience requests
+    // User
     static let loginRequest = IGRequest(endpoint: .user, paths: ["login"], httpMethod: .post)
     static let renewTokenRequest = IGRequest(endpoint: .user, paths: ["token"], httpMethod: .post)
     static let logoutRequest = IGRequest(endpoint: .user, paths: ["logout"], httpMethod: .delete)
+    
+    // Post
+    static let allPostRequest = IGRequest(endpoint: .post, httpMethod: .get)
 }
