@@ -8,7 +8,7 @@
     "build-client-watch": "webpack -w",
     "start-server": "nodemon server -e html,js,scss --ignore public --ignore views",
     "dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
-    "build": "cross-env NODE_ENV=production webpack --mode production && node server.js",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "dev-test": "webpack serve --mode development",
     "client": "webpack serve --mode development",
     "test": "cross-env NODE_ENV=test jest --runInBand",

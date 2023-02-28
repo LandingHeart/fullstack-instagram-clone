@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./views/public/index.html",
-      filename: "./index.html",
+      filename: "index.html",
     }),
   ],
   module: {
