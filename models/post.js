@@ -18,6 +18,21 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
       },
+      width: {
+        type: DataTypes.INTEGER,
+        required: true,
+        allowNull: false,
+      },
+      height: {
+        type: DataTypes.INTEGER,
+        required: true,
+        allowNull: false,
+      },
+      aspectRatio: {
+        type: DataTypes.DOUBLE,
+        required: true,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.STRING(255),
         required: true,

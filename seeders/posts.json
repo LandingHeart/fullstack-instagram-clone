@@ -2,6 +2,9 @@
   {
     "title": "State park",
     "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/bear-mountain-state-park-gb.jpg?alt=media&token=fa106fb8-ea51-44fd-908c-22d4e5fdd744",
+    "width": 1200,
+    "height": 630,
+    "aspectRatio": 1.9047619,
     "description": "parking lots car",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-22T18:09:57.612Z",
@@ -9,7 +12,10 @@
   },
   {
     "title": "Mountain park",
-    "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/d3324fd9-71fb-40a4-8f46-14553c3799c1.jpg?alt=media&token=bcb9aec5-4244-4ab1-8b29-9960cc3cb5b8",
+    "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/lolgame.png?alt=media&token=33521b7f-8c22-4a59-bb4c-d45e41985638",
+    "width": 850,
+    "height": 478,
+    "aspectRatio": 1.77824268,
     "description": "Park",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:09:52.886Z",
@@ -17,7 +23,10 @@
   },
   {
     "title": "favorite G.E.M song",
-    "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/lolgame.png?alt=media&token=33521b7f-8c22-4a59-bb4c-d45e41985638",
+    "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/d3324fd9-71fb-40a4-8f46-14553c3799c1.jpg?alt=media&token=bcb9aec5-4244-4ab1-8b29-9960cc3cb5b8",
+    "width": 1280,
+    "height": 720,
+    "aspectRatio": 1.7806841,
     "description": "The period of new beggining",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:10:53.282Z",
@@ -26,6 +35,9 @@
   {
     "title": "Farm live",
     "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/farm.jpg?alt=media&token=33c64946-4850-4e35-b205-28c24ea3cd6f",
+    "width": 542,
+    "height": 360,
+    "aspectRatio": 1.50555556,
     "description": "farm",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:11:20.828Z",
@@ -34,6 +46,9 @@
   {
     "title": "The Goat",
     "postImgUrl": "https://firebasestorage.googleapis.com/v0/b/livegoods-78a2f.appspot.com/o/goats.jpg?alt=media&token=fce98ca6-ff99-4849-b5d4-e00367f7c6cc",
+    "width": 4163,
+    "height": 2342,
+    "aspectRatio": 1.77754056,
     "description": "Greatest of all time",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:11:42.605Z",
