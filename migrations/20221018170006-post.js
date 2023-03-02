@@ -41,7 +41,7 @@ module.exports = {
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
       //foreign key
-      UserId: {
+      userId: {
         type: Sequelize.DataTypes.INTEGER,
       },
     });
