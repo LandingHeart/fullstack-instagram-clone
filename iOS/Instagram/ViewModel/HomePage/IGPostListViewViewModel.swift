@@ -56,7 +56,7 @@ final class IGPostListViewViewModel: NSObject {
     
 }
 
-
+//MARK: - DataSource && Delegate
 extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellViewModels.count
@@ -69,7 +69,6 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
         }
         let cellViewModel = cellViewModels[indexPath.row]
         cell.configure(with: cellViewModel)
-        cell.setImageHeightConstraint(ImageHeight: cellViewModel.requiredImageHeight)
         return cell
     }
     
@@ -78,5 +77,22 @@ extension IGPostListViewViewModel: UICollectionViewDataSource, UICollectionViewD
         return CGSize(width: K.screenWidth, height: cellViewModel.cellHeight)
     }
     
+    //MARK: - Header
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: IGPostHeaderCollectionReusableView.reuseIdentifier,
+                for: indexPath) as? IGPostHeaderCollectionReusableView
+        else {
+            fatalError("Unexpected to deque a defualt header view")
+        }
+        
+        return header
+    }
 }
 

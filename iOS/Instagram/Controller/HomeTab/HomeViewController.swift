@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController {
         view.addSubviews(postListView)
         
         NSLayoutConstraint.activate([
-            postListView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 10),
+            postListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             postListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             postListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             postListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

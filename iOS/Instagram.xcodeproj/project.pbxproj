@@ -45,6 +45,7 @@
 		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
 		3B65C63528FF1C020095799E /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* IGPost.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
+		3B65F6D229B1586C008229DE /* IGPostHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
@@ -106,6 +107,7 @@
 		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B65C63428FF1C020095799E /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 			children = (
 				3BDB482729023E9900E0FBA4 /* PostCell */,
 				3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */,
+				3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */,
 			);
 			path = PostTable;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
 				3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */,
 				3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */,
+				3B65F6D229B1586C008229DE /* IGPostHeaderCollectionReusableView.swift in Sources */,
 				3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */,
 				3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */,
 				3BE43927297756520016AB56 /* SignupViewController.swift in Sources */,

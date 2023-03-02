@@ -171,6 +171,7 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: IGPostCollectionViewCellViewModel) {
+        self.setImageHeightConstraint(ImageHeight: viewModel.requiredImageHeight)
         self.commentView.comment = viewModel.description
         ImageSource.shared.downloadImage(url: viewModel.postImgUrl) { [weak self] result in
             switch result {

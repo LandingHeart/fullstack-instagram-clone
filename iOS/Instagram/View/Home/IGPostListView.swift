@@ -17,7 +17,11 @@ class IGPostListView: UIView {
         layout.sectionInset = .init(top: 10, left: 0, bottom: 10, right: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(IGPostCollectionViewCell.self, forCellWithReuseIdentifier: IGPostCollectionViewCell.cellIdentifier)
+        collectionView.register(IGPostCollectionViewCell.self,
+                                forCellWithReuseIdentifier: IGPostCollectionViewCell.cellIdentifier)
+        collectionView.register(IGPostHeaderCollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: IGPostHeaderCollectionReusableView.reuseIdentifier)
         collectionView.alpha = 0
         return collectionView
     }()
