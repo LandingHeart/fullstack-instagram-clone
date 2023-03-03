@@ -8,7 +8,8 @@
     "description": "parking lots car",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-22T18:09:57.612Z",
-    "updatedAt": "2022-09-22T18:09:57.612Z"
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "userId": 1
   },
   {
     "title": "Mountain park",
@@ -19,7 +20,8 @@
     "description": "Park",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:09:52.886Z",
-    "updatedAt": "2022-09-23T04:09:52.886Z"
+    "updatedAt": "2022-09-23T04:09:52.886Z",
+    "userId": 2
   },
   {
     "title": "favorite G.E.M song",
@@ -30,7 +32,8 @@
     "description": "The period of new beggining",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:10:53.282Z",
-    "updatedAt": "2022-09-23T04:10:53.282Z"
+    "updatedAt": "2022-09-23T04:10:53.282Z",
+    "userId": 3
   },
   {
     "title": "Farm live",
@@ -41,7 +44,8 @@
     "description": "farm",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:11:20.828Z",
-    "updatedAt": "2022-09-23T04:11:20.828Z"
+    "updatedAt": "2022-09-23T04:11:20.828Z",
+    "userId": 4
   },
   {
     "title": "The Goat",
@@ -52,6 +56,7 @@
     "description": "Greatest of all time",
     "last_edit_date": "2022-09-22T18:09:57.612Z",
     "createdAt": "2022-09-23T04:11:42.605Z",
-    "updatedAt": "2022-09-23T04:11:42.605Z"
+    "updatedAt": "2022-09-23T04:11:42.605Z",
+    "userId": 5
   }
 ]

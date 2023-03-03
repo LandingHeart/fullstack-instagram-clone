@@ -40,10 +40,15 @@ module.exports = {
       last_edit_date: Sequelize.DataTypes.DATE,
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
+      //foreign key
+      userId: {
+        type: Sequelize.DataTypes.INTEGER,
+      },
     });
   },
 
   async down(queryInterface, Sequelize) {
+    await queryInterface.removeConstraint("posts", "post_user_association");
     queryInterface.dropTable("posts");
   },
 };
