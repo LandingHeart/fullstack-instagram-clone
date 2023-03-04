@@ -21,7 +21,8 @@ class IGPostListView: UIView {
                                 forCellWithReuseIdentifier: IGPostCollectionViewCell.cellIdentifier)
         collectionView.register(IGPostHeaderCollectionReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: IGPostHeaderCollectionReusableView.reuseIdentifier)
+                                withReuseIdentifier: IGPostHeaderCollectionReusableView.reuseIdentifier
+        )
         collectionView.alpha = 0
         return collectionView
     }()

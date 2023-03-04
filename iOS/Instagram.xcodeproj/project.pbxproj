@@ -46,6 +46,9 @@
 		3B65C63528FF1C020095799E /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* IGPost.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
 		3B65F6D229B1586C008229DE /* IGPostHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */; };
+		3B65F6D429B2DB61008229DE /* IGHeaderFriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */; };
+		3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */; };
+		3B65F6D829B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
@@ -108,6 +111,9 @@
 		3B65C63428FF1C020095799E /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListView.swift; sourceTree = "<group>"; };
+		3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewCell.swift; sourceTree = "<group>"; };
+		3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewViewModel.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
@@ -304,6 +310,7 @@
 			children = (
 				3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */,
 				3B5BE98829A868DA005253A4 /* CollectionView */,
+				3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -433,6 +440,8 @@
 				3BDB482729023E9900E0FBA4 /* PostCell */,
 				3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */,
 				3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */,
+				3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */,
+				3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */,
 			);
 			path = PostTable;
 			sourceTree = "<group>";
@@ -558,12 +567,15 @@
 				3B5BE98229A85C57005253A4 /* HomeViewController+NavBar.swift in Sources */,
 				3B5BE97929A74718005253A4 /* AuthService.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
+				3B65F6D829B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift in Sources */,
 				3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
+				3B65F6D429B2DB61008229DE /* IGHeaderFriendListView.swift in Sources */,
 				3B5AC83D28FB772B00BD8402 /* MainFeedViewController.swift in Sources */,
 				3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */,
 				3B55E2352919A609007969B0 /* MainFeedViewControllerNavBar.swift in Sources */,
+				3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */,
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
 				3B5BE97E29A85B07005253A4 /* HomeViewController.swift in Sources */,

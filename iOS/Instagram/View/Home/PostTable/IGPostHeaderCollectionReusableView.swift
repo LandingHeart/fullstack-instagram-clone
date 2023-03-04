@@ -8,6 +8,8 @@
 import UIKit
 
 final class IGPostHeaderCollectionReusableView: UICollectionReusableView {
+    
+    let friendListView = IGHeaderFriendListView()
         
     static let reuseIdentifier = "IGPostHeaderCollectionReusableView"
     
@@ -21,6 +23,8 @@ final class IGPostHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     private func layout() {
-        backgroundColor = .blue
+        addSubviews(friendListView)
+        
+        friendListView.pin(to: self)
     }
 }
