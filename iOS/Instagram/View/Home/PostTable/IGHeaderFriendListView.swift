@@ -11,7 +11,7 @@ final class IGHeaderFriendListView: UIView {
 
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = .init(top: 0, left: 5, bottom: 0, right: 5)
+        layout.sectionInset = .init(top: 0, left: 5, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

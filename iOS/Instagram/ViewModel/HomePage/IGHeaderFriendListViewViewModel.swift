@@ -27,7 +27,6 @@ extension IGHeaderFriendListViewViewModel: UICollectionViewDelegate,
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IGHeaderFriendListViewCell.cellIdentifier, for: indexPath) as? IGHeaderFriendListViewCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .blue
         return cell
     }
     

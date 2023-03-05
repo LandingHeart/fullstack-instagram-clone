@@ -11,9 +11,15 @@ class IGHeaderFriendListViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "IGHeaderFriendListViewCell"
     
+    private let friendIcon: ProfileImageView = {
+        let profileImageView = ProfileImageView()
+        return profileImageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
+        friendIcon.image = UIImage(named: "icon")
     }
     
     required init?(coder: NSCoder) {
@@ -22,6 +28,11 @@ class IGHeaderFriendListViewCell: UICollectionViewCell {
     
     //MARK: - Layout
     private func layout() {
+        addSubview(friendIcon)
         
+        NSLayoutConstraint.activate([
+            friendIcon.widthAnchor.constraint(equalToConstant: contentView.frame.width),
+            friendIcon.heightAnchor.constraint(equalToConstant: contentView.frame.height),
+        ])
     }
 }

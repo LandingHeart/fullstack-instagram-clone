@@ -111,8 +111,8 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         contentView.addSubviews(userIcon, usernameLabel, moreButton, imageView, likeButton,
                                 commentButton, bookmarkButton,likesLabel, commentView)
         NSLayoutConstraint.activate([
-            userIcon.widthAnchor.constraint(equalToConstant: 60),
-            userIcon.heightAnchor.constraint(equalToConstant: 60),
+            userIcon.widthAnchor.constraint(equalToConstant: 45),
+            userIcon.heightAnchor.constraint(equalToConstant: 45),
             leftSpacer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             leftSpacer.topAnchor.constraint(equalTo: contentView.topAnchor),
             userIcon.leftAnchor.constraint(equalTo: leftSpacer.rightAnchor),

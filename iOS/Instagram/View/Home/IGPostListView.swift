@@ -23,6 +23,7 @@ class IGPostListView: UIView {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: IGPostHeaderCollectionReusableView.reuseIdentifier
         )
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.alpha = 0
         return collectionView
     }()
