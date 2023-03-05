@@ -71,8 +71,8 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var commentView: PostCommentView = {
-        let commentView = PostCommentView()
+    private lazy var commentView: IGPostCommentView = {
+        let commentView = IGPostCommentView()
         return commentView
     }()
     

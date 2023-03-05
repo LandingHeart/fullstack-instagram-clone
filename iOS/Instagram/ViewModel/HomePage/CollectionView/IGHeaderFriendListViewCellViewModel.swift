@@ -11,4 +11,8 @@ final class IGHeaderFriendListViewCellViewModel {
     
     let imageUrl: String
     
+    init(imageUrl: String) {
+        self.imageUrl = imageUrl
+    }
+    
 }
