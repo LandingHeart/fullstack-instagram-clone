@@ -19,7 +19,6 @@ class IGHeaderFriendListViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layout()
-        friendIcon.image = UIImage(named: "icon")
     }
     
     required init?(coder: NSCoder) {
@@ -34,5 +33,18 @@ class IGHeaderFriendListViewCell: UICollectionViewCell {
             friendIcon.widthAnchor.constraint(equalToConstant: contentView.frame.width),
             friendIcon.heightAnchor.constraint(equalToConstant: contentView.frame.height),
         ])
+    }
+    
+    public func configure(with viewModel: IGHeaderFriendListViewCellViewModel) {
+        ImageSource.shared.downloadImage(url: URL(string: viewModel.imageUrl)) { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.friendIcon.image = UIImage(data: data)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

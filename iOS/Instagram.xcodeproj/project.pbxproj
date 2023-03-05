@@ -297,7 +297,6 @@
 			children = (
 				3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */,
 				3B5BE98829A868DA005253A4 /* CollectionView */,
-				3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 			children = (
 				3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */,
 				3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */,
+				3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
