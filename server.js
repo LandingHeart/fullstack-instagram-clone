@@ -20,9 +20,10 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.get("/*", (req, res) => {
+app.use("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/public/", "index.html"));
 });
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

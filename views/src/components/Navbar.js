@@ -14,17 +14,12 @@ const styles = (theme) => ({
     display: "flex",
     justifyContent: "center",
     flex: "1",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderBottom: "1px solid rgba(219,219,219, 1)",
-    padding: "20px",
+    flexDirection: "column",
   },
 });
 function Navbar({ classes }) {
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.appbar}>
       <Grid className={classes.appbar}>
         <img src={logo} style={{ width: "102.41px", height: "28.99px" }} />
         <Typography style={{ color: "black" }}></Typography>

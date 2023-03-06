@@ -1,32 +1,45 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { withStyles } from "@mui/styles";
+import AppRouter from "../AppRouter";
 const styles = (theme) => ({
-  body: {
-    backgroundColor: "white",
-  },
-  main_content_container: {
+  main_content_row_container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: "#fff",
+    padding: "20px",
+  },
+  main_content_col: {
+    flex: 1,
+  },
+  main_content_col1: {
+    flex: 2,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  main_content_col2: {
+    flex: 1,
   },
 });
 function MainLayout({ children, classes }) {
   return (
-    <div className={classes.body}>
-      <Navbar />
-      <main className={classes.main_content_container}>
-        <section className={classes.main_content_col1}>{children}</section>
-        <section className={classes.main_content_col2}>
-          <ul>
-            <li>a</li>
-            <li>b</li>
-            <li>b</li>
-          </ul>
-        </section>
+    <section className={classes.main_content_row_container}>
+      <div className={classes.main_content_col}>
+        <Navbar />
+      </div>
+      <main className={classes.main_content_col1}>
+        <AppRouter />
       </main>
-    </div>
+      <section className={classes.main_content_col2}>
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>b</li>
+        </ul>
+      </section>
+    </section>
   );
 }
 
