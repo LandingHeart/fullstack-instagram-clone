@@ -5,9 +5,7 @@ import CardFeed from "../components/CardFeed";
 import { Container } from "@mui/material";
 import { withStyles } from "@mui/styles";
 const styles = (theme) => ({
-  main_content_row_container: {
-    backgroundColor: "#fff",
-  },
+  main_content_row_container: {},
 });
 function HomePage({ classes }) {
   const dispatch = useDispatch();
@@ -17,7 +15,7 @@ function HomePage({ classes }) {
   }, []);
 
   return (
-    <div>
+    <div className={classes.main_content_row_container}>
       {loading === false &&
         posts?.map((ele, index) => (
           <CardFeed key={index} title={ele.title} postImgUrl={ele.postImgUrl} />

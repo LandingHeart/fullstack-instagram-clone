@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { withStyles } from "@mui/styles";
 import AppRouter from "../AppRouter";
+
 const styles = (theme) => ({
   main_content_row_container: {
     display: "flex",
@@ -18,6 +19,7 @@ const styles = (theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "column",
   },
   main_content_col2: {
     flex: 1,

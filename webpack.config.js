@@ -1,19 +1,19 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   mode: "development",
   entry: ["./views/src/index.js"],
   output: {
-    // publicPath: "/",
-    path: __dirname + "/views/public/",
+    publicPath: "/public/",
+    path: path.resolve(__dirname, "views", "public"),
     filename: "bundle.js",
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "public"),
+      directory: path.resolve(__dirname, "views", "public"),
     },
+    contentBase: path.resolve(__dirname, "views", "public"),
+    publicPath: "/public/",
     hot: true,
     historyApiFallback: true,
     watchContentBase: true,
@@ -36,20 +36,23 @@ module.exports = {
         ],
       },
       {
-        test: /\.(js|jsx)$/, // .js and .jsx files
-        exclude: /node_modules/, // excluding the node_modules folder
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
       },
       {
-        test: /\.css$/i, // to import css
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-        loader: "file-loader",
-        options: { limit: false },
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader",
+        options: {
+          limit: 8192,
+          outputPath: "/",
+        },
       },
     ],
   },

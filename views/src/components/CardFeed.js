@@ -20,11 +20,13 @@ const styles = (theme) => ({
 });
 function CardFeed({ title, postImgUrl, classes }) {
   return (
-    <Container className={classes.cardContainer}>
-      <People className={classes.iconWrap} />
-      <img className={classes.img} src={postImgUrl}></img>
-      <Typography variant="body1">{title}</Typography>
-    </Container>
+    <div className={classes.cardContainer}>
+      <Container>
+        <People className={classes.iconWrap} />
+        <img className={classes.img} src={postImgUrl}></img>
+        <Typography variant="body1">{title}</Typography>
+      </Container>
+    </div>
   );
 }
 export default withStyles(styles)(CardFeed);
