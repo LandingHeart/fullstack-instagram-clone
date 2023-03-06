@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@mui/styles";
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { People } from "@mui/icons-material";
 const styles = (theme) => ({
   cardContainer: {
@@ -20,11 +20,11 @@ const styles = (theme) => ({
 });
 function CardFeed({ title, postImgUrl, classes }) {
   return (
-    <section className={classes.cardContainer}>
+    <Container className={classes.cardContainer}>
       <People className={classes.iconWrap} />
       <img className={classes.img} src={postImgUrl}></img>
       <Typography variant="body1">{title}</Typography>
-    </section>
+    </Container>
   );
 }
 export default withStyles(styles)(CardFeed);
