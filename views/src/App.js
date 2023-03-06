@@ -1,7 +1,7 @@
-import AppRouter from "./AppRouter";
 import React from "react";
+import MainLayout from "./shared/MainLayout";
 function App() {
-  return <AppRouter />;
+  return <MainLayout />;
 }
 
 export default App;
