@@ -1,7 +1,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     queryInterface.createTable("refreshTokens", {
-      token: {
+      refreshToken: {
         type: Sequelize.DataTypes.STRING(1024),
         required: true,
         allowNull: false,
