@@ -31,7 +31,7 @@ module.exports = class AuthService {
   }
   static async findRefreshToken(token) {
     const found = await RefreshToken.findByPk(token);
-    return token != null;
+    return found != null;
   }
   static generateAccessToken(user) {
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
@@ -41,7 +41,7 @@ module.exports = class AuthService {
   static async generateRefreshToken(user) {
     try {
       const token = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-      await RefreshToken.create({ token: token });
+      await RefreshToken.create({ refreshToken: token });
       return token;
     } catch (error) {
       return error;

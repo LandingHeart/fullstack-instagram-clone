@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   RefreshToken.init(
     {
-      token: {
+      refreshToken: {
         type: DataTypes.STRING(1024),
         required: true,
         allowNull: false,
