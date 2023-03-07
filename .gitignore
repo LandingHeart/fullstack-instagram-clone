@@ -95,7 +95,6 @@ web_modules/
 # Next.js build output
 .next
 out
-yarn.lock
 package-json.lock
 # Nuxt.js build / generate output
 .nuxt
