@@ -13,10 +13,10 @@ jobs:
       # install dependencies
       - run:
           name: Install Dependencies
-          command: npm install
+          command: yarn
       - run:
           name: Run tests
-          command: npm run test
+          command: yarn test
 
 workflows:
   heroku_deploy:
