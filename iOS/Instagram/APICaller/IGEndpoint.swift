@@ -6,7 +6,7 @@
 //
 import Foundation
 
-@frozen enum IGEndpoint: String {
+@frozen enum IGEndpoint: String, CaseIterable, Hashable {
     case user
     case post
 }

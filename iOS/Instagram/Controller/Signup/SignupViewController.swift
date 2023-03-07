@@ -41,6 +41,14 @@ final class SignupViewController: UIViewController {
     
     private let usernameField: LoginTextField = {
         let view = LoginTextField()
+        view.configureTextField(placeholder: "username")
+        view.textField.keyboardType = .emailAddress
+        view.displayClearButton()
+        return view
+    }()
+    
+    private let emailField: LoginTextField = {
+        let view = LoginTextField()
         view.configureTextField(placeholder: "Email address")
         view.textField.keyboardType = .emailAddress
         view.displayClearButton()
@@ -68,9 +76,19 @@ final class SignupViewController: UIViewController {
         let footer = LoginFooterView(frame: .zero, labelText: "Already have account?", buttonText: "Log In")
         return footer
     }()
-    /// computed properties
+    // computed properties
     private var validInput: Bool {
-        return !usernameField.isEmpty && !passwordField.isEmpty
+        return !emailField.isEmpty && !passwordField.isEmpty
+    }
+    
+    private var email: String? {
+        emailField.text
+    }
+    private var username: String? {
+        usernameField.text
+    }
+    private var password: String? {
+        passwordField.text
     }
     
     //MARK: - Life cycle
@@ -85,7 +103,7 @@ final class SignupViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         didTapEmailButton()
-        usernameField.textField.becomeFirstResponder()
+        emailField.textField.becomeFirstResponder()
     }
     //MARK: - Public function
     
@@ -100,11 +118,12 @@ final class SignupViewController: UIViewController {
     private func setupButton() {
         phoneButton.addTarget(self, action: #selector(didTapPhoneButton), for: .touchUpInside)
         emailButton.addTarget(self, action: #selector(didTapEmailButton), for: .touchUpInside)
+        signupButton.addTarget(self, action: #selector(didTapSignup), for: .touchUpInside)
         footer.button.addTarget(self, action: #selector(didTapeLogin), for: .touchUpInside)
     }
     
     private func setupDelegate() {
-        usernameField.delegate = self
+        emailField.delegate = self
         passwordField.delegate = self
     }
     
@@ -116,19 +135,31 @@ final class SignupViewController: UIViewController {
 //MARK: - actions
 extension SignupViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.usernameField.endEditing(true)
+        self.emailField.endEditing(true)
     }
     @objc
     func didTapPhoneButton() {
         phoneButton.isSelected(true)
         emailButton.isSelected(false)
-        usernameField.configureTextField(placeholder: "Phone number")
+        emailField.configureTextField(placeholder: "Phone number")
     }
     @objc
     func didTapEmailButton() {
         emailButton.isSelected(true)
         phoneButton.isSelected(false)
-        usernameField.configureTextField(placeholder: "Email address")
+        emailField.configureTextField(placeholder: "Email address")
+    }
+    @objc
+    func didTapSignup() {
+        guard let email = email, let username = username, let password = password else { return }
+        IGService.shared.register(email: email, username: username, password: password) { result in
+            switch result {
+            case .success(let user):
+                print(user)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     @objc
     func didTapeLogin() {
@@ -139,7 +170,7 @@ extension SignupViewController {
 //MARK: - layout
 extension SignupViewController {
     private func layout() {
-        view.addSubviews(topLabel, buttonStack, usernameField, passwordField, signupButton, footer)
+        view.addSubviews(topLabel, buttonStack, emailField, usernameField, passwordField, signupButton, footer)
         buttonStack.addArrangedSubviews(emailButton, phoneButton)
         
         NSLayoutConstraint.activate([
@@ -153,19 +184,24 @@ extension SignupViewController {
             buttonStack.heightAnchor.constraint(equalToConstant: 50),
             buttonStack.topAnchor.constraint(equalToSystemSpacingBelow: topLabel.bottomAnchor, multiplier: 1),
             
+            emailField.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
+            emailField.topAnchor.constraint(equalToSystemSpacingBelow: buttonStack.bottomAnchor, multiplier: 2),
+            emailField.widthAnchor.constraint(equalTo: topLabel.widthAnchor),
+            emailField.heightAnchor.constraint(equalToConstant: 50),
+            
             usernameField.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
-            usernameField.topAnchor.constraint(equalToSystemSpacingBelow: buttonStack.bottomAnchor, multiplier: 2),
+            usernameField.topAnchor.constraint(equalToSystemSpacingBelow: emailField.bottomAnchor, multiplier: 2),
             usernameField.widthAnchor.constraint(equalTo: topLabel.widthAnchor),
             usernameField.heightAnchor.constraint(equalToConstant: 50),
             
             passwordField.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
             passwordField.topAnchor.constraint(equalToSystemSpacingBelow: usernameField.bottomAnchor, multiplier: 2),
-            passwordField.widthAnchor.constraint(equalTo: usernameField.widthAnchor),
+            passwordField.widthAnchor.constraint(equalTo: emailField.widthAnchor),
             passwordField.heightAnchor.constraint(equalToConstant: 50),
             
             signupButton.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
             signupButton.topAnchor.constraint(equalToSystemSpacingBelow: passwordField.bottomAnchor, multiplier: 4),
-            signupButton.widthAnchor.constraint(equalTo: usernameField.widthAnchor),
+            signupButton.widthAnchor.constraint(equalTo: emailField.widthAnchor),
             signupButton.heightAnchor.constraint(equalToConstant: 50),
             
             footer.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
@@ -185,6 +221,6 @@ extension SignupViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         configureButton()
-        usernameField.displayClearButton()
+        emailField.displayClearButton()
     }
 }
