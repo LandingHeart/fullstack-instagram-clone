@@ -24,8 +24,8 @@ struct IGUser: Codable {
 
     let updatedAt: String
 
-    let accessToken: String
+    let accessToken: String?
 
-    let refreshToken: String
+    let refreshToken: String?
 
 }

@@ -71,8 +71,8 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var commentView: PostCommentView = {
-        let commentView = PostCommentView()
+    private lazy var commentView: IGPostCommentView = {
+        let commentView = IGPostCommentView()
         return commentView
     }()
     
@@ -111,8 +111,8 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         contentView.addSubviews(userIcon, usernameLabel, moreButton, imageView, likeButton,
                                 commentButton, bookmarkButton,likesLabel, commentView)
         NSLayoutConstraint.activate([
-            userIcon.widthAnchor.constraint(equalToConstant: 60),
-            userIcon.heightAnchor.constraint(equalToConstant: 60),
+            userIcon.widthAnchor.constraint(equalToConstant: 45),
+            userIcon.heightAnchor.constraint(equalToConstant: 45),
             leftSpacer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             leftSpacer.topAnchor.constraint(equalTo: contentView.topAnchor),
             userIcon.leftAnchor.constraint(equalTo: leftSpacer.rightAnchor),
@@ -167,10 +167,12 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
         imageView.clearConstraints()
 //        userIcon.image = nil
 //        usernameLabel.text = nil
-//        imageView.image = nil
+        imageView.image = nil
+        commentView.nilText()
     }
     
     public func configure(with viewModel: IGPostCollectionViewCellViewModel) {
+        self.setImageHeightConstraint(ImageHeight: viewModel.requiredImageHeight)
         self.commentView.comment = viewModel.description
         ImageSource.shared.downloadImage(url: viewModel.postImgUrl) { [weak self] result in
             switch result {

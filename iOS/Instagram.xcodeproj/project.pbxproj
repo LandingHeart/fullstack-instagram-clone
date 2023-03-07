@@ -13,10 +13,8 @@
 		3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */; };
 		3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AE29735A8A00AE4454 /* UIColor.swift */; };
 		3B55E2332919A262007969B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2322919A262007969B0 /* RoundButton.swift */; };
-		3B55E2352919A609007969B0 /* MainFeedViewControllerNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */; };
 		3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2362919ADEF007969B0 /* MainButton.swift */; };
 		3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83828FB772B00BD8402 /* AppDelegate.swift */; };
-		3B5AC83D28FB772B00BD8402 /* MainFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */; };
 		3B5AC84228FB772C00BD8402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AC84128FB772C00BD8402 /* Assets.xcassets */; };
 		3B5AC84528FB772C00BD8402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5AC84328FB772C00BD8402 /* LaunchScreen.storyboard */; };
 		3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC85128FE166A00BD8402 /* MainViewController.swift */; };
@@ -40,11 +38,16 @@
 		3B5BE98529A85FC1005253A4 /* IGPostListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */; };
 		3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */; };
 		3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */; };
-		3B5BE98C29AAF185005253A4 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5BE98B29AAF185005253A4 /* PostCommentView.swift */; };
 		3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4322973D55200CB5303 /* LoginOptionView.swift */; };
 		3B64A4352973D92300CB5303 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B64A4342973D92300CB5303 /* UIView.swift */; };
 		3B65C63528FF1C020095799E /* IGPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63428FF1C020095799E /* IGPost.swift */; };
 		3B65C63728FF1E950095799E /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65C63628FF1E950095799E /* APICaller.swift */; };
+		3B65F6D229B1586C008229DE /* IGPostHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */; };
+		3B65F6D429B2DB61008229DE /* IGHeaderFriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */; };
+		3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */; };
+		3B65F6D829B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */; };
+		3B65F6DA29B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */; };
+		3B65F6DC29B45A3F008229DE /* IGPostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
@@ -52,17 +55,12 @@
 		3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7936D7290DABEA001770D4 /* UIImage.swift */; };
 		3B8D32A6290718740069A015 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D32A5290718740069A015 /* ImageSource.swift */; };
 		3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F51162904879C00FA37F5 /* PostManager.swift */; };
-		3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */; };
 		3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */; };
 		3BB03D852904A2A1009872DB /* IGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB03D842904A2A1009872DB /* IGUser.swift */; };
-		3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB48252902335F00E0FBA4 /* PostImageCell.swift */; };
-		3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */; };
 		3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D329629F140041F33C /* LoginViewController.swift */; };
 		3BDEB2D72965E7940041F33C /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDEB2D62965E7940041F33C /* Constant.swift */; };
 		3BE43927297756520016AB56 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE43926297756520016AB56 /* SignupViewController.swift */; };
 		3BE4392A297879C90016AB56 /* SignupMethodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE43929297879C90016AB56 /* SignupMethodButton.swift */; };
-		3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */; };
-		3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE44E5E291303310000A3E7 /* PostCommentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,11 +70,9 @@
 		3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFooterView.swift; sourceTree = "<group>"; };
 		3B4BD0AE29735A8A00AE4454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3B55E2322919A262007969B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewControllerNavBar.swift; sourceTree = "<group>"; };
 		3B55E2362919ADEF007969B0 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		3B5AC83528FB772B00BD8402 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B5AC83828FB772B00BD8402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewController.swift; sourceTree = "<group>"; };
 		3B5AC84128FB772C00BD8402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B5AC84428FB772C00BD8402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B5AC84628FB772C00BD8402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,11 +97,16 @@
 		3B5BE98429A85FC1005253A4 /* IGPostListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostListViewViewModel.swift; sourceTree = "<group>"; };
 		3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
-		3B5BE98B29AAF185005253A4 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		3B64A4322973D55200CB5303 /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		3B64A4342973D92300CB5303 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3B65C63428FF1C020095799E /* IGPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPost.swift; sourceTree = "<group>"; };
 		3B65C63628FF1E950095799E /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListView.swift; sourceTree = "<group>"; };
+		3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewCell.swift; sourceTree = "<group>"; };
+		3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewViewModel.swift; sourceTree = "<group>"; };
+		3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewCellViewModel.swift; sourceTree = "<group>"; };
+		3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGPostCommentView.swift; path = ../../../../../../../../../.Trash/IGPostCommentView.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
@@ -113,17 +114,12 @@
 		3B7936D7290DABEA001770D4 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		3B8D32A5290718740069A015 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		3B8F51162904879C00FA37F5 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
-		3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewModel.swift; sourceTree = "<group>"; };
 		3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		3BB03D842904A2A1009872DB /* IGUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUser.swift; sourceTree = "<group>"; };
-		3BDB48252902335F00E0FBA4 /* PostImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCell.swift; sourceTree = "<group>"; };
-		3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderCell.swift; sourceTree = "<group>"; };
 		3BDEB2D329629F140041F33C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BDEB2D62965E7940041F33C /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BE43926297756520016AB56 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3BE43929297879C90016AB56 /* SignupMethodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupMethodButton.swift; sourceTree = "<group>"; };
-		3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionCell.swift; sourceTree = "<group>"; };
-		3BE44E5E291303310000A3E7 /* PostCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				3B5BE98329A85FAB005253A4 /* HomePage */,
-				3B8F511929048FF300FA37F5 /* PostCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -310,6 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				3B5BE98929A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift */,
+				3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */,
+				3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -376,8 +373,6 @@
 		3B65C62F28FF1BB50095799E /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				3B5AC83C28FB772B00BD8402 /* MainFeedViewController.swift */,
-				3B55E2342919A609007969B0 /* MainFeedViewControllerNavBar.swift */,
 				3B5BE98129A85C57005253A4 /* HomeViewController+NavBar.swift */,
 				3B5BE97D29A85B07005253A4 /* HomeViewController.swift */,
 			);
@@ -428,8 +423,8 @@
 		3BDB48242902332100E0FBA4 /* PostTable */ = {
 			isa = PBXGroup;
 			children = (
+				3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */,
 				3BDB482729023E9900E0FBA4 /* PostCell */,
-				3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */,
 			);
 			path = PostTable;
 			sourceTree = "<group>";
@@ -437,11 +432,10 @@
 		3BDB482729023E9900E0FBA4 /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
-				3BDB482829023EAD00E0FBA4 /* PostHeaderCell.swift */,
-				3BDB48252902335F00E0FBA4 /* PostImageCell.swift */,
-				3BE44E5A2912DA280000A3E7 /* PostActionCell.swift */,
-				3BE44E5E291303310000A3E7 /* PostCommentCell.swift */,
-				3B5BE98B29AAF185005253A4 /* PostCommentView.swift */,
+				3B5BE98629A86872005253A4 /* IGPostCollectionViewCell.swift */,
+				3B65F6D129B1586C008229DE /* IGPostHeaderCollectionReusableView.swift */,
+				3B65F6D329B2DB61008229DE /* IGHeaderFriendListView.swift */,
+				3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -555,12 +549,15 @@
 				3B5BE98229A85C57005253A4 /* HomeViewController+NavBar.swift in Sources */,
 				3B5BE97929A74718005253A4 /* AuthService.swift in Sources */,
 				3BDEB2D429629F140041F33C /* LoginViewController.swift in Sources */,
+				3B65F6D829B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift in Sources */,
 				3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */,
+				3B65F6DA29B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
+				3B65F6DC29B45A3F008229DE /* IGPostCommentView.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
-				3B5AC83D28FB772B00BD8402 /* MainFeedViewController.swift in Sources */,
+				3B65F6D429B2DB61008229DE /* IGHeaderFriendListView.swift in Sources */,
 				3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */,
-				3B55E2352919A609007969B0 /* MainFeedViewControllerNavBar.swift in Sources */,
+				3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */,
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
 				3B5BE97E29A85B07005253A4 /* HomeViewController.swift in Sources */,
@@ -578,19 +575,16 @@
 				3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */,
 				3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */,
 				3B64A4332973D55200CB5303 /* LoginOptionView.swift in Sources */,
-				3BE44E5B2912DA280000A3E7 /* PostActionCell.swift in Sources */,
 				3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */,
 				3B5BE98A29A868EF005253A4 /* IGPostCollectionViewCellViewModel.swift in Sources */,
-				3B5BE98C29AAF185005253A4 /* PostCommentView.swift in Sources */,
 				3B5BE97329A74410005253A4 /* Optional.swift in Sources */,
 				3B5BE97C29A74741005253A4 /* UserCredential.swift in Sources */,
 				3B5AC85528FE1B2800BD8402 /* SearchViewController.swift in Sources */,
-				3BDB482929023EAD00E0FBA4 /* PostHeaderCell.swift in Sources */,
 				3B5AC85B28FE1B7300BD8402 /* ProfileViewController.swift in Sources */,
+				3B65F6D229B1586C008229DE /* IGPostHeaderCollectionReusableView.swift in Sources */,
 				3B5BE98729A86872005253A4 /* IGPostCollectionViewCell.swift in Sources */,
 				3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */,
 				3BE43927297756520016AB56 /* SignupViewController.swift in Sources */,
-				3B8F511A29048FF300FA37F5 /* PostCellViewModel.swift in Sources */,
 				3B65C63728FF1E950095799E /* APICaller.swift in Sources */,
 				3B5AC85728FE1B5E00BD8402 /* VideoViewController.swift in Sources */,
 				3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */,
@@ -599,9 +593,7 @@
 				3B5BE98529A85FC1005253A4 /* IGPostListViewViewModel.swift in Sources */,
 				3B8D32A6290718740069A015 /* ImageSource.swift in Sources */,
 				3B65C63528FF1C020095799E /* IGPost.swift in Sources */,
-				3BDB48262902335F00E0FBA4 /* PostImageCell.swift in Sources */,
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
-				3BE44E5F291303310000A3E7 /* PostCommentCell.swift in Sources */,
 				3B5BE96B29A7437F005253A4 /* IGEndpoint.swift in Sources */,
 				3B725A34297C7A6900A137FE /* UIStackView.swift in Sources */,
 				3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */,

@@ -23,8 +23,10 @@ final class K {
         case 736: // iPhone 6 Plus and 7 Plus
             return 12
         case 812: // iPhone X, XS
-            return 14
+            return 13
         case 896: // iPhone XS Max, XR
+            return 15
+        case 926: // iPhone 12 Pro Max
             return 16
         default:
             return 10

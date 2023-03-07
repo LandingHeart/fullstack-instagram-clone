@@ -53,6 +53,7 @@ final class IGRequest {
     static let loginRequest = IGRequest(endpoint: .user, paths: ["login"], httpMethod: .post)
     static let renewTokenRequest = IGRequest(endpoint: .user, paths: ["token"], httpMethod: .post)
     static let logoutRequest = IGRequest(endpoint: .user, paths: ["logout"], httpMethod: .delete)
+    static let registerRequest = IGRequest(endpoint: .user , paths: ["register"], httpMethod: .post)
     
     // Post
     static let allPostRequest = IGRequest(endpoint: .post, httpMethod: .get)
