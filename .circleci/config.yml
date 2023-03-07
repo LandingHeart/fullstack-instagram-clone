@@ -1,21 +1,30 @@
 version: 2.1
 
-# Define the jobs we want to run for this project
+orbs:
+  heroku: circleci/heroku@0.0.10
+
 jobs:
-  pull-and-build:
+  build:
     docker:
-      - image: arvindr226/alpine-ssh
+      - image: circleci/node:10.16.3
+    working_directory: ~/repo
     steps:
       - checkout
-      - run: ssh -oStrictHostKeyChecking=no -v $USER@$IP "./deploy.sh"
+      # install dependencies
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run tests
+          command: npm run test
 
-# Orchestrate our job run sequence
 workflows:
-  version: 2
-  build-project:
+  heroku_deploy:
     jobs:
-      - pull-and-build:
+      - build
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - build
           filters:
             branches:
-              only:
-                - main
+              only: main
