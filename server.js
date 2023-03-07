@@ -20,7 +20,7 @@ app.get("/api/status", (req, res) => {
   });
 });
 
-app.use("/*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/public/", "index.html"));
 });
 
