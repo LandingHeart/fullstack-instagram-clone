@@ -35,8 +35,6 @@ workflows:
     jobs:
       - run-approval-test:
           type: approval
-          requires:
-            - approval
       - test:
           requires:
             - run-approval-test
