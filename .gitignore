@@ -96,7 +96,7 @@ web_modules/
 .next
 out
 yarn.lock
-pacakge-json.lock
+package-json.lock
 # Nuxt.js build / generate output
 .nuxt
 dist
