@@ -4,27 +4,46 @@ orbs:
   heroku: circleci/heroku@0.0.10
 
 jobs:
-  build:
+  build-and-deploy:
     docker:
       - image: cimg/node:16.14.2
     working_directory: ~/repo
     steps:
       - checkout
-      # install dependencies
       - run:
           name: Install Dependencies
           command: yarn
       - run:
-          name: Run tests
+          name: Build and Deploy
+          command: yarn build && yarn deploy
+
+  test:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Run Tests
           command: yarn test
 
 workflows:
-  heroku_deploy:
+  build-and-deploy-after-test:
     jobs:
-      - build
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+      - run-approval-test:
+          type: approval
+      - test:
           requires:
-            - build
+            - run-approval-test
+          filters:
+            branches:
+              only: main
+      - build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: main
