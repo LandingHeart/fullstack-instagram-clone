@@ -21,6 +21,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
           name: Run Tests
           command: yarn test
 
@@ -42,19 +45,22 @@ workflows:
     jobs:
       - run-approval-test:
           type: approval
-          filters:
-            branches:
-              ignore: main
       - test:
           requires:
             - run-approval-test
           filters:
             branches:
-              only:
-                - "*"
-      - build-and-deploy:
+              ignore: main
+      - hold-for-deployment:
+          type: approval
           requires:
             - test
+          filters:
+            branches:
+              only: main
+      - build-and-deploy:
+          requires:
+            - hold-for-deployment
           filters:
             branches:
               only: main
