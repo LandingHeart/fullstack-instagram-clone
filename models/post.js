@@ -42,12 +42,17 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       last_edit_date: Date.now(),
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       sequelize,
       modelName: "posts",
       tableName: "posts",
     }
+    //foreign key
   );
 
   return Post;

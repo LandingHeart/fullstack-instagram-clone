@@ -1,0 +1,26 @@
+[
+    {
+        "author": "Steven",
+        "text": "This is awesome",
+        "last_edit_date": "2022-09-22T18:09:57.612Z",
+        "updatedAt": "2022-09-22T18:09:57.612Z",
+        "createdAt": "2022-09-22T18:09:57.612Z",
+        "postId": 1
+    },
+    {
+        "author": "dummy1",
+        "text": "I love your post",
+        "last_edit_date": "2022-09-22T18:09:57.612Z",
+        "updatedAt": "2022-09-22T18:09:57.612Z",
+        "createdAt": "2022-09-22T18:09:57.612Z",
+        "postId": 1
+    },
+    {
+        "author": "Kyle",
+        "text": "Subscribed!",
+        "last_edit_date": "2022-09-22T18:09:57.612Z",
+        "updatedAt": "2022-09-22T18:09:57.612Z",
+        "createdAt": "2022-09-22T18:09:57.612Z",
+        "postId": 2
+    }
+]
