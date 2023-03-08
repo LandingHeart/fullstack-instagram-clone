@@ -35,6 +35,7 @@ jobs:
           command: yarn
       - run:
           name: Build and Deploy
+          command: yarn build && yarn deploy
 
 workflows:
   build-and-deploy-after-test:
