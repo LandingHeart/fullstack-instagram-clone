@@ -16,7 +16,7 @@ jobs:
           command: yarn test
       - run:
           name: Build and Deploy
-          command: yarn build && yarn deploy
+          command: yarn build
   test:
     docker:
       - image: cimg/node:16.14.2
