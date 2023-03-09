@@ -19,7 +19,7 @@ GET /api/user/register
 
 `Request Body`: **email**: String, **password**: String, **username**: String, **phone(optional)**: Int
 
-`Success case:`
+$\color{green}{Success\ case:}$ Status code: 201
 
 ```JSON
 {
@@ -34,7 +34,7 @@ GET /api/user/register
 }
 ```
 
-`Failed case:`
+$\color{red}{Failed\ case:}$ Status code: 409
 
 ```JSON
 {
