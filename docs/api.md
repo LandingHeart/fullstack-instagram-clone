@@ -17,7 +17,16 @@ GET /api/user/register
 
 `Params:` None
 
-`Request Body`: **email**: String, **password**: String, **username**: String, **phone(optional)**: Int
+`Request Body`: {**email**: String, **password**: String, **username**: String, **phone(optional)**: Int}
+
+Example:
+```JSON
+{
+    "email": "123@456.com",
+    "password": "abcd",
+    "username": "Kelly"
+}
+```
 
 `🟢Success case: ` Status code: 201
 
