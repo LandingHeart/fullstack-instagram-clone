@@ -3,8 +3,13 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
     static associate(models) {
+      //post-comment one-to-many
       Comment.belongsTo(models.posts);
-      models.posts.hasMany(Comment)
+      models.posts.hasMany(Comment);
+
+      //user-comment one-to-many
+      Comment.belongsTo(models.users);
+      models.users.hasMany(Comment);
     }
   }
   Comment.init(
