@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import BlankPage from "./pages/blankPage";
+import BlankPage from "./pages/BlankPage";
 import HomePage from "./pages/HomePage";
 export default function AppRouter() {
   return (
