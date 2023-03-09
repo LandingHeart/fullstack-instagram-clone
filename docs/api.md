@@ -13,7 +13,7 @@ Base url:
 
 #### Create
 
-GET /api/user/register
+POST /api/user/register
 
 `Params:` None
 
