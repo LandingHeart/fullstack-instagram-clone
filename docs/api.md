@@ -34,7 +34,7 @@ $\color{green}{Success\ case:}$ Status code: 201
 }
 ```
 
-$\color{red}{Failed\ case:}$ Status code: 409
+$${\color{red}Failed \space case:}$$ Status code: 409
 
 ```JSON
 {
