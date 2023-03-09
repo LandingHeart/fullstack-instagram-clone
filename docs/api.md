@@ -4,7 +4,9 @@
 - **Post**
 
 Base url:
+
 `Development:` http://localhost:8080/api/(endpoint)
+
 `Production:` https://fullstack-instagram-clone.herokuapp.com/api/
 
 ## User Endpoint:
@@ -14,6 +16,7 @@ Base url:
 GET /api/user/register
 
 `Params:` None
+
 `Request Body`: **email**: String, **password**: String, **username**: String, **phone(optional)**: Int
 
 `Success case:`
