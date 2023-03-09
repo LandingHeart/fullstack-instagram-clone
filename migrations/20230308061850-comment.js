@@ -9,12 +9,7 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      author: {
-        type: Sequelize.DataTypes.STRING,
-        required: true,
-        allowNull: false,
-      },
-      text: {
+      userComment: {
         type: Sequelize.DataTypes.STRING,
         required: true,
         allowNull: false,
@@ -24,6 +19,10 @@ module.exports = {
       createdAt: Sequelize.DataTypes.DATE,
       //foreign key
       postId: {
+        type: Sequelize.DataTypes.INTEGER,
+        allowNull: false,
+      },
+      userId: {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: false,
       },

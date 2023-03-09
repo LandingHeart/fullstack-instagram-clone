@@ -42,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       last_edit_date: Date.now(),
+      //foreign key
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -52,7 +53,6 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "posts",
       tableName: "posts",
     }
-    //foreign key
   );
 
   return Post;

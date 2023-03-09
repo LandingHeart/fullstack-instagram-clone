@@ -15,14 +15,18 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         allowNull: false,
       },
-      author: {
+      userComment: {
         type: DataTypes.STRING,
         required: true,
         allowNull: false,
       },
-      text: {
-        type: DataTypes.STRING,
-        required: true,
+      //foreign key
+      postId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },
