@@ -14,7 +14,7 @@
     "test": "cross-env NODE_ENV=test jest --runInBand",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "heroku-postbuild": "yarn install && yarn build"
+    "heroku-postbuild": "yarn install && yarn add -D webpack-cli && yarn build"
   },
   "jest": {
     "testEnvironment": "node",
