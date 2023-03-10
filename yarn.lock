@@ -10505,9 +10505,9 @@ readable-stream@^2.0.1:
     util-deprecate "~1.0.1"
 
 readable-stream@^3.0.6, readable-stream@^3.4.0, readable-stream@^3.6.0:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.1.tgz#f9f9b5f536920253b3d26e7660e7da4ccff9bb62"
-  integrity sha512-+rQmrWMYGA90yenhTYsLWAsLsqVC8osOw6PKE1HDYiO0gdPeKe/xDHNzIAIn4C91YQ6oenEhfYqqc1883qHbjQ==
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.6.2.tgz#56a9b36ea965c00c5a93ef31eb111a0f11056967"
+  integrity sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==
   dependencies:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
@@ -11048,9 +11048,9 @@ sequelize@^4.42.0:
     wkx "^0.4.1"
 
 sequelize@^6.21.3:
-  version "6.29.2"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.29.2.tgz#d6610c1cdfa6148359a8c812c55d04f0e38e69fb"
-  integrity sha512-CxtPKhs8R/vDgxvxqDlDsIYyexuOfLOHnud34/YnEwu206wTOCC8+FG/1vwvAqobtaj7Mqa+onn28eqatv+nGg==
+  version "6.29.3"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-6.29.3.tgz#ae5288d99eccc82e7742fdce91b71549a03842cd"
+  integrity sha512-iLbrN//Eh18zXIlNEUNQx7lk5R+SF39m+66bnrT3x8WB8sbxMH2hF4vw8RIa9ZzB1+c94rclMv/i8fngXmb/4A==
   dependencies:
     "@types/debug" "^4.1.7"
     "@types/validator" "^13.7.1"
