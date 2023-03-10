@@ -170,8 +170,6 @@ Example:
 
 `🟢Success case: ` Status code: 204
 
-
-
 `🔴Failed case: `
 
 Status code: 400
@@ -225,9 +223,73 @@ Example:
 
 ## Post Endpoint:
 
-### Create
+### All Post
 
-### Read
+`Description:` Get all posts
+
+`route:` GET /api/post
+
+`Params:` None
+
+`Request Body:` None
+
+`🟢Success case: ` Status code: 200
+
+```JSON
+[
+  {
+    "id": 1,
+    "title": "title",
+    "postImgUrl": "image url",
+    "width": 1200,
+    "height": 630,
+    "aspectRatio": 1.9047619,
+    "description": "parking lots car",
+    "last_edit_date": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "userId": 1
+  },.......
+]
+```
+
+`🔴Failed case: `
+
+### Search Post 
+
+`Description:` Search post where result's title contains given title
+
+`route:` GET /api/post/:title
+
+`Params:` **title**: String
+
+`Request Body:` None
+
+Example:
+
+GET /api/post/park
+
+`🟢Success case: ` Status code: 200
+
+```JSON
+[
+  {
+    "id": 1,
+    "title": "123 park 123",
+    "postImgUrl": "image url",
+    "width": 1200,
+    "height": 630,
+    "aspectRatio": 1.9047619,
+    "description": "parking lots car",
+    "last_edit_date": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "userId": 1
+  },.......
+]
+```
+
+`🔴Failed case: `
 
 ### Update
 
