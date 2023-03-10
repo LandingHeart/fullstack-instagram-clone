@@ -56,6 +56,8 @@ Status code: 409
 }
 ```
 
+<hr>
+
 ### Renew Token
 
 `Description:` renew access token using refresh token
@@ -95,6 +97,8 @@ Status code: 403
     "error": "Invalid Token"
 }
 ```
+
+<hr>
 
 ### Login
 
@@ -150,6 +154,8 @@ Status code: 403
 }
 ```
 
+<hr>
+
 ### Logout
 
 `Description:` Logout for one user
@@ -180,6 +186,8 @@ Status code: 400
     "message": "token not found"
 }
 ```
+
+<hr>
 
 ### Update Phone Number
 
@@ -219,8 +227,6 @@ Example:
 
 `🔴Failed case: `
 
-### Delete
-
 ## Post Endpoint:
 
 ### All Post
@@ -254,6 +260,9 @@ Example:
 ```
 
 `🔴Failed case: `
+
+
+<hr>
 
 ### Search Post 
 
@@ -290,7 +299,3 @@ GET /api/post/park
 ```
 
 `🔴Failed case: `
-
-### Update
-
-### Delete
