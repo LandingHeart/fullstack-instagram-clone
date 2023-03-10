@@ -35,16 +35,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: 0,
         allowNull: false,
       },
-      isUpdated: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-      isDeleted: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
       deletedAt: {
         type: DataTypes.DATE,
         allowNull: true,

@@ -24,20 +24,7 @@ module.exports = {
         defaultValue: 0,
         allowNull: false,
       },
-      isUpdated: {
-        type: Sequelize.DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-      isDeleted: {
-        type: Sequelize.DataTypes.BOOLEAN,
-        defaultValue: false,
-        allowNull: false,
-      },
-      deletedAt: {
-        type: Sequelize.DataTypes.DATE,
-        allowNull: true,
-      },
+      deletedAt: Sequelize.DataTypes.DATE,
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
       //foreign key
