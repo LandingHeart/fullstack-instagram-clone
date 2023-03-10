@@ -11,7 +11,7 @@ Base url:
 
 ## User Endpoint:
 
-### Create
+### Register
 
 `Description:` Register for new user
 
@@ -56,7 +56,7 @@ Status code: 409
 }
 ```
 
-<hr>
+### Renew Token
 
 `Description:` renew access token using refresh token
 
@@ -150,9 +150,40 @@ Status code: 403
 }
 ```
 
-### Read
+### Logout
 
-### Update
+`Description:` Logout for one user
+
+`route:` DELETE /api/user/login
+
+`Params:` None
+
+`Request Body:` {**token**: String}
+
+Example:
+
+```JSON
+{
+    "token": "eyJhbGciOi......UE"
+}
+```
+
+`🟢Success case: ` Status code: 204
+
+
+
+`🔴Failed case: `
+
+Status code: 400
+
+```JSON
+{
+    "status": 400,
+    "message": "token not found"
+}
+```
+
+### Update Phone Number
 
 `Description:` update user's phone number
 
