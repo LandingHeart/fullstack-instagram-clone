@@ -25,6 +25,30 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
       },
+      likes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      dislikes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      isUpdated: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      isDeleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
       //foreign key
       postId: {
         type: DataTypes.INTEGER,
@@ -37,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      timestamps: true,
       modelName: "comments",
       tableName: "comments",
     }

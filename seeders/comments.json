@@ -1,26 +1,36 @@
 [
-    {
-        "userComment": "This is awesome",
-        "last_edit_date": "2022-09-22T18:09:57.612Z",
-        "updatedAt": "2022-09-22T18:09:57.612Z",
-        "createdAt": "2022-09-22T18:09:57.612Z",
-        "postId": 1,
-        "userId": 1
-    },
-    {
-        "userComment": "I love your post",
-        "last_edit_date": "2022-09-22T18:09:57.612Z",
-        "updatedAt": "2022-09-22T18:09:57.612Z",
-        "createdAt": "2022-09-22T18:09:57.612Z",
-        "postId": 1,
-        "userId": 1
-    },
-    {
-        "userComment": "Subscribed!",
-        "last_edit_date": "2022-09-22T18:09:57.612Z",
-        "updatedAt": "2022-09-22T18:09:57.612Z",
-        "createdAt": "2022-09-22T18:09:57.612Z",
-        "postId": 2,
-        "userId": 2
-    }
+  {
+    "userComment": "This is awesome",
+    "likes": 1,
+    "dislikes": 0,
+    "isUpdated": false,
+    "isDeleted": false,
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  },
+  {
+    "userComment": "I love your post",
+    "likes": 1,
+    "dislikes": 0,
+    "isUpdated": false,
+    "isDeleted": true,
+    "deletedAt": "2022-09-22T18:09:57.612Z",
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  },
+  {
+    "userComment": "Subscribed!",
+    "likes": 1,
+    "dislikes": 0,
+    "isUpdated": true,
+    "isDeleted": false,
+    "updatedAt": "2022-10-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  }
 ]
