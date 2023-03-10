@@ -1,4 +1,4 @@
-# API Endpoints:
+#### API Endpoints:
 
 - **User**
 - **Post**
@@ -9,9 +9,9 @@ Base url:
 
 `Production:` https://fullstack-instagram-clone.herokuapp.com/api/
 
-## User Endpoint:
+#### User Endpoint:
 
-### Register
+#### Register
 
 `Description:` Register for new user
 
@@ -58,7 +58,7 @@ Status code: 409
 
 <hr>
 
-### Renew Token
+#### Renew Token
 
 `Description:` renew access token using refresh token
 
@@ -100,7 +100,7 @@ Status code: 403
 
 <hr>
 
-### Login
+#### Login
 
 `Description:` Login for one user
 
@@ -156,7 +156,7 @@ Status code: 403
 
 <hr>
 
-### Logout
+#### Logout
 
 `Description:` Logout for one user
 
@@ -189,7 +189,7 @@ Status code: 400
 
 <hr>
 
-### Update Phone Number
+#### Update Phone Number
 
 `Description:` update user's phone number
 
@@ -227,9 +227,9 @@ Example request body:
 
 `🔴Failed case: `
 
-## Post Endpoint:
+#### Post Endpoint:
 
-### All Post
+#### All Post
 
 `Description:` Get all posts
 
@@ -261,10 +261,9 @@ Example request body:
 
 `🔴Failed case: `
 
-
 <hr>
 
-### Search Post 
+#### Search Post
 
 `Description:` Search post where result's title contains given title
 
