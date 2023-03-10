@@ -3,9 +3,12 @@ const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   mode: isDev ? "development" : "production",
-  entry: ["./views/src/index.js"],
+  entry: [
+    "@babel/polyfill", // enables async-await
+    "./views/src/index.js",
+  ],
   output: {
-    publicPath: "/public/",
+    // publicPath: "/public/",
     path: path.resolve(__dirname, "views", "public"),
     filename: "bundle.js",
   },
