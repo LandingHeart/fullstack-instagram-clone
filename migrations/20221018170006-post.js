@@ -43,6 +43,7 @@ module.exports = {
       //foreign key
       userId: {
         type: Sequelize.DataTypes.INTEGER,
+        allowNull: false,
       },
     });
   },
