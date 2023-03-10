@@ -3,7 +3,7 @@
         "email": "111",
         "phone": 111,
         "password": "111",
-        "username": "dummy1",
+        "username": "Steven",
         "last_edit_date": "2022-09-22T18:09:57.612Z",
         "updatedAt": "2022-09-22T18:09:57.612Z",
         "createdAt": "2022-09-22T18:09:57.612Z"
@@ -12,7 +12,7 @@
         "email": "222",
         "phone": 222,
         "password": "222",
-        "username": "dummy2",
+        "username": "Kyle",
         "last_edit_date": "2022-09-22T18:09:57.612Z",
         "updatedAt": "2022-09-22T18:09:57.612Z",
         "createdAt": "2022-09-22T18:09:57.612Z"
@@ -21,7 +21,7 @@
         "email": "333",
         "phone": 333,
         "password": "333",
-        "username": "dummy3",
+        "username": "Jason",
         "last_edit_date": "2022-09-22T18:09:57.612Z",
         "updatedAt": "2022-09-22T18:09:57.612Z",
         "createdAt": "2022-09-22T18:09:57.612Z"
