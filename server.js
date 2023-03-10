@@ -5,19 +5,23 @@ require("dotenv").config({ path: path.resolve(__dirname, "./configs/.env") });
 const PORT = process.env.PORT || 8080;
 const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
-const DIST_DIR = path.join(__dirname, "views/dist");
+const db = require("./models");
+// const DIST_DIR = path.join(__dirname, "views/dist");
 
-app.use(express.static(DIST_DIR));
+// app.use(express.static(DIST_DIR));
 app.use(express.json());
 app.use(morganMiddleware);
 app.use("/", require("./routes"));
 app.use(express.static(path.join(__dirname, "./views/public")));
 
 app.get("/api/status", (req, res) => {
-  res.status(200).send({
-    status: "UP",
-    message: "The API is up and running!",
-  });
+  console.log(db);
+  // res.status(200).send({
+  //   status: "UP",
+  //   message: "The API is up and running!",
+  // });
+
+  res.json(db.sequelize.config);
 });
 
 app.get("/*", (req, res) => {
