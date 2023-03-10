@@ -6,9 +6,7 @@ const PORT = process.env.PORT || 8080;
 const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
 const db = require("./models");
-// const DIST_DIR = path.join(__dirname, "views/dist");
 
-// app.use(express.static(DIST_DIR));
 app.use(express.json());
 app.use(morganMiddleware);
 app.use("/", require("./routes"));

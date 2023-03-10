@@ -8,28 +8,7 @@ const env = process.env.NODE_ENV || "development";
 const db = {};
 const config = require(__dirname + "/../config/config.js")[env];
 
-let sequelize;
-
-if (env === "production") {
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect: "postgres",
-    port: 5432,
-    ssl: true,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
-  });
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
+const sequelize = new Sequelize(config);
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -50,8 +29,9 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-
+// connect db
 db.sequelize = sequelize;
+//package
 db.Sequelize = Sequelize;
 
 module.exports = db;
