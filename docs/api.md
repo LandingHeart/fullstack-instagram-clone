@@ -19,9 +19,9 @@ Base url:
 
 `Params:` None
 
-`Request Body:` {**email**: String, **password**: String, **username**: String, **phone(optional)**: Int}
+`Request Body:` {email: String, password: String, username: String, phone: String}
 
-Example:
+Example request body:
 
 ```JSON
 {
@@ -66,9 +66,9 @@ Status code: 409
 
 `Params:` None
 
-`Request Body:` {**refreshToken**: String, **user**: { **email**: String, **password**: String} }
+`Request Body:` {refreshToken: String, user: { email: String, password: String} }
 
-Example:
+Example request body:
 
 ```JSON
 {
@@ -108,9 +108,9 @@ Status code: 403
 
 `Params:` None
 
-`Request Body:` {**email**: String, **password**: String}
+`Request Body:` {email: String, password: String}
 
-Example:
+Example request body:
 
 ```JSON
 {
@@ -164,9 +164,9 @@ Status code: 403
 
 `Params:` None
 
-`Request Body:` {**token**: String}
+`Request Body:` {token: String}
 
-Example:
+Example request body:
 
 ```JSON
 {
@@ -197,11 +197,11 @@ Status code: 400
 
 `Params:` None
 
-`Request Header:` {**Authorization**: Bearer \space (user's access token)}
+`Request Header:` {Authorization: Bearer \space (user's access token)}
 
-`Request Body:` {**id**: Int, **phone**: Int}
+`Request Body:` {id: Int, phone: Int}
 
-Example:
+Example request body:
 
 ```JSON
 {
@@ -255,7 +255,7 @@ Example:
     "createdAt": "2022-09-22T18:09:57.612Z",
     "updatedAt": "2022-09-22T18:09:57.612Z",
     "userId": 1
-  },.......
+  }
 ]
 ```
 
@@ -270,11 +270,11 @@ Example:
 
 `route:` GET /api/post/:title
 
-`Params:` **title**: String
+`Params:` title: String
 
 `Request Body:` None
 
-Example:
+Example request:
 
 GET /api/post/park
 
@@ -294,7 +294,7 @@ GET /api/post/park
     "createdAt": "2022-09-22T18:09:57.612Z",
     "updatedAt": "2022-09-22T18:09:57.612Z",
     "userId": 1
-  },.......
+  }
 ]
 ```
 
