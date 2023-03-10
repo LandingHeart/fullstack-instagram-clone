@@ -1,13 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import BlankPage from "./pages/BlankPage";
 import HomePage from "./pages/HomePage";
-
 export default function AppRouter() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" exact element={<HomePage />} />
+      <Route path="/blank" exact element={<BlankPage />} />
+    </Routes>
   );
 }

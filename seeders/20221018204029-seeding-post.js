@@ -1,10 +1,16 @@
 const posts = require("./posts.json");
+const users = require("./users.json");
+const comments = require("./comments.json");
 module.exports = {
   async up(queryInterface, Sequelize) {
-    queryInterface.bulkInsert("posts", posts);
+    await queryInterface.bulkInsert("users", users);
+    await queryInterface.bulkInsert("posts", posts);
+    await queryInterface.bulkInsert("comments", comments);
   },
 
   async down(queryInterface, Sequelize) {
-    queryInterface.dropTable("posts");
+    await queryInterface.dropTable("users");
+    await queryInterface.dropTable("posts");
+    await queryInterface.dropTable("comment");
   },
 };

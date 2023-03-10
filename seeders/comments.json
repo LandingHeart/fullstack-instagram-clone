@@ -1,0 +1,31 @@
+[
+  {
+    "userComment": "This is awesome",
+    "likes": 1,
+    "dislikes": 0,
+    "deletedAt": "2022-10-22T18:09:57.612Z",
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  },
+  {
+    "userComment": "I love your post",
+    "likes": 1,
+    "dislikes": 0,
+    "deletedAt": "2022-11-22T18:09:57.612Z",
+    "updatedAt": "2022-09-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  },
+  {
+    "userComment": "Subscribed!",
+    "likes": 1,
+    "dislikes": 0,
+    "updatedAt": "2022-10-22T18:09:57.612Z",
+    "createdAt": "2022-09-22T18:09:57.612Z",
+    "postId": 1,
+    "userId": 1
+  }
+]

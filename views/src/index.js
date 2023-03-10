@@ -6,14 +6,14 @@ import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme.js";
-
+import { BrowserRouter as Router } from "react-router-dom";
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <Router>
         <App />
-      </ThemeProvider>
-    </Provider>
-  </React.StrictMode>,
+      </Router>
+    </ThemeProvider>
+  </Provider>,
   document.getElementById("root")
 );

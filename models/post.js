@@ -2,7 +2,10 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
-    static associate(models) {}
+    static associate(models) {
+      Post.belongsTo(models.users);
+      models.users.hasMany(Post);
+    }
   }
   Post.init(
     {
@@ -18,15 +21,36 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
       },
+      width: {
+        type: DataTypes.INTEGER,
+        required: true,
+        allowNull: false,
+      },
+      height: {
+        type: DataTypes.INTEGER,
+        required: true,
+        allowNull: false,
+      },
+      aspectRatio: {
+        type: DataTypes.DOUBLE,
+        required: true,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.STRING(255),
         required: true,
         allowNull: false,
       },
       last_edit_date: Date.now(),
+      //foreign key
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       sequelize,
+      timestamps: true,
       modelName: "posts",
       tableName: "posts",
     }

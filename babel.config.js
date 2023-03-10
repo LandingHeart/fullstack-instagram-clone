@@ -1,0 +1,25 @@
+module.exports = {
+  presets: [
+    "@babel/preset-env",
+    ["@babel/preset-react", { runtime: "automatic" }],
+  ],
+  plugins: [
+    /*
+    These plugins teach Babel to recognize EcmaScript language features that have reached "stage 2" in the process of approval for inclusion in the official EcmaScript specification (called the "TC39 process"). There are 5 stages in the process, starting at 0 (basically a brand new proposal) going up to 4 (finished and ready for inclusion). Read more about it here: http://2ality.com/2015/11/tc39-process.html. Using new language features before they're officially part of EcmaScript is fun, but it also carries a risk: sometimes proposed features can change substantially (or be rejected entirely) before finally being included in the language, so if you jump on the bandwagon too early, you risk having your code be dependent on defunct/nonstandard syntax! "Stage 2" is a fairly safe place to start - after stage 2, the feature is well on its way to official inclusion and only minor changes are expected.
+    */
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-json-strings",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        legacy: true,
+      },
+    ],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions",
+  ],
+};

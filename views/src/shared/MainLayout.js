@@ -1,34 +1,47 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { withStyles } from "@mui/styles";
+import AppRouter from "../AppRouter";
+
 const styles = (theme) => ({
-  body: {
-    backgroundColor: "white",
+  main_content_row_container: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+    padding: "20px",
   },
-  navbar_container: {
+  main_content_col: {
+    flex: 1,
+  },
+  main_content_col1: {
+    flex: 2,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
-    borderBottom: "1px solid rgba(219,219,219, 1)",
-    height: "60px",
-  },
-  main_content_container: {
-    display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#fff",
+  },
+  main_content_col2: {
+    flex: 1,
   },
 });
 function MainLayout({ children, classes }) {
   return (
-    <div className={classes.body}>
-      <div className={classes.navbar_container}>
+    <section className={classes.main_content_row_container}>
+      <div className={classes.main_content_col}>
         <Navbar />
       </div>
-      <main className={classes.main_content_container}>{children}</main>
-    </div>
+      <main className={classes.main_content_col1}>
+        <AppRouter />
+      </main>
+      <section className={classes.main_content_col2}>
+        <ul>
+          <li>a</li>
+          <li>b</li>
+          <li>b</li>
+        </ul>
+      </section>
+    </section>
   );
 }
 
