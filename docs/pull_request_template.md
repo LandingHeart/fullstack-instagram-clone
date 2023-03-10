@@ -1,9 +1,9 @@
 **Status**
 
-ready or not ready
+Not Ready
 
 **Description**
 
-Please include a short summary of the changes and the related issue.
+Please include a short summary.
 
-**What change**
+**Change Logs**

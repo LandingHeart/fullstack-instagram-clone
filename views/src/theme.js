@@ -2,35 +2,35 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import colors from "./colors";
 
 const theme = createTheme({
-  // MuiUseMediaQuery: { ssrMatchMedia },
   typography: {
     h1: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
     h2: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
     h3: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
     h4: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
     h5: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
     h6: {
-      fontFamily: "Montserrat, sans-serif",
+      fontFamily: "Roboto, sans-serif",
     },
-    subtitle1: { fontFamily: "Montserrat, San-Serif", fontSize: "20px" },
-    subtitle2: { fontFamily: "Montserrat, San-Serif" },
+    subtitle1: { fontFamily: "Roboto, San-Serif", fontSize: "20px" },
+    subtitle2: { fontFamily: "Roboto, San-Serif" },
     body1: {
-      fontFamily: "Montserrat, San-Serif",
-      fontSize: "20px",
+      fontFamily: "Roboto, San-Serif",
+      fontSize: "14pxpx",
+      fontWeight: "bold",
     },
     body2: {
-      fontFamily: "Montserrat, San-Serif",
-      fontSize: "18px",
+      fontFamily: "Roboto, San-Serif",
+      fontSize: "14px",
     },
   },
   breakpoints: {
@@ -75,5 +75,4 @@ const theme = createTheme({
   shadows: Array(25).fill("none"),
   spacing: 8,
 });
-
 export default responsiveFontSizes(theme);
