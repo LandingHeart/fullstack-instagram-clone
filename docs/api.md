@@ -5,7 +5,7 @@
 
 Base url:
 
-`Development:` http://localhost:8080/api/(endpoint)
+`Development:` http://localhost:8080/api/
 
 `Production:` https://fullstack-instagram-clone.herokuapp.com/api/
 
