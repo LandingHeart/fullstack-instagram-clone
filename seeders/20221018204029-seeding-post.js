@@ -9,8 +9,8 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("users");
-    await queryInterface.dropTable("posts");
-    await queryInterface.dropTable("comment");
+    await queryInterface.bulkDelete("users", null);
+    await queryInterface.bulkDelete("posts", null);
+    await queryInterface.bulkDelete("comment", null);
   },
 };
