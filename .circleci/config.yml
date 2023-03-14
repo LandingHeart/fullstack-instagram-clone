@@ -18,11 +18,9 @@ jobs:
           name: Build and Deploy
           command: yarn build
   run-test:
-    docker:
-      - image: cimg/node:16.14.2
-      filters:
-        branches:
-          ignore: main
+    filters:
+      branches:
+        ignore: main
     working_directory: ~/repo
     steps:
       - checkout
@@ -47,7 +45,7 @@ jobs:
       - run:
           name: Run Approval Tests
           command: yarn approval-test
-          
+
 workflows:
   run-build-and-deploy:
     jobs:
