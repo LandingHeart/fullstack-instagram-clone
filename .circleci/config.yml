@@ -15,7 +15,7 @@ jobs:
           name: Run Tests
           command: yarn test
       - run:
-          name: Build and Deploy
+          name: Build
           command: yarn build
   run-test:
     docker:
@@ -32,6 +32,19 @@ jobs:
     filters:
       branches:
         ignore: main
+  deploy-to-heroku:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          name: Deploy to Heroku
+          command: heroku/deploy
+    filters:
+      branches:
+        only: main
 
 workflows:
   run-build-and-deploy:
@@ -53,3 +66,9 @@ workflows:
           filters:
             branches:
               only: /.*/
+      - deploy-to-heroku:
+          requires:
+            - run-build-and-deploy
+          filters:
+            branches:
+              only: main
