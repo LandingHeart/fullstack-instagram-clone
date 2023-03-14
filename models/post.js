@@ -15,7 +15,21 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      title: { type: DataTypes.STRING(255), required: true, allowNull: false },
+      title: {
+        type: DataTypes.STRING(255),
+        required: true,
+        allowNull: false,
+      },
+      likes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      dislikes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
       postImgUrl: {
         type: DataTypes.STRING,
         required: true,
