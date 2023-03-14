@@ -1,6 +1,6 @@
 ## Project Motivation
 
-This project is to teach and show student how to work on a collaboration project. And thus learning about the tech stacks.
+This project is a clone-version of Instagram application with full-stack development. The motivation is to teach and show student how to work on a collaboration project. And thus learning about the tech stacks.
 
 ## Getting Started
 
@@ -36,17 +36,24 @@ frontend server start at local 3000
 
 #### Project Stack:
 
-- React 17
-- Redux Toolkit
-- Node 16.18.0
-- yarn 1.22.17
-- PostgreSQL@14
-- MUI
-- express js 4.18.1
-- sequelize
-- heroku, netify TBD
-- morgan (logging HTTP request)
-- winston
+- Front-End
+  - React 17
+  - MUI
+  - UiKit
+  - Swift 5.4
+
+- Backend
+  - Node 16.18.0
+  - express js 4.18.1
+  - PostgreSQL@14
+  - sequelize
+
+- Tools
+  - Redux Toolkit
+  - yarn 1.22.17
+  - heroku, netify TBD
+  - morgan (logging HTTP request)
+  - winston
 
 ## CI/CD Pipeline (WIP)
 
@@ -65,6 +72,10 @@ Please follow this if you want to contribute and become a collaborator.
 #### React
 
 We use React with Javascript for our frontend codebase.
+
+#### iOS mobile application
+
+The mobile application is build with Swift and UiKit. The source code is under branch `main-ios`
 
 #### Code Style Guide
 
