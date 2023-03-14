@@ -6,7 +6,7 @@ module.exports = {
     database: process.env.DB_NAME,
     host: "127.0.0.1",
     dialect: "postgres",
-    logging: false,
+    logging: true,
     dialectOptions: {
       bigNumberStrings: true,
     },
@@ -16,8 +16,8 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: "127.0.0.1",
-    port: 3306,
     dialect: "postgres",
+    logging: true,
     dialectOptions: {
       bigNumberStrings: true,
     },
