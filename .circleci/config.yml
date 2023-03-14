@@ -53,4 +53,4 @@ workflows:
             - run-test
           filters:
             branches:
-              only: main
+              only: /.*/
