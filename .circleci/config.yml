@@ -34,9 +34,6 @@ workflows:
     jobs:
       - run-approval-test:
           type: approval
-          filters:
-            branches:
-              ignore: main
       - run-test:
           requires:
             - run-approval-test
