@@ -47,13 +47,9 @@ module.exports = class UserService {
   //Create
   static async createUser(body) {
     try {
-      const hash = await bcrypt.hash(body.password, 10);
-      var data = body;
-      data.password = hash;
-      const user = await User.create(data);
+      const user = await User.create(body);
       return user;
     } catch (error) {
-      console.log(`could not create user with email ${body.email}`);
       console.log(error);
       return error;
     }

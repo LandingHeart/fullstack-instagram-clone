@@ -34,10 +34,10 @@ module.exports = class User {
         const refreshToken = await AuthService.generateRefreshToken(user);
         user.accessToken = accessToken;
         user.refreshToken = refreshToken;
-        res.status(200).json(user);
+        return res.status(200).json(user);
       }
     } catch (error) {
-      res.status(error.status).json({ error: error.message });
+      return res.status(error.status || 500).json({ error: error.message });
     }
   }
   //Create
@@ -46,15 +46,14 @@ module.exports = class User {
     try {
       const user = await UserService.createUser(body);
       if (user.errors != null) {
-        throw Error("user exist");
+        throw Error("user already exist");
       }
-      res.status(201).json(user);
+      return res.status(201).json(user);
     } catch (error) {
       if (error.message == "user exist") {
-        res.status(409).json({ error: error.message });
-        return;
+        return res.status(409).json({ error: error.message });
       }
-      res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
   //Update
