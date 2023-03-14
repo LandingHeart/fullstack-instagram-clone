@@ -11,11 +11,15 @@ module.exports = {
           defaultValue: 0,
           allowNull: false,
         }
-      ),
+      ).then(() => {
+        return queryInterface.sequelize.query('UPDATE posts set likes = 10000')
+      }),
       queryInterface.addColumn("posts", "dislikes", {
         type: Sequelize.DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false,
+      }).then(() => {
+        return queryInterface.sequelize.query('UPDATE posts set dislikes = 2')
       }),
     ]);
   },
