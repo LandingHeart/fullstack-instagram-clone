@@ -21,6 +21,9 @@ jobs:
     docker:
       - image: cimg/node:16.14.2
     working_directory: ~/repo
+    filters:
+      branches:
+        ignore: main
     steps:
       - checkout
       - run:
@@ -29,23 +32,33 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+  run-approval-test:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Run Approval Tests
+          command: yarn approval-test
+    filters:
+      branches:
+        only: /.*/
+        ignore: main
 workflows:
   run-build-and-deploy:
     jobs:
       - run-approval-test:
           type: approval
-          filters:
-            branches:
-              ignore: main
       - run-test:
           requires:
             - run-approval-test
-          filters:
-            branches:
-              only: /.*/
       - run-build-and-deploy:
           requires:
             - run-test
           filters:
             branches:
-              only: /.*/
+              only: main
