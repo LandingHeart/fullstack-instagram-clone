@@ -17,7 +17,7 @@ jobs:
     filters:
       branches:
         only: main
-  runt-test:
+  run-test:
     docker:
       - image: cimg/node:16.14.2
       steps:
@@ -61,12 +61,12 @@ workflows:
     jobs:
       - run-approval-test:
           type: approval
-      - runt-test:
+      - run-test:
           requires:
             - run-approval-test
       - run-build-and-deploy:
           requires:
-            - runt-test
+            - run-test
           filters:
             branches:
               only: main
