@@ -12,14 +12,22 @@ module.exports = {
           allowNull: false,
         }
       ).then(() => {
-        return queryInterface.sequelize.query('UPDATE posts set likes = 10000')
+        for(let id = 1; id <= 5; id++) {
+          const likes = id + 10000;
+          queryInterface.sequelize.query(`UPDATE posts SET likes = ${likes} WHERE id = ${id}`);
+        }
+        return 
       }),
       queryInterface.addColumn("posts", "dislikes", {
         type: Sequelize.DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false,
       }).then(() => {
-        return queryInterface.sequelize.query('UPDATE posts set dislikes = 2')
+        for(let id = 1; id <= 5; id++) {
+          const dislikes = id + 10000;
+          queryInterface.sequelize.query(`UPDATE posts SET dislikes = ${dislikes} WHERE id = ${id}`);
+        }
+        return 
       }),
     ]);
   },
