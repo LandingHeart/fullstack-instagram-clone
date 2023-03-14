@@ -1,36 +1,9 @@
 version: 2.1
-orbs:
-  heroku: circleci/heroku@0.0.10
+
 jobs:
-  run-build-and-deploy:
-    docker:
-      - image: cimg/node:16.14.2
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn
-      - run:
-          name: Build and Deploy
-          command: yarn build
-    filters:
-      branches:
-        only: main
   run-test:
     docker:
       - image: cimg/node:16.14.2
-      steps:
-        - run:
-            name: Install Dependencies
-            command: yarn
-        - run:
-            name: Run Tests
-            command: yarn test
-      filters:
-        branches:
-          only: /.*/
-          ignore: main
     working_directory: ~/repo
     steps:
       - checkout
@@ -40,13 +13,24 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+
+  build-and-deploy:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn build
+
   run-approval-test:
     docker:
       - image: cimg/node:16.14.2
     working_directory: ~/repo
-    filters:
-      branches:
-        only: main
     steps:
       - checkout
       - run:
@@ -55,7 +39,7 @@ jobs:
       - run:
           name: Run Approval Tests
           command: yarn approval-test
-          
+
 workflows:
   run-build-and-deploy:
     jobs:
@@ -63,8 +47,8 @@ workflows:
           type: approval
       - run-test:
           requires:
-            - run-approval-test
-      - run-build-and-deploy:
+            - run-approval
+      - build-and-deploy:
           requires:
             - run-test
           filters:
