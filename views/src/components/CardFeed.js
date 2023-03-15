@@ -1,18 +1,21 @@
 import React from "react";
 import { withStyles } from "@mui/styles";
-import { Container, Typography } from "@mui/material";
 import { People } from "@mui/icons-material";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+
 const styles = (theme) => ({
   cardContainer: {
-    width: "400px",
-    height: "500px",
+    width: "382px",
+    height: "924px",
     borderRadius: "3px",
   },
-  img: {
-    height: "400px",
-    width: "400px",
-  },
-  iconWrap: {
+  icon: {
     borderRadius: "50%",
     backgroundColor: "#f3f3f3",
     padding: "3px",
@@ -20,13 +23,20 @@ const styles = (theme) => ({
 });
 function CardFeed({ title, postImgUrl, classes }) {
   return (
-    <div className={classes.cardContainer}>
-      <Container>
-        <People className={classes.iconWrap} />
-        <img className={classes.img} src={postImgUrl}></img>
-        <Typography variant="body1">{title}</Typography>
-      </Container>
-    </div>
+    <Card className={classes.cardContainer}>
+      <People className={classes.icon} />
+      <CardMedia
+        component="img"
+        alt="Card Image"
+        height="400"
+        image={postImgUrl}
+      />
+      <CardContent>
+        <Typography variant="body1" component="p">
+          {title}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 export default withStyles(styles)(CardFeed);

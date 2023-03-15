@@ -9,10 +9,9 @@ const styles = (theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     backgroundColor: "#fff",
-    padding: "20px",
   },
   main_content_col: {
-    flex: 1,
+    width: "245px",
   },
   main_content_col1: {
     flex: 2,
