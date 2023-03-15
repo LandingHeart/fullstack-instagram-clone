@@ -140,6 +140,7 @@ dist
 ### Node Patch ###
 # Serverless Webpack directories
 .webpack/
+bundle.js
 
 # Optional stylelint cache
 
