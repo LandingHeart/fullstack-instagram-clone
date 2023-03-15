@@ -49,4 +49,20 @@ module.exports = class PostService {
       console.log(`could not create post`);
     }
   }
+
+  static async deletePost(postId) {
+    try {
+      const post = await Post.findByPk(postId);
+      if (post == null) {
+        let error = Error(`post(id=${postId}) does not exist`);
+        error.status = 404;
+        throw error;
+      }
+      await post.destroy();
+      return;
+    } catch (err) {
+      console.log(`delete post failed`);
+      return err;
+    }
+  }
 };

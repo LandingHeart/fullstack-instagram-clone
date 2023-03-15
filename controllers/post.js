@@ -29,4 +29,16 @@ module.exports = class Post {
       res.status(500), json({ error: error });
     }
   }
+
+  static async deletePost(req, res, next) {
+    try {
+      const result = await PostService.deletePost(req.params.postId);
+      if (result instanceof Error) {
+        throw result;
+      }
+      return res.status(204).send();
+    } catch (error) {
+      return res.status(error.status).json({ error: error.message });
+    }
+  }
 };
