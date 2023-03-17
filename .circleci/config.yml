@@ -45,9 +45,15 @@ workflows:
     jobs:
       - run-approval-test:
           type: approval
+          filters:
+            branches:
+              ignore: main
       - run-test:
           requires:
             - run-approval-test
+          filters:
+          branches:
+            ignore: main
       - build-and-deploy:
           requires:
             - run-test
