@@ -52,8 +52,8 @@ workflows:
           requires:
             - run-approval-test
           filters:
-          branches:
-            ignore: main
+            branches:
+              ignore: main
       - build-and-deploy:
           requires:
             - run-test
