@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         setupDelegate()
         let loginNC = makeLoginNC()
-        window?.rootViewController = loginNC
+        window?.rootViewController = mainVC
         
         return true
     }
