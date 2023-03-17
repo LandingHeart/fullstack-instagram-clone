@@ -14,5 +14,9 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .green
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        IGErrorMessageView.noInternet()
+    }
 
 }

@@ -53,6 +53,7 @@
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
 		3B725A34297C7A6900A137FE /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A33297C7A6900A137FE /* UIStackView.swift */; };
 		3B7936D8290DABEA001770D4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7936D7290DABEA001770D4 /* UIImage.swift */; };
+		3B7E6A2329C4205400EF646D /* IGErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6A2229C4205400EF646D /* IGErrorMessageView.swift */; };
 		3B8D32A6290718740069A015 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D32A5290718740069A015 /* ImageSource.swift */; };
 		3B8F51172904879C00FA37F5 /* PostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8F51162904879C00FA37F5 /* PostManager.swift */; };
 		3B9742AE2904C69200FBC339 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */; };
@@ -112,6 +113,7 @@
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
 		3B725A33297C7A6900A137FE /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		3B7936D7290DABEA001770D4 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		3B7E6A2229C4205400EF646D /* IGErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGErrorMessageView.swift; sourceTree = "<group>"; };
 		3B8D32A5290718740069A015 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		3B8F51162904879C00FA37F5 /* PostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostManager.swift; sourceTree = "<group>"; };
 		3B9742AD2904C69200FBC339 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		3B5AC85328FE1B0500BD8402 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3B7E6A2129C4204200EF646D /* ErrorHandling */,
 				3B64A439297662AA00CB5303 /* Model */,
 				3B64A438297662A100CB5303 /* UIKit */,
 				3B64A4372976629100CB5303 /* APICaller */,
@@ -410,6 +413,14 @@
 				3B725A30297A318500A137FE /* IGUINavigationController.swift */,
 			);
 			path = NavigationController;
+			sourceTree = "<group>";
+		};
+		3B7E6A2129C4204200EF646D /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				3B7E6A2229C4205400EF646D /* IGErrorMessageView.swift */,
+			);
+			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
 		3BB03D862904A2AA009872DB /* User */ = {
@@ -595,6 +606,7 @@
 				3B65C63528FF1C020095799E /* IGPost.swift in Sources */,
 				3B64A4352973D92300CB5303 /* UIView.swift in Sources */,
 				3B5BE96B29A7437F005253A4 /* IGEndpoint.swift in Sources */,
+				3B7E6A2329C4205400EF646D /* IGErrorMessageView.swift in Sources */,
 				3B725A34297C7A6900A137FE /* UIStackView.swift in Sources */,
 				3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */,
 			);

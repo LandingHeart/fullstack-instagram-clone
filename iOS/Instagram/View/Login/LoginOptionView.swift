@@ -28,7 +28,7 @@ final class LoginOptionView: UIView {
 
 extension LoginOptionView {
     private func setupButton() {
-        google.setImage(UIImage(named: "google"), for: .normal)
+        google.setImage(UIImage(named: "Google"), for: .normal)
         facebook.setImage(UIImage(named: "facebook"), for: .normal)
     }
     
