@@ -22,6 +22,10 @@ app.get("/api/status", (req, res) => {
   res.json(db.sequelize.config);
 });
 
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/index.html"));
+});
+
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/public/", "index.html"));
 });
