@@ -10,6 +10,7 @@ router.post("/post", postController.apiCreatePost);
 
 router.get("/post", postController.apiGetAllpost);
 router.get("/post/:title", postController.apiSearchAllpost);
+router.delete("/post=:postId", postController.deletePost);
 
 //User route
 router.get("/user", userController.apiGetAlluser);
