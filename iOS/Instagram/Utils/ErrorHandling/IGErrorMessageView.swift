@@ -68,6 +68,11 @@ final class IGErrorMessageView: UIView {
     
     //MARK: - Error handling instance
     @discardableResult
+    public static func customized(message: String, width: CGFloat, height: CGFloat) -> IGErrorMessageView {
+        return IGErrorMessageView(frame: CGRect(x: 0, y: 0, width: width, height: height), message: message)
+    }
+    
+    @discardableResult
     public static func noInternet() -> IGErrorMessageView {
         return IGErrorMessageView(frame: CGRect(x: 0, y: 0, width: 150, height: 50), message: "No Internet Availiable")
     }
