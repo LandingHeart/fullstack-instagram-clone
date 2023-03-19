@@ -9,7 +9,14 @@ import UIKit
 
 final class IGErrorMessageView: UIView {
     
-    private lazy var messageText: UITextView = {
+    private lazy var warningImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "exclamationmark.circle"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = .systemBackground
+        return imageView
+    }()
+    
+    private lazy var messageTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
@@ -21,9 +28,9 @@ final class IGErrorMessageView: UIView {
         return textView
     }()
     
-    private init(frame: CGRect, message: String) {
-        super.init(frame: frame)
-        messageText.text = message
+    private init(message: String) {
+        super.init(frame: .init(x: 0, y: 0, width: K.screenWidth * 0.8, height: 50))
+        messageTextView.text = message
         layout()
         show()
     }
@@ -35,14 +42,19 @@ final class IGErrorMessageView: UIView {
     private func layout() {
         layer.cornerRadius = 10
         backgroundColor = .black
-        alpha = 0.5
+        alpha = 0
         
-        addSubviews(messageText)
+        addSubviews(warningImageView, messageTextView)
         
         NSLayoutConstraint.activate([
-            messageText.centerXAnchor.constraint(equalTo: centerXAnchor),
-            messageText.centerYAnchor.constraint(equalTo: centerYAnchor),
-            messageText.widthAnchor.constraint(equalTo: widthAnchor),
+            warningImageView.heightAnchor.constraint(equalToConstant: 40),
+            warningImageView.widthAnchor.constraint(equalToConstant: 40),
+            warningImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            warningImageView.leftAnchor.constraint(equalToSystemSpacingAfter: leftAnchor, multiplier: 1),
+            
+            messageTextView.leftAnchor.constraint(equalTo: warningImageView.leftAnchor),
+            messageTextView.rightAnchor.constraint(equalTo: rightAnchor),
+            messageTextView.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
     
@@ -54,27 +66,34 @@ final class IGErrorMessageView: UIView {
             .first else {
             return
         }
-        let targetPoint = CGPoint(x: window.center.x, y: window.center.y * 0.4)
-        self.center = targetPoint
+        self.center = CGPoint(x: window.center.x, y: K.screenHeight)
         window.addSubview(self)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            UIView.animate(withDuration: 0.5) {
-                self.alpha = 0
-            } completion: { _ in
-                self.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) { [weak self] in
+            self?.center.y -= 130
+            self?.alpha = 0.6
+            self?.warningImageView.alpha = 1
+        } completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+                UIView.animate(withDuration: 0.3) {
+                    self?.center.y += 130
+                    self?.alpha = 0
+                } completion: { _ in
+                    self?.removeFromSuperview()
+                }
             }
         }
     }
     
     //MARK: - Error handling instance
     @discardableResult
-    public static func customized(message: String, width: CGFloat, height: CGFloat) -> IGErrorMessageView {
-        return IGErrorMessageView(frame: CGRect(x: 0, y: 0, width: width, height: height), message: message)
+    public static func customized(message: String) -> IGErrorMessageView {
+        return IGErrorMessageView(message: message)
     }
     
     @discardableResult
     public static func noInternet() -> IGErrorMessageView {
-        return IGErrorMessageView(frame: CGRect(x: 0, y: 0, width: 150, height: 50), message: "No Internet Availiable")
+        return IGErrorMessageView(message: "No Internet Availiable")
     }
     
     deinit {
