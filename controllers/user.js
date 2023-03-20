@@ -43,14 +43,25 @@ module.exports = class User {
   //Create
   static async apiCreateNewUser(req, res, next) {
     const body = req.body;
+    if (body.email == null || body.password == null || body.username == null) {
+      return res.status(400).json({ error: "Incomplete infomation provided" });
+    }
     try {
-      const user = await UserService.createUser(body);
+      let user = await UserService.createUser(body);
       if (user.errors != null) {
         throw Error("user already exist");
       }
+      user.accessToken = AuthService.generateAccessToken({
+        email: user.email,
+        password: user.password,
+      });
+      user.refreshToken = await AuthService.generateRefreshToken({
+        email: user.email,
+        password: user.password,
+      });
       return res.status(201).json(user);
     } catch (error) {
-      if (error.message == "user exist") {
+      if (error.message == "user already exist") {
         return res.status(409).json({ error: error.message });
       }
       return res.status(500).json({ error: error.message });
