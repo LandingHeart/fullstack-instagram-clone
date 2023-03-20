@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Codenan Coding Tutorials" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
   </head>
   <body
     style="
@@ -15,13 +16,27 @@
       align-items: center;
     "
   >
-    <form action="submit">
-      <input type="text" placeholder="email" />
-      <input type="password" placeholder="password" />
-      <button type="submit">login</button>
+    <form action="javascript:handleLogin">
+      <input id="email" type="text" placeholder="email" />
+      <input id="password" type="password" placeholder="password" />
+      <button type="submit" onclick="handleLogin()">login</button>
     </form>
     <script>
-      console.log("javascript");
+      function handleLogin() {
+        axios
+          .post("http://localhost:8080/api/user/login", {
+            email: "admin",
+            password: "admin",
+          })
+          .then(function (response) {
+            console.log(response);
+            if (response.status === 201) {
+              window.location.href = "http://localhost:8080/";
+            } else {
+              console.log("could not login");
+            }
+          });
+      }
     </script>
   </body>
 </html>
