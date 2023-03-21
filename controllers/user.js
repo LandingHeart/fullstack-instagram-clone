@@ -32,8 +32,9 @@ module.exports = class User {
       } else {
         const accessToken = AuthService.generateAccessToken(user);
         const refreshToken = await AuthService.generateRefreshToken(user);
-        user.accessToken = accessToken;
-        user.refreshToken = refreshToken;
+        // user.accessToken = accessToken;
+        // user.refreshToken = refreshToken;
+        // console.log("aaa ", user);
         return res.status(200).json(user);
       }
     } catch (error) {
