@@ -23,18 +23,22 @@
     </form>
     <script>
       function handleLogin() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
         axios
-          .post("http://localhost:8080/api/user/login", {
-            email: "admin",
-            password: "admin",
+          .post("/api/user/login", {
+            email,
+            password,
           })
           .then(function (response) {
             console.log(response);
-            if (response.status === 201) {
-              window.location.href = "http://localhost:8080/";
-            } else {
-              console.log("could not login");
+            if (response.status === 200) {
+              window.location.href = "/";
             }
+          })
+          .catch((err) => {
+            console.log(err);
+            alert("incorect username or email");
           });
       }
     </script>

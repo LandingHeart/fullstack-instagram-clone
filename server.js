@@ -5,7 +5,6 @@ require("dotenv").config({ path: path.resolve(__dirname, "./configs/.env") });
 const PORT = process.env.PORT || 8080;
 const morganMiddleware = require("./middlewares/morgan.middleware");
 const socket = require("socket.io");
-const db = require("./models");
 
 app.use(express.json());
 app.use(morganMiddleware);
