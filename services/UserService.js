@@ -25,6 +25,7 @@ module.exports = class UserService {
   }
   //Login
   static async login(body) {
+    console.log("mybody ", body);
     try {
       const user = await User.findOne({ where: { email: body.email } });
       if (!user) {
