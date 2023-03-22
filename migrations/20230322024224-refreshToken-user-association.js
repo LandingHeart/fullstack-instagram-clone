@@ -7,7 +7,7 @@ module.exports = {
       type: "foreign key",
       name: "refreshToken_user_association",
       references: {
-        table: "refreshTokens",
+        table: "users",
         field: "id",
       },
       onDelete: "cascade",

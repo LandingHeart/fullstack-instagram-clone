@@ -41,7 +41,7 @@ module.exports = class AuthService {
   static async generateRefreshToken(user) {
     try {
       const token = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-      await RefreshToken.create({ refreshToken: token });
+      await RefreshToken.create({ refreshToken: token, userId: user.id });
       return token;
     } catch (error) {
       return error;
