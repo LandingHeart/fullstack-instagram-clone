@@ -34,6 +34,7 @@ module.exports = class User {
         const refreshToken = await AuthService.generateRefreshToken(user);
         user.accessToken = accessToken;
         user.refreshToken = refreshToken;
+
         return res.status(200).json(user);
       }
     } catch (error) {

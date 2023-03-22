@@ -51,6 +51,9 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
       modelName: "users",
       tableName: "users",
+      defaultScope: {
+        raw: true,
+      },
     }
   );
   //Sequelize Hooks

@@ -34,7 +34,7 @@ module.exports = class UserService {
         throw err;
       }
       if (await bcrypt.compare(body.password, user.password)) {
-        return user.dataValues;
+        return user;
       } else {
         var err = Error(`incorrect password`);
         err.status = 403;
