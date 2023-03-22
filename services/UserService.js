@@ -49,7 +49,7 @@ module.exports = class UserService {
   static async createUser(body) {
     try {
       const user = await User.create(body);
-      return user.dataValues;
+      return user;
     } catch (error) {
       console.log(error);
       return error;
