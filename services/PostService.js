@@ -1,10 +1,17 @@
 const Post = require("../models/index").posts;
+const Comment = require("../models/index").comments;
 const { Op } = require("sequelize");
 
 module.exports = class PostService {
   static async findAll() {
     try {
-      const allPost = await Post.findAll();
+      const allPost = await Post.findAll({
+        include: [
+          {
+            model: Comment,
+          },
+        ],
+      });
       return allPost;
     } catch (error) {
       console.log(`could not find all post${error}`);
@@ -19,6 +26,11 @@ module.exports = class PostService {
             [Op.like]: "%" + title + "%",
           },
         },
+        include: [
+          {
+            model: Comment,
+          },
+        ],
       });
       return post;
     } catch (error) {
@@ -34,6 +46,11 @@ module.exports = class PostService {
             [Op.like]: id,
           },
         },
+        include: [
+          {
+            model: Comment,
+          },
+        ],
       });
       return post;
     } catch (error) {
