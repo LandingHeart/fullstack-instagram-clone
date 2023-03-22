@@ -2,7 +2,10 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class RefreshToken extends Model {
-    static associate(models) {}
+    static associate(models) {
+      RefreshToken.belongsTo(models.users);
+      models.users.hasOne(RefreshToken);
+    }
   }
   RefreshToken.init(
     {
@@ -11,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
         primaryKey: true,
+      },
+      //foreign key
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
     },
     {
