@@ -5,7 +5,10 @@ const bcrypt = require("bcrypt");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {}
+    static associate(models) {
+      User.hasOne(models.refreshTokens);
+      models.refreshTokens.belongsTo(User);
+    }
     async validatePassword(password) {}
     static async encrypPassword(password) {
       const saltRounds = 10;
@@ -43,6 +46,11 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING(20),
         required: true,
+      },
+      role: {
+        type: DataTypes.STRING(32),
+        defaultValue: "user",
+        allowNull: false,
       },
       last_edit_date: DataTypes.DATE,
     },

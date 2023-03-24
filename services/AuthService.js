@@ -1,5 +1,6 @@
 const RefreshToken = require("../models/index").refreshTokens;
 const jwt = require("jsonwebtoken");
+const { where } = require("sequelize");
 require("dotenv").config();
 module.exports = class AuthService {
   //checking
@@ -40,10 +41,18 @@ module.exports = class AuthService {
   }
   static async generateRefreshToken(user) {
     try {
-      const token = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-      await RefreshToken.create({ refreshToken: token });
-      return token;
+      //check if user already logged in
+      const refreshToken = await this.findTokenByUserId(user.id);
+      //if null: not logged in, generate a new refreshtoken 
+      if (refreshToken == null) {
+        const token = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+        await RefreshToken.create({ refreshToken: token, userId: user.id });
+        return token;
+      } else { // if not null: return the refresh token directly
+        return refreshToken;
+      }
     } catch (error) {
+      console.log(error);
       return error;
     }
   }
@@ -62,5 +71,11 @@ module.exports = class AuthService {
     } catch (error) {
       return error;
     }
+  }
+
+  //find token in the database if exist otherwise return null
+  static async findTokenByUserId(userId) {
+    const token = await RefreshToken.findOne({ where: { userId: userId } });
+    return token == null ? null : token.dataValues.refreshToken;
   }
 };
