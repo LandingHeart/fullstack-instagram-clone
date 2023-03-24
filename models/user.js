@@ -47,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(20),
         required: true,
       },
+      role: {
+        type: DataTypes.STRING(32),
+        defaultValue: "user",
+        allowNull: false,
+      },
       last_edit_date: DataTypes.DATE,
     },
     {
