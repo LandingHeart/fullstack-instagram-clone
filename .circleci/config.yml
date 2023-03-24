@@ -53,13 +53,13 @@ workflows:
             - run-approval-test
           filters:
             branches:
-              ignore: main
+              ignore: prod
       - build-and-deploy:
           requires:
             - run-test
           filters:
             branches:
-              ignore: main
+              ignore: prod
   run-build-and-deploy:
     jobs:
       - run-test:
