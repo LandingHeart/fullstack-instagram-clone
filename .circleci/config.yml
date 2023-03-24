@@ -13,31 +13,6 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
-  run-build-test:
-    docker:
-      - image: cimg/node:16.14.2
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn
-      - run:
-          name: Run Tests
-          command: yarn test
-
-  build-and-deploy:
-    docker:
-      - image: cimg/node:16.14.2
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - run:
-          name: Install Dependencies
-          command: yarn
-      - run:
-          name: Build
-          command: yarn build
 
   run-approval-test:
     docker:
@@ -52,6 +27,19 @@ jobs:
           name: Run Approval Tests
           command: yarn approval-test
 
+  build-and-deploy:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Build
+          command: yarn build
+
 workflows:
   run-build-and-test:
     jobs:
@@ -59,28 +47,35 @@ workflows:
           type: approval
           filters:
             branches:
-              ignore: prod
+              only:
+                - main
+              ignore:
+                - prod
       - run-test:
           requires:
             - run-approval-test
           filters:
             branches:
-              ignore: prod
+              ignore:
+                - prod
       - build-and-deploy:
           requires:
             - run-test
           filters:
             branches:
-              ignore: prod
+              ignore:
+                - prod
   run-build-and-deploy:
     jobs:
-      - run-build-test:
+      - run-test:
           filters:
             branches:
-              only: prod
+              only:
+                - prod
       - build-and-deploy:
           requires:
-            - run-build-test
+            - run-test
           filters:
             branches:
-              only: prod
+              only:
+                - prod
