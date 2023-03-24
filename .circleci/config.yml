@@ -41,13 +41,13 @@ jobs:
           command: yarn approval-test
 
 workflows:
-  run-build-and-deploy:
+  run-build-and-test:
     jobs:
       - run-approval-test:
           type: approval
           filters:
             branches:
-              ignore: main
+              ignore: prod
       - run-test:
           requires:
             - run-approval-test
@@ -60,3 +60,15 @@ workflows:
           filters:
             branches:
               ignore: main
+  run-build-and-deploy:
+    jobs:
+      - run-test:
+          filters:
+            branches:
+              only: prod
+      - build-and-deploy:
+          requires:
+            - run-test
+          filters:
+            branches:
+              only: prod
