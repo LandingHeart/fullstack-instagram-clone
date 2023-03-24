@@ -59,6 +59,7 @@ module.exports = class User {
       user.refreshToken = await AuthService.generateRefreshToken({
         email: user.email,
         password: user.password,
+        id: user.id,
       });
       return res.status(201).json(user);
     } catch (error) {
