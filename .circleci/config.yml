@@ -13,6 +13,18 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+  run-build-test:
+    docker:
+      - image: cimg/node:16.14.2
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Run Tests
+          command: yarn test
 
   build-and-deploy:
     docker:
@@ -62,13 +74,13 @@ workflows:
               ignore: prod
   run-build-and-deploy:
     jobs:
-      - run-test:
+      - run-build-test:
           filters:
             branches:
               only: prod
       - build-and-deploy:
           requires:
-            - run-test
+            - run-build-test
           filters:
             branches:
               only: prod
