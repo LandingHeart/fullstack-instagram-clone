@@ -73,15 +73,15 @@ workflows:
           type: approval
           filters:
             branches:
-              ignore:
-                - prod
+              only:
+                - main
       - run-test:
           requires:
             - run-approval-test
           filters:
             branches:
-              ignore:
-                - prod
+              only:
+                - main
       - merge-coverage-report:
           requires:
             - run-test
