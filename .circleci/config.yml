@@ -71,4 +71,16 @@ workflows:
             - run-test
           filters:
             branches:
+              ignore: main
+  run-build-and-deploy:
+    jobs:
+      - run-test:
+          filters:
+            branches:
+              only: prod
+      - build-and-deploy:
+          requires:
+            - run-test
+          filters:
+            branches:
               only: prod
