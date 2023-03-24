@@ -79,8 +79,6 @@ workflows:
           filters:
             branches:
               only: prod
-          events:
-            - pull_request
       - build-and-deploy:
           requires:
             - run-build-test
