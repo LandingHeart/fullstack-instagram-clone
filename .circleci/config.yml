@@ -80,7 +80,7 @@ workflows:
               only: prod
       - build-and-deploy:
           requires:
-            - run-test
+            - run-build-test
           filters:
             branches:
               only: prod
