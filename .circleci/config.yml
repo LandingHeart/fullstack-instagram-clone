@@ -75,13 +75,10 @@ workflows:
             branches:
               ignore:
                 - prod
+                - main
       - run-test:
           requires:
             - run-approval-test
-          filters:
-            branches:
-              ignore:
-                - prod
       - merge-coverage-report:
           requires:
             - run-test
@@ -93,6 +90,7 @@ workflows:
             branches:
               only:
                 - prod
+                - main
       - build-and-deploy:
           requires:
             - run-build-test
