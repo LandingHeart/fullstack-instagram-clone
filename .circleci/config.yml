@@ -53,6 +53,16 @@ jobs:
           name: Run Approval Tests
           command: yarn approval-test
 
+  merge-coverage-report:
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - run:
+          name: Run Approval Tests
+          command: yarn test --coverage
+
 workflows:
   run-build-and-test:
     jobs:
@@ -60,28 +70,30 @@ workflows:
           type: approval
           filters:
             branches:
-              ignore: prod
+              ignore:
+                - prod
       - run-test:
           requires:
             - run-approval-test
           filters:
             branches:
-              ignore: prod
-      - build-and-deploy:
+              ignore:
+                - prod
+      - merge-coverage-report:
           requires:
             - run-test
-          filters:
-            branches:
-              ignore: prod
+
   run-build-and-deploy:
     jobs:
       - run-build-test:
           filters:
             branches:
-              only: prod
+              only:
+                - prod
       - build-and-deploy:
           requires:
             - run-build-test
           filters:
             branches:
-              only: prod
+              only:
+                - prod
