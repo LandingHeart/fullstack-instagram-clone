@@ -13,6 +13,7 @@ jobs:
       - run:
           name: Run Tests
           command: yarn test
+
   run-build-test:
     docker:
       - image: cimg/node:16.14.2
@@ -59,25 +60,27 @@ workflows:
           type: approval
           filters:
             branches:
-              only: main
+              ignore: prod
       - run-test:
           requires:
             - run-approval-test
           filters:
             branches:
-              only: main
+              ignore: prod
       - build-and-deploy:
           requires:
             - run-test
           filters:
             branches:
-              only: main
+              ignore: prod
   run-build-and-deploy:
     jobs:
       - run-build-test:
           filters:
             branches:
               only: prod
+          events:
+            - pull_request
       - build-and-deploy:
           requires:
             - run-build-test
