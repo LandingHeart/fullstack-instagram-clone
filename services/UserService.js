@@ -25,6 +25,7 @@ module.exports = class UserService {
   }
   //Login
   static async login(body) {
+    console.log("mybody ", body);
     try {
       const user = await User.findOne({ where: { email: body.email } });
       if (!user) {
@@ -33,7 +34,7 @@ module.exports = class UserService {
         throw err;
       }
       if (await bcrypt.compare(body.password, user.password)) {
-        return user.dataValues;
+        return user;
       } else {
         var err = Error(`incorrect password`);
         err.status = 403;
@@ -47,13 +48,9 @@ module.exports = class UserService {
   //Create
   static async createUser(body) {
     try {
-      const hash = await bcrypt.hash(body.password, 10);
-      var data = body;
-      data.password = hash;
-      const user = await User.create(data);
+      const user = await User.create(body);
       return user;
     } catch (error) {
-      console.log(`could not create user with email ${body.email}`);
       console.log(error);
       return error;
     }

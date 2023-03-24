@@ -8,14 +8,28 @@ const env = process.env.NODE_ENV || "development";
 const db = {};
 const config = require(__dirname + "/../config/config.js")[env];
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
+let sequelize;
+
+if (env === "production") {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
     },
-  },
-});
+  });
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config,
+    {
+      logging: true,
+    }
+  );
+}
 
 fs.readdirSync(__dirname)
   .filter((file) => {

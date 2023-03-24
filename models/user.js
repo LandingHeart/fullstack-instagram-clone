@@ -1,9 +1,21 @@
 "use strict";
 const { Model } = require("sequelize");
+const bcrypt = require("bcrypt");
+// const UserService = require("../services/UserService");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {}
+    static associate(models) {
+      User.hasOne(models.refreshTokens);
+      models.refreshTokens.belongsTo(User);
+    }
     async validatePassword(password) {}
+    static async encrypPassword(password) {
+      const saltRounds = 10;
+      const salt = await bcrypt.genSalt(saltRounds);
+      const hash = await bcrypt.hash(password, salt);
+      return hash;
+    }
   }
 
   User.init(
@@ -35,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(20),
         required: true,
       },
+      role: {
+        type: DataTypes.STRING(32),
+        defaultValue: "user",
+        allowNull: false,
+      },
       last_edit_date: DataTypes.DATE,
     },
     {
@@ -42,8 +59,15 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
       modelName: "users",
       tableName: "users",
+      defaultScope: {
+        raw: true,
+      },
     }
   );
-
+  //Sequelize Hooks
+  User.beforeCreate(async (user, options) => {
+    const hashPassword = await User.encrypPassword(user.password);
+    user.password = hashPassword;
+  });
   return User;
 };
