@@ -1,30 +1,47 @@
-### Database Setup
+#### Database Setup
 
-#### db Migrations steps and seeding database
-
-```sh
-npx sequelize-cli db:migrate
-npx sequelize-cli db:seed:all
-```
-
-migrate will run the files in migration folder, and will create db table .
-it will run the files in seeders folder db data inserted, db rows inserted.
-
-If postgresql is installed you can use the psql command.
+**Setup db in One command setup, make sure ran yarn or npm install before running this**
 
 ```sh
-psql insdb
-insdb=# \list
+npm run migrate
 ```
 
-If user does not exist, create user by
+If it errors, `ERROR: permission denied to create database` do the following step.
 
 ```sh
 createuser postgres
 psql postgres
 postgres=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
+postgres=# alter user postgres createdb;;
 ```
 
-| Role name | list of roles | member of |
-| --------- | ------------- | --------- |
-| postgres  |               |           |
+After npm run migrate, you can run npm run dev and open localhost:8080 to see the page.
+
+#### Additional Database commands
+
+```sh
+npx sequelize-cli db:migrate
+```
+
+Migrate will run the files in migration folder, and will create database tables.
+
+```sh
+npx sequelize-cli db:seed:all
+```
+
+or
+
+```sh
+npx sequelize-cli db:seed filename
+```
+
+it will run the files in the seeders folder and insert the data into the table
+
+Create the database admin user if errors.
+
+List of database commands
+
+```sh
+psql insdb
+insdb=# \list
+```
