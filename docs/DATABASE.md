@@ -3,7 +3,7 @@
 **Setup db in One command setup, make sure ran yarn or npm install before running this**
 
 ```sh
-npm run migrate
+npm run setup-db
 ```
 
 If it errors, `ERROR: permission denied to create database` do the following step.
