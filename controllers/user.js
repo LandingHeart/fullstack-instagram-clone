@@ -52,11 +52,11 @@ module.exports = class User {
       if (user.errors != null) {
         throw Error("user already exist");
       }
-      user.accessToken = AuthService.generateAccessToken({
+      user.dataValues.accessToken = AuthService.generateAccessToken({
         email: user.email,
         password: user.password,
       });
-      user.refreshToken = await AuthService.generateRefreshToken({
+      user.dataValues.refreshToken = await AuthService.generateRefreshToken({
         email: user.email,
         password: user.password,
         id: user.id,
