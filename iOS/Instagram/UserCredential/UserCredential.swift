@@ -12,6 +12,8 @@ final class UserCredential {
     static let shared = UserCredential()
 
     //Private
+    private var id: Int?
+    
     private var email: String?
 
     private var password: String?

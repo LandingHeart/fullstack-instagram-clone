@@ -12,6 +12,7 @@
 		3B4BD0AB296AA68600AE4454 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */; };
 		3B4BD0AD2973451900AE4454 /* LoginFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */; };
 		3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4BD0AE29735A8A00AE4454 /* UIColor.swift */; };
+		3B55A8B129DE31B100803D63 /* IGPostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55A8B029DE31B100803D63 /* IGPostCommentView.swift */; };
 		3B55E2332919A262007969B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2322919A262007969B0 /* RoundButton.swift */; };
 		3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55E2362919ADEF007969B0 /* MainButton.swift */; };
 		3B5AC83928FB772B00BD8402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5AC83828FB772B00BD8402 /* AppDelegate.swift */; };
@@ -47,7 +48,6 @@
 		3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */; };
 		3B65F6D829B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */; };
 		3B65F6DA29B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */; };
-		3B65F6DC29B45A3F008229DE /* IGPostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */; };
 		3B6C54D7290253C9005972E4 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6C54D6290253C9005972E4 /* ProfileImageView.swift */; };
 		3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A2D2979CCCB00A137FE /* UINavigationController.swift */; };
 		3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B725A30297A318500A137FE /* IGUINavigationController.swift */; };
@@ -70,6 +70,7 @@
 		3B4BD0AA296AA68600AE4454 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		3B4BD0AC2973451900AE4454 /* LoginFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFooterView.swift; sourceTree = "<group>"; };
 		3B4BD0AE29735A8A00AE4454 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3B55A8B029DE31B100803D63 /* IGPostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGPostCommentView.swift; sourceTree = "<group>"; };
 		3B55E2322919A262007969B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3B55E2362919ADEF007969B0 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		3B5AC83528FB772B00BD8402 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +108,6 @@
 		3B65F6D529B2DC2B008229DE /* IGHeaderFriendListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewCell.swift; sourceTree = "<group>"; };
 		3B65F6D729B2DCC2008229DE /* IGHeaderFriendListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewViewModel.swift; sourceTree = "<group>"; };
 		3B65F6D929B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGHeaderFriendListViewCellViewModel.swift; sourceTree = "<group>"; };
-		3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGPostCommentView.swift; path = ../../../../../../../../../.Trash/IGPostCommentView.swift; sourceTree = "<group>"; };
 		3B6C54D6290253C9005972E4 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		3B725A2D2979CCCB00A137FE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3B725A30297A318500A137FE /* IGUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGUINavigationController.swift; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 			children = (
 				3B5BE97F29A85BD9005253A4 /* IGPostListView.swift */,
 				3BDB48242902332100E0FBA4 /* PostTable */,
+				3B55A8B029DE31B100803D63 /* IGPostCommentView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -434,7 +435,6 @@
 		3BDB48242902332100E0FBA4 /* PostTable */ = {
 			isa = PBXGroup;
 			children = (
-				3B65F6DB29B45A3F008229DE /* IGPostCommentView.swift */,
 				3BDB482729023E9900E0FBA4 /* PostCell */,
 			);
 			path = PostTable;
@@ -564,12 +564,12 @@
 				3B725A2E2979CCCB00A137FE /* UINavigationController.swift in Sources */,
 				3B65F6DA29B4589E008229DE /* IGHeaderFriendListViewCellViewModel.swift in Sources */,
 				3B5AC85D28FE1DE100BD8402 /* UIViewController+Utils.swift in Sources */,
-				3B65F6DC29B45A3F008229DE /* IGPostCommentView.swift in Sources */,
 				3B5AC85228FE166A00BD8402 /* MainViewController.swift in Sources */,
 				3B65F6D429B2DB61008229DE /* IGHeaderFriendListView.swift in Sources */,
 				3B4BD0AF29735A8A00AE4454 /* UIColor.swift in Sources */,
 				3B65F6D629B2DC2B008229DE /* IGHeaderFriendListViewCell.swift in Sources */,
 				3B55E2372919ADEF007969B0 /* MainButton.swift in Sources */,
+				3B55A8B129DE31B100803D63 /* IGPostCommentView.swift in Sources */,
 				3B5AC85928FE1B6500BD8402 /* ShopViewController.swift in Sources */,
 				3B5BE97E29A85B07005253A4 /* HomeViewController.swift in Sources */,
 				3B725A31297A318500A137FE /* IGUINavigationController.swift in Sources */,

@@ -168,7 +168,7 @@ final class IGPostCollectionViewCell: UICollectionViewCell {
 //        userIcon.image = nil
 //        usernameLabel.text = nil
         imageView.image = nil
-        commentView.nilText()
+//        commentView.nilText()
     }
     
     public func configure(with viewModel: IGPostCollectionViewCellViewModel) {
