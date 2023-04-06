@@ -1,5 +1,6 @@
 const UserService = require("../services/UserService");
 const AuthService = require("../services/AuthService");
+const FollowService = require("../services/FollowService");
 
 module.exports = class User {
   //Read
@@ -105,6 +106,38 @@ module.exports = class User {
     try {
     } catch (error) {
       res.status(500).json({ error: error });
+    }
+  }
+  //Followe user
+  static async apiFollowUser(req, res, next) {
+    try {
+      const followerId = req.body.followerId;
+      const followingId = req.body.followingId;
+      if (!followerId || !followingId) {
+        let err = Error("required request info not provided");
+        err.status = 400;
+        throw err;
+      }
+      if (followerId === followingId) {
+        return res.status(400).json({ error: "user should not follow self" });
+      }
+      const follower = await UserService.findOne(followerId);
+      const following = await UserService.findOne(followingId);
+      if (!follower || !following) {
+        let err = Error("user not found");
+        err.status = 404;
+        throw err;
+      }
+      const follow = await FollowService.createFollow(followerId, followingId);
+      if (follow instanceof Error) {
+        let err = follow.errors[0];
+        err.status = 409;
+        throw err;
+      }
+      return res.status(201).json(follow);
+    } catch (err) {
+      console.log(err.message);
+      return res.status(err.status || 500).json({ error: err.message });
     }
   }
 };
