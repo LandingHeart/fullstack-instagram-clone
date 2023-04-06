@@ -8,6 +8,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasOne(models.refreshTokens);
       models.refreshTokens.belongsTo(User);
+      User.belongsToMany(models.users, {
+        as: "follower",
+        through: "followers",
+        foreignKey: "followingId",
+      });
+      User.belongsToMany(models.users, {
+        as: "following",
+        through: "followers",
+        foreignKey: "followerId",
+      });
     }
     async validatePassword(password) {}
     static async encrypPassword(password) {

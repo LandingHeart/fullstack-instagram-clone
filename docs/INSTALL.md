@@ -44,19 +44,3 @@ Start the postgres database
 ```sh
 brew services start postgresql@14
 ```
-
-Connect to database to verify installation
-
-```sh
-psql postgres
-postgres=#
-postgres=# \q
-```
-
-Create database
-
-```sh
-createdb insdb
-psql insdb
-insdb=#
-```
