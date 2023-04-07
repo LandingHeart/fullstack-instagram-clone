@@ -26,6 +26,11 @@ module.exports = class User {
   //Login
   static async apiLoginUser(req, res, next) {
     try {
+      if (!req.body.usernameOrEmail || !req.body.password) {
+        let err = Error("required request info not provided");
+        err.status = 400;
+        throw err;
+      }
       let user = await UserService.login(req.body);
       if (user instanceof Error) {
         throw user;
