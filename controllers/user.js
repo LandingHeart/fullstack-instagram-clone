@@ -1,6 +1,7 @@
 const UserService = require("../services/UserService");
 const AuthService = require("../services/AuthService");
 const FollowService = require("../services/FollowService");
+const FollowFindPair = require("../services/FollowFindPair");
 
 module.exports = class User {
   //Read
@@ -53,15 +54,7 @@ module.exports = class User {
       if (user.errors != null) {
         throw Error("user already exist");
       }
-      user.accessToken = AuthService.generateAccessToken({
-        email: user.email,
-        password: user.password,
-      });
-      user.refreshToken = await AuthService.generateRefreshToken({
-        email: user.email,
-        password: user.password,
-        id: user.id,
-      });
+      await User.appendTokens(user);
       return res.status(201).json(user);
     } catch (error) {
       if (error.message == "user already exist") {
@@ -69,6 +62,18 @@ module.exports = class User {
       }
       return res.status(500).json({ error: error.message });
     }
+  }
+  //append Tokens
+  static async appendTokens(user) {
+    user.dataValues.accessToken = AuthService.generateAccessToken({
+      email: user.email,
+      password: user.password,
+    });
+    user.dataValues.refreshToken = await AuthService.generateRefreshToken({
+      email: user.email,
+      password: user.password,
+      id: user.id,
+    });
   }
   //Update
   static async apiUpdateUserPassword(req, res, next) {
@@ -128,13 +133,18 @@ module.exports = class User {
         err.status = 404;
         throw err;
       }
-      const follow = await FollowService.createFollow(followerId, followingId);
-      if (follow instanceof Error) {
-        let err = follow.errors[0];
+      const existPair = await FollowFindPair.findPair(followerId, followingId);
+      if (!existPair) {
+        const follow = await FollowService.createFollow(
+          followerId,
+          followingId
+        );
+        return res.status(201).json(follow);
+      } else {
+        let err = Error("relation exist");
         err.status = 409;
         throw err;
       }
-      return res.status(201).json(follow);
     } catch (err) {
       console.log(err.message);
       return res.status(err.status || 500).json({ error: err.message });
