@@ -9,7 +9,7 @@ module.exports = class User {
     try {
       const user = await UserService.findAll;
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
 
@@ -17,12 +17,12 @@ module.exports = class User {
     try {
       const user = await UserService.findOne(req.params.id);
       if (user != null) {
-        res.send(user);
+        return res.send(user);
       } else {
-        res.status(404).json({ error: "user not found" });
+        return res.status(404).json({ error: "user not found" });
       }
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
   //Login
@@ -88,11 +88,11 @@ module.exports = class User {
     try {
       const { id, password } = req.body;
       if (!id) {
-        res.status(401);
+        return res.status(401);
       }
       const user = await UserService.updateUser({ id, password });
       if (user == null) {
-        res.status(501).json({ error: "unknown error" });
+        return res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
@@ -119,7 +119,7 @@ module.exports = class User {
   static async apiDeleteuser(req, res, next) {
     try {
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
   //Followe user
