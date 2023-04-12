@@ -1,5 +1,5 @@
 const User = require("../models/index").users;
-const { Op } = require("sequelize");
+const { Op, where } = require("sequelize");
 const bcrypt = require("bcrypt");
 
 module.exports = class UserService {
@@ -58,19 +58,21 @@ module.exports = class UserService {
     }
   }
   //Update
-  static async updateUser(content) {
+  static async updateUser(userId, content) {
     try {
-      const user = await User.findByPk(content.id);
-      if (user != null) {
-        user.set(content);
-        await user.save();
-        return user.dataValues;
+      const user = await User.findByPk(userId);
+      if (user) {
+        await User.update(content, { where: { id: userId } });
+        return true;
       } else {
-        console.log("user not found");
+        let err = Error("user not found");
+        err.status = 404;
         throw Error("user not found");
       }
-    } catch (error) {
+    } catch (err) {
+      console.log(err);
       console.log(`could not update user`);
+      return err;
     }
   }
 };
