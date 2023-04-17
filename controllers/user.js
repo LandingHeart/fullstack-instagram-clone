@@ -1,5 +1,7 @@
 const UserService = require("../services/UserService");
 const AuthService = require("../services/AuthService");
+const FollowService = require("../services/FollowService");
+const FollowFindPair = require("../services/FollowFindPair");
 
 module.exports = class User {
   //Read
@@ -26,6 +28,11 @@ module.exports = class User {
   //Login
   static async apiLoginUser(req, res, next) {
     try {
+      if (!req.body.usernameOrEmail || !req.body.password) {
+        let err = Error("required request info not provided");
+        err.status = 400;
+        throw err;
+      }
       let user = await UserService.login(req.body);
       if (user instanceof Error) {
         throw user;
@@ -52,15 +59,7 @@ module.exports = class User {
       if (user.errors != null) {
         throw Error("user already exist");
       }
-      user.accessToken = AuthService.generateAccessToken({
-        email: user.email,
-        password: user.password,
-      });
-      user.refreshToken = await AuthService.generateRefreshToken({
-        email: user.email,
-        password: user.password,
-        id: user.id,
-      });
+      await User.appendTokens(user);
       return res.status(201).json(user);
     } catch (error) {
       if (error.message == "user already exist") {
@@ -68,6 +67,18 @@ module.exports = class User {
       }
       return res.status(500).json({ error: error.message });
     }
+  }
+  //append Tokens
+  static async appendTokens(user) {
+    user.dataValues.accessToken = AuthService.generateAccessToken({
+      email: user.email,
+      password: user.password,
+    });
+    user.dataValues.refreshToken = await AuthService.generateRefreshToken({
+      email: user.email,
+      password: user.password,
+      id: user.id,
+    });
   }
   //Update
   static async apiUpdateUserPassword(req, res, next) {
@@ -105,6 +116,43 @@ module.exports = class User {
     try {
     } catch (error) {
       res.status(500).json({ error: error });
+    }
+  }
+  //Followe user
+  static async apiFollowUser(req, res, next) {
+    try {
+      const followerId = req.body.followerId;
+      const followingId = req.body.followingId;
+      if (!followerId || !followingId) {
+        let err = Error("required request info not provided");
+        err.status = 400;
+        throw err;
+      }
+      if (followerId === followingId) {
+        return res.status(400).json({ error: "user should not follow self" });
+      }
+      const follower = await UserService.findOne(followerId);
+      const following = await UserService.findOne(followingId);
+      if (!follower || !following) {
+        let err = Error("user not found");
+        err.status = 404;
+        throw err;
+      }
+      const existPair = await FollowFindPair.findPair(followerId, followingId);
+      if (!existPair) {
+        const follow = await FollowService.createFollow(
+          followerId,
+          followingId
+        );
+        return res.status(201).json(follow);
+      } else {
+        let err = Error("relation exist");
+        err.status = 409;
+        throw err;
+      }
+    } catch (err) {
+      console.log(err.message);
+      return res.status(err.status || 500).json({ error: err.message });
     }
   }
 };

@@ -15,25 +15,26 @@ module.exports = class UserService {
   }
 
   static async findOne(id) {
-    try {
-      const user = await User.findByPk(id);
-      return user != null ? user : null;
-    } catch (error) {
-      console.log(`could not find one user and an error was occured`);
-      return error;
-    }
+    const user = await User.findByPk(id);
+    return user;
   }
   //Login
   static async login(body) {
-    console.log("mybody ", body);
+    const usernameOrEmail = body.usernameOrEmail;
+    const password = body.password;
     try {
-      const user = await User.findOne({ where: { email: body.email } });
+      let user;
+      if (usernameOrEmail.includes("@") && usernameOrEmail.includes(".com")) {
+        user = await User.findOne({ where: { email: usernameOrEmail } });
+      } else {
+        user = await User.findOne({ where: { username: usernameOrEmail } });
+      }
       if (!user) {
         var err = Error(`user not found`);
         err.status = 401;
         throw err;
       }
-      if (await bcrypt.compare(body.password, user.password)) {
+      if (await bcrypt.compare(password, user.password)) {
         return user;
       } else {
         var err = Error(`incorrect password`);
@@ -49,6 +50,7 @@ module.exports = class UserService {
   static async createUser(body) {
     try {
       const user = await User.create(body);
+      // console.log(user);
       return user;
     } catch (error) {
       console.log(error);
