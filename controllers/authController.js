@@ -1,4 +1,4 @@
-const AuthService = require("../services/AuthService");
+const AuthService = require("../services/authService");
 
 module.exports = class Auth {
   //Generate token
@@ -18,7 +18,7 @@ module.exports = class Auth {
     try {
       const refreshToken = req.body.refreshToken;
       if (refreshToken == null)
-      return res.status(401).json({ error: "Refresh token required" });
+        return res.status(401).json({ error: "Refresh token required" });
       if (await AuthService.findRefreshToken(refreshToken)) {
         const data = AuthService.authenticateRefreshToken(refreshToken);
         if (data instanceof Error) {

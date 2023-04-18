@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const postController = require("../../controllers/post");
-const userController = require("../../controllers/user");
-const AuthController = require("../../controllers/auth");
+const postController = require("../../controllers/postController");
+const userController = require("../../controllers/userController");
+const AuthController = require("../../controllers/authController");
 
 //Post route
 router.post("/post", postController.apiCreatePost);
@@ -27,7 +27,10 @@ router.post("/user/token", AuthController.renewAccessToken);
 router.delete("/user/logout", AuthController.deleteToken);
 
 router.patch("/user/updatePassword", userController.apiUpdateUserPassword);
-router.patch("/user/updatePhone",AuthController.authenticateToken,userController.apiUpdateUserPhone);
-
+router.patch(
+  "/user/updatePhone",
+  AuthController.authenticateToken,
+  userController.apiUpdateUserPhone
+);
 
 module.exports = router;
