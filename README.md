@@ -1,106 +1,64 @@
-## Project Motivation
+### Project Overview
 
-This project is a clone-version of Instagram application with full-stack development. The motivation is to teach and show student how to work on a collaboration project. And thus learning about the tech stacks.
+This project is a full-stack clone of the popular Instagram application. Its main purpose is to teach students how to work on a collaborative project and to help them learn about the different technology stacks involved in building such an application.
 
-## Getting Started
+### Motivation
+
+The motivation behind this project is to provide students with a hands-on experience in working on a real-world project, which involves collaboration with other developers. This project will also help students learn about the different technologies involved in building a full-stack application like Instagram.
+
+### Getting Started
 
 Follow the install instruction doc to get the project started, and environment setup.
 
-## Quick start Guide
+### Quick start Guide
 
-Make sure npm, node is install by following the [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/update_all_docs/docs/INSTALL.md)
+#### Requirements
+
+- node
+- postgreSQL
 
 Create .env file and copy paste .env.example to .env.
 
-```ssh
+```shell
 npm install
+npm run setup-db
 npm run dev
 ```
 
-server start at backend local 8080
+Server start at [localhost](http://localhost:8080/)
 
-```ssh
-cd views
-npm install
-npm run build
-```
+### Table of contents
 
-frontend server start at local 3000
+- [INSTALL](/docs/INSTALL.md)
+- [CONTRIBUTING](/docs/CONTRIBUTING.md)
+- [RELEASE NOTE](/docs/RELEASE_NOTE.md)
+- [LICENSE](/docs/LICENSE.md)
 
-## Table of contents
+### Tech Stack:
 
-- [INSTALL](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/INSTALL.md)
-- [Database](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/DATABASE.md)
-- [Tools](https://github.com/LandingHeart/fullstack-instagram-clone/blob/main/docs/TOOLS.md)
-- [Trello Board Join](https://trello.com/invite/b/QPkaa9nd/ATTI97cd43252a4c140940eafe428016a43d7AECAE38/fullstack-instagram-clone)
+- React 17
+- MUI
+- UiKit
+- Swift 5.4
+- Redux Toolkit
+- Node 16.18.0
+- express js 4.18.1
+- PostgreSQL@14
+- sequelize
+- yarn 1.22.17
+- heroku
+- morgan/winston
+- JWT (authentication)
+- circle ci
 
-#### Project Stack:
-
-- Front-End
-  - React 17
-  - MUI
-  - UiKit
-  - Swift 5.4
-
-- Backend
-  - Node 16.18.0
-  - express js 4.18.1
-  - PostgreSQL@14
-  - sequelize
-
-- Tools
-  - Redux Toolkit
-  - yarn 1.22.17
-  - heroku, netify TBD
-  - morgan (logging HTTP request)
-  - winston
-
-## CI/CD Pipeline (WIP)
-
-#### What is a CI/CD Pipeline?
-
-A CI/CD pipeline is the full set of processes that run when you trigger work on your projects. Pipelines encompass your workflows, which coordinate your jobs, and this is all defined in your project configuration file.
-credits to [circle](https://circleci.com/blog/what-is-a-ci-cd-pipeline/)
-
-#### How to contribute
-
-Please follow this if you want to contribute and become a collaborator.
-
-- [github offical doc](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-- [How to contribute](https://dev.to/codesphere/how-to-start-contributing-to-open-source-projects-on-github-534n)
-
-#### React
-
-We use React with Javascript for our frontend codebase.
-
-#### iOS mobile application
+### iOS mobile application
 
 The mobile application is build with Swift and UiKit. The source code is under branch `main-ios`
 
-#### Code Style Guide
+### Code Style Guide
 
 We largely follow this react code style guidelines, [react syntax guidelines](https://github.com/pillarstudio/standards/blob/master/reactjs-guidelines.md), for creating components and file name.
 
-## License
+### License
 
-MIT License
-
-Copyright (c) [2022] Shinan Liu(Land)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+[MIT](/docs/LICENSE.md) License

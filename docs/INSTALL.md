@@ -1,37 +1,36 @@
-## INSTALL
+## Installation Guide
 
-1. [Install brew](https://brew.sh/) for Mac
-2. [Install chocolatey](https://chocolatey.org/) for Windows
-3. [Install node version manager](https://github.com/nvm-sh/nvm/blob/master/README.md): go to section Install & Update Script
+### Requirements
+
+Before starting with the installation process, make sure you have the following requirements installed:
+
+- [brew](https://brew.sh/) Mac
+- [chocolatey](https://chocolatey.org/) Windows
+- [nodenv](https://github.com/nodenv/nodenv) Follow readme guide
 
 #### Install node with brew
 
-```sh
+```shell
 brew install node
 node --version
 18.0.0
 ```
 
-#### nvm command to use node version 16.14.2
-
-```sh
-nvm install 16.14.2
-nvm use 16.14.2
-node --version
-16.14.2
-```
-
 #### or you can use nodenv to set node version
 
-```sh
+```shell
 nodenv install 16.14.2
 nodenv global 16.14.2
 ```
 
 #### Install PostgreSQL with brew
 
-```sh
+```shell
 brew install postgresql@14
+```
+
+```shell
+brew services start postgresql@14
 ```
 
 #### Install postgresql with chocolatey
@@ -41,6 +40,50 @@ brew install postgresql@14
 [stack overflow start postgres on windows](https://stackoverflow.com/questions/36629963/how-can-i-start-postgresql-on-windows)
 Start the postgres database
 
-```sh
-brew services start postgresql@14
+#### Database Setup
+
+**Setup db in One command setup, make sure ran yarn or npm install before running this**
+
+```shell
+npm run setup-db
+```
+
+If it errors, `ERROR: permission denied to create database` do the following step.
+
+```shell
+createuser postgres
+psql postgres
+postgres=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
+postgres=# alter user postgres createdb;;
+```
+
+After npm run migrate, you can run npm run dev and open localhost:8080 to see the page.
+
+#### Additional Database commands
+
+```shell
+npx sequelize-cli db:migrate
+```
+
+Migrate will run the files in migration folder, and will create database tables.
+
+```shell
+npx sequelize-cli db:seed:all
+```
+
+or
+
+```shell
+npx sequelize-cli db:seed filename
+```
+
+it will run the files in the seeders folder and insert the data into the table
+
+Create the database admin user if errors.
+
+List of database commands
+
+```shell
+psql insdb
+insdb=# \list
 ```
