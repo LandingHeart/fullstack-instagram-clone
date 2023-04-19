@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
     async validatePassword(password) {}
-    static async encrypPassword(password) {
+    static async encryptPassword(password) {
       const saltRounds = 10;
       const salt = await bcrypt.genSalt(saltRounds);
       const hash = await bcrypt.hash(password, salt);
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(20),
         allowNull: true,
         unique: true,
       },
@@ -62,7 +62,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: "user",
         allowNull: false,
       },
-      last_edit_date: DataTypes.DATE,
     },
     {
       sequelize,
@@ -76,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   //Sequelize Hooks
   User.beforeCreate(async (user, options) => {
-    const hashPassword = await User.encrypPassword(user.password);
+    const hashPassword = await User.encryptPassword(user.password);
     user.password = hashPassword;
   });
   return User;
