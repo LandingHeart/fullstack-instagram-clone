@@ -15,10 +15,6 @@ async function createUser() {
       username: faker.internet.userName(),
       password: await User.encryptPassword(faker.internet.password()),
       role: "user",
-      last_edit_date: faker.date.between(
-        "2020-01-01T00:00:00.000Z",
-        "2023-01-01T00:00:00.000Z"
-      ),
       updatedAt: faker.date.between(
         "2020-01-01T00:00:00.000Z",
         "2023-01-01T00:00:00.000Z"
