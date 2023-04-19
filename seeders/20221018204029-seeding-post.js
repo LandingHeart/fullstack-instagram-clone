@@ -3,16 +3,35 @@ const { faker } = require("@faker-js/faker");
 // const comments = require("./comments.json");
 const User = require("../models/index").users;
 
+const usernameSet = new Set();
+const phoneSet = new Set();
+const emailSet = new Set();
+
 const users = [];
 const posts = [];
 const comments = [];
 
 async function createUser() {
   for (let i = 1; i <= 1000; i++) {
+    let email = faker.internet.email();
+    let phone = faker.phone.number("###-###-####");
+    let username = faker.internet.userName();
+    while (emailSet.has(email)) {
+      email = faker.internet.email();
+    }
+    emailSet.add(email);
+    while (phoneSet.has(phone)) {
+      phone = faker.phone.number("###-###-####");
+    }
+    phoneSet.add(phone);
+    while (usernameSet.has(username)) {
+      username = faker.internet.userName();
+    }
+    usernameSet.add(username);
     const user = {
-      email: faker.internet.email(),
-      phone: faker.phone.number("###-###-####"),
-      username: faker.internet.userName(),
+      email: email,
+      phone: phone,
+      username: username,
       password: await User.encryptPassword(faker.internet.password()),
       role: "user",
       updatedAt: faker.date.between(
