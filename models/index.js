@@ -6,6 +6,12 @@ const requireAll = require("require-all");
 const env = process.env.NODE_ENV || "development";
 const db = {};
 const config = require(__dirname + "/../config/config.js")[env];
+const models = requireAll({
+  dirname: path.join(__dirname, "/"),
+  filter: /(.+Model)\.js$/,
+  excludeDirs: /^\.(git|svn)$/,
+  recursive: true,
+});
 
 let sequelize;
 
@@ -29,15 +35,6 @@ if (env === "production") {
     }
   );
 }
-
-const models = requireAll({
-  dirname: path.join(__dirname, "/"),
-  filter: /(.+Model)\.js$/,
-  excludeDirs: /^\.(git|svn)$/,
-  recursive: true,
-});
-
-console.log(models);
 
 Object.keys(models).forEach((modelName) => {
   const model = models[modelName](sequelize, Sequelize.DataTypes);
