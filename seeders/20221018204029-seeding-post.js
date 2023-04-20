@@ -2,6 +2,27 @@
 const { faker } = require("@faker-js/faker");
 // const comments = require("./comments.json");
 const User = require("../models/index").users;
+const { postStorage } = require("../config/firebase");
+const { uploadBytes, ref } = require("firebase/storage");
+const fetch = require("node-fetch");
+
+const storageRef = ref(postStorage, 'test1');
+fetch("https://loremflickr.com/500/500/nature?lock=93334")
+  .then((response) =>
+    response.arrayBuffer()
+  )
+  .then((arrayBuffer) => {;
+    uploadBytes(storageRef, arrayBuffer)
+      .then((snapshot) => {
+        console.log("uploaded");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const usernameSet = new Set();
 const phoneSet = new Set();
