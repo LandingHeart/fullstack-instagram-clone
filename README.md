@@ -36,20 +36,23 @@ Server start at [localhost](http://localhost:8080/)
 
 ### Tech Stack:
 
-- React 17
-- MUI
-- UiKit
-- Swift 5.4
-- Redux Toolkit
-- Node 16.18.0
-- express js 4.18.1
-- PostgreSQL@14
-- sequelize
-- yarn 1.22.17
-- heroku
-- morgan/winston
-- JWT (authentication)
-- circle ci
+- Frontend
+  - React 17
+  - MUI
+  - UiKit
+  - Swift 5.4
+  - Redux Toolkit
+- Backend
+  - Node 16.18.0
+  - express js 4.18.1
+  - PostgreSQL@14
+  - sequelize
+  - yarn 1.22.17
+  - heroku
+  - morgan/winston
+  - JWT (authentication)
+- CICD
+  - circle ci
 
 ### iOS mobile application
 
