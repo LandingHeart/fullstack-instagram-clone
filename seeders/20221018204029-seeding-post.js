@@ -2,19 +2,22 @@
 const { faker } = require("@faker-js/faker");
 // const comments = require("./comments.json");
 const User = require("../models/index").users;
-const { postStorage } = require("../config/firebase");
-const { uploadBytes, ref } = require("firebase/storage");
+const { defaultStorage } = require("../config/firebase");
+const { uploadBytes, ref, getDownloadURL } = require("firebase/storage");
 const fetch = require("node-fetch");
 
-const storageRef = ref(postStorage, 'test1');
+const storageRef = ref(defaultStorage, "postImages/" + "test1.jpg");
+const metadata = {
+  contentType: 'image/jpeg',
+};
 fetch("https://loremflickr.com/500/500/nature?lock=93334")
-  .then((response) =>
-    response.arrayBuffer()
-  )
-  .then((arrayBuffer) => {;
-    uploadBytes(storageRef, arrayBuffer)
+  .then((response) => response.arrayBuffer())
+  .then((arrayBuffer) => {
+    uploadBytes(storageRef, arrayBuffer, metadata)
       .then((snapshot) => {
-        console.log("uploaded");
+        getDownloadURL(snapshot.ref).then((url) => {
+          console.log(url);
+        });
       })
       .catch((err) => {
         console.log(err);
