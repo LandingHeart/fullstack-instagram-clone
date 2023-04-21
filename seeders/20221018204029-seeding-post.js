@@ -1,6 +1,4 @@
-// const posts = require("./posts.json");
 const { faker } = require("@faker-js/faker");
-// const comments = require("./comments.json");
 const User = require("../models/index").users;
 const { defaultStorage } = require("../config/firebase");
 const { uploadBytes, ref, getDownloadURL } = require("firebase/storage");
@@ -18,7 +16,7 @@ const posts = [];
 const imageUrls = [];
 
 async function createUser() {
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= 2; i++) {
     //preprocess attributes since it might generate duplicate username, phone, email
     let email = faker.internet.email();
     let phone = faker.phone.number("###-###-####");
@@ -168,8 +166,10 @@ module.exports = {
     await queryInterface.bulkInsert("users", users);
     createPost();
     await uploadImages(imageUrls);
-    setPostImageUrl(posts, imageUrls);
-    await queryInterface.bulkInsert("posts", posts);
+    if (posts.length != 0) {
+      setPostImageUrl(posts, imageUrls);
+      await queryInterface.bulkInsert("posts", posts);
+    }
     createComment();
     if (comments.length != 0) {
       await queryInterface.bulkInsert("comments", comments);
@@ -178,7 +178,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete("users", null);
-    // await queryInterface.bulkDelete("posts", null);
-    // await queryInterface.bulkDelete("comment", null);
+    await queryInterface.bulkDelete("posts", null);
+    await queryInterface.bulkDelete("comment", null);
   },
 };
