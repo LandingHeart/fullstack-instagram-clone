@@ -55,7 +55,6 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
       },
-      last_edit_date: Date.now(),
       //foreign key
       userId: {
         type: DataTypes.INTEGER,

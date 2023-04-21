@@ -6,37 +6,20 @@ const { defaultStorage } = require("../config/firebase");
 const { uploadBytes, ref, getDownloadURL } = require("firebase/storage");
 const fetch = require("node-fetch");
 
-const storageRef = ref(defaultStorage, "postImages/" + "test1.jpg");
-const metadata = {
-  contentType: 'image/jpeg',
-};
-fetch("https://loremflickr.com/500/500/nature?lock=93334")
-  .then((response) => response.arrayBuffer())
-  .then((arrayBuffer) => {
-    uploadBytes(storageRef, arrayBuffer, metadata)
-      .then((snapshot) => {
-        getDownloadURL(snapshot.ref).then((url) => {
-          console.log(url);
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
+//initial sets to avoid insert duplicate user values
 const usernameSet = new Set();
 const phoneSet = new Set();
 const emailSet = new Set();
 
+//initial actual data array to be generated to database
 const users = [];
-const posts = [];
 const comments = [];
+const posts = [];
+const imageUrls = [];
 
 async function createUser() {
   for (let i = 1; i <= 1000; i++) {
+    //preprocess attributes since it might generate duplicate username, phone, email
     let email = faker.internet.email();
     let phone = faker.phone.number("###-###-####");
     let username = faker.internet.userName();
@@ -71,33 +54,29 @@ async function createUser() {
   }
 }
 
+//create post for each user
 function createPost() {
   const aspectRatios = [
     [1280, 720],
     [500, 500],
     [800, 600],
   ];
-  for (let userId = 1; userId <= 1000; userId++) {
+  for (let userId = 1; userId <= users.length; userId++) {
     //generate 0-3 post for each user
     const numberOfPost = faker.datatype.number({ min: 0, max: 3 });
     for (let i = 0; i < numberOfPost; i++) {
       const aspectRatio = faker.helpers.arrayElement(aspectRatios);
       const width = aspectRatio[0];
       const height = aspectRatio[1];
-
+      imageUrls.push(faker.image.nature(width, height, true));
       posts.push({
         title: faker.lorem.sentence(3),
         likes: faker.datatype.number({ min: 0, max: 100000 }),
         dislikes: faker.datatype.number({ min: 0, max: 100 }),
-        postImgUrl: faker.image.nature(width, height, true),
         width: width,
         height: height,
         aspectRatio: width / height,
         description: faker.lorem.sentence(5),
-        last_edit_date: faker.date.between(
-          "2020-01-01T00:00:00.000Z",
-          "2023-01-01T00:00:00.000Z"
-        ),
         updatedAt: faker.date.between(
           "2020-01-01T00:00:00.000Z",
           "2023-01-01T00:00:00.000Z"
@@ -112,9 +91,10 @@ function createPost() {
   }
 }
 
+//create 0-3 comments for each  based on the size of posts
 function createComment() {
-  for (let postId = 1; postId <= 1000; postId++) {
-    //generate 0-3 comments for each post
+  for (let postId = 1; postId <= posts.length; postId++) {
+    //random from 0-3 to generate individual comments
     const numberOfComment = faker.datatype.number({ min: 0, max: 3 });
     for (let i = 0; i < numberOfComment; i++) {
       comments.push({
@@ -142,14 +122,58 @@ function createComment() {
     }
   }
 }
+
+//upload images from array imageUrls
+async function uploadImages(imageUrls) {
+  const metadata = {
+    contentType: "image/jpeg",
+  };
+  for (let i = 0; i < imageUrls.length; i++) {
+    const fileName = generateFileName("jpg");
+    const storageRef = ref(defaultStorage, "postImages/" + fileName);
+    try {
+      const response = await fetch(imageUrls[i]);
+      const arrayBuffer = await response.arrayBuffer();
+      const snapshot = await uploadBytes(storageRef, arrayBuffer, metadata);
+      const url = await getDownloadURL(snapshot.ref);
+      imageUrls[i] = url;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+}
+
+//set post.postImgUrl to actual download url
+function setPostImageUrl(posts, imageUrls) {
+  if (posts.length != imageUrls.length) {
+    console.log("urls size not matching with post size");
+    return;
+  }
+  for (let i = 0; i < posts.length; i++) {
+    posts[i].postImgUrl = imageUrls[i];
+  }
+}
+
+//generate random file name with given extension name
+function generateFileName(extension) {
+  const timestamp = new Date().getTime(); // current timestamp
+  const randomString = Math.random().toString(36).substring(2, 8); // random string
+  const fileName = `${timestamp}_${randomString}.${extension}`; // combine timestamp and random string
+  return fileName;
+}
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     await createUser();
     await queryInterface.bulkInsert("users", users);
     createPost();
+    await uploadImages(imageUrls);
+    setPostImageUrl(posts, imageUrls);
     await queryInterface.bulkInsert("posts", posts);
     createComment();
-    await queryInterface.bulkInsert("comments", comments);
+    if (comments.length != 0) {
+      await queryInterface.bulkInsert("comments", comments);
+    }
   },
 
   async down(queryInterface, Sequelize) {
