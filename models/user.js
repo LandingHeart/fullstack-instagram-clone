@@ -62,7 +62,6 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: "user",
         allowNull: false,
       },
-      last_edit_date: DataTypes.DATE,
     },
     {
       sequelize,
