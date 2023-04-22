@@ -10,7 +10,7 @@ module.exports = {
         allowNull: false,
       },
       userComment: {
-        type: Sequelize.DataTypes.STRING(1024),
+        type: Sequelize.DataTypes.STRING,
         required: true,
         allowNull: false,
       },
