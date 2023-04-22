@@ -33,10 +33,10 @@ module.exports = class Auth {
           return res.status(200).json({ accessToken: newAccessToken });
         }
       } else {
-        res.status(403).json({ error: "Invalid Token" });
+        return res.status(403).json({ error: "Invalid Token" });
       }
     } catch (error) {
-      res.status(500).json({ error: "unknown error" });
+      return res.status(500).json({ error: "unknown error" });
     }
   }
   static async deleteToken(req, res, next) {

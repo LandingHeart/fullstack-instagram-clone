@@ -108,13 +108,13 @@ Status code: 403
 
 `Params:` None
 
-`Request Body:` {email: String, password: String}
+`Request Body:` {usernameOrEmail: String, password: String}
 
 Example request body:
 
 ```JSON
 {
-    "email": "123@456.com",
+    "usernameOrEmail": "123@456.com",
     "password": "abcd",
 }
 ```
