@@ -16,7 +16,7 @@ const posts = [];
 const imageUrls = [];
 
 async function createUser() {
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 1000; i++) {
     //preprocess attributes since it might generate duplicate username, phone, email
     let email = faker.internet.email();
     let phone = faker.phone.number("###-###-####");
