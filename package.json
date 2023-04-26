@@ -15,7 +15,8 @@
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "setup-db": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "heroku-postbuild": "yarn build"
+    "heroku-postbuild": "yarn build",
+    "heroku-prebuild": "yarn install --check-files"
   },
   "jest": {
     "testEnvironment": "node",
