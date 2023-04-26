@@ -63,7 +63,6 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sequelize": "^6.21.3",
-    "sequelize-auto-migrations": "github:scimonster/sequelize-auto-migrations#a063aa6535a3f580623581bf866cef2d609531ba",
     "sequelize-cli": "^6.4.1",
     "socket.io": "^4.5.2",
     "styled-components": "^5.3.5",
