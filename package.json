@@ -12,7 +12,7 @@
     "dev-test": "webpack serve --mode development",
     "client": "webpack serve --mode development",
     "test": "cross-env NODE_ENV=test jest --runInBand",
-    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate",
     "setup-db": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "migrate": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "heroku-postbuild": "yarn build"
