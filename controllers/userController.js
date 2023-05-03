@@ -9,7 +9,7 @@ module.exports = class User {
     try {
       const user = await UserService.findAll;
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
 
@@ -17,12 +17,12 @@ module.exports = class User {
     try {
       const user = await UserService.findOne(req.params.id);
       if (user != null) {
-        res.send(user);
+        return res.send(user);
       } else {
-        res.status(404).json({ error: "user not found" });
+        return res.status(404).json({ error: "user not found" });
       }
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
   //Login
@@ -37,11 +37,7 @@ module.exports = class User {
       if (user instanceof Error) {
         throw user;
       } else {
-        const accessToken = AuthService.generateAccessToken(user);
-        const refreshToken = await AuthService.generateRefreshToken(user);
-        user.accessToken = accessToken;
-        user.refreshToken = refreshToken;
-
+        await User.appendTokens(user);
         return res.status(200).json(user);
       }
     } catch (error) {
@@ -70,52 +66,60 @@ module.exports = class User {
   }
   //append Tokens
   static async appendTokens(user) {
-    user.dataValues.accessToken = AuthService.generateAccessToken({
+    const accessToken = AuthService.generateAccessToken({
       email: user.email,
       password: user.password,
     });
-    user.dataValues.refreshToken = await AuthService.generateRefreshToken({
+    const refreshToken = await AuthService.generateRefreshToken({
       email: user.email,
       password: user.password,
       id: user.id,
     });
+    if (!user.dataValues) {
+      user.accessToken = accessToken;
+      user.refreshToken = refreshToken;
+    } else {
+      user.dataValues.accessToken = accessToken;
+      user.dataValues.refreshToken = refreshToken;
+    }
   }
   //Update
   static async apiUpdateUserPassword(req, res, next) {
     try {
       const { id, password } = req.body;
       if (!id) {
-        res.status(401);
+        return res.status(401);
       }
       const user = await UserService.updateUser({ id, password });
       if (user == null) {
-        res.status(501).json({ error: "unknown error" });
+        return res.status(501).json({ error: "unknown error" });
       }
       res.status(206).json(user);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
+  //Update Phone Number
   static async apiUpdateUserPhone(req, res, next) {
     try {
       const { id, phone } = req.body;
-      if (!id) {
-        res.status(401);
+      if (!id || !phone) {
+        return res.status(401).json({ error: "Incomplete infomation provided"});
       }
-      const user = await UserService.updateUser({ id, phone });
-      if (user == null) {
-        res.status(501).json({ error: "unknown error" });
+      const user = await UserService.updateUser(id, { phone: phone });
+      if (user instanceof Error) {
+        throw user;
       }
-      res.status(206).json(user);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+      return res.status(206).send();
+    } catch (err) {
+      return res.status(err.status || 500).json({ error: err.message });
     }
   }
   //Delete
   static async apiDeleteuser(req, res, next) {
     try {
     } catch (error) {
-      res.status(500).json({ error: error });
+      return res.status(500).json({ error: error });
     }
   }
   //Followe user
