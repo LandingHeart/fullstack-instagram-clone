@@ -9,9 +9,8 @@ function App() {
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
-  // const user = useSelector((state) => state.users.value);
-  const user = false;
-  return user ? <MainLayout /> : <Registration />;
+
+  return <MainLayout />;
 }
 
 export default App;

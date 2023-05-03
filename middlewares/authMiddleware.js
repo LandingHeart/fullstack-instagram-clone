@@ -6,7 +6,8 @@ const authMiddleware = async (req, res, next) => {
   const token = authHeader && authHeader.split(" ")[1];
 
   if (token === undefined) {
-    return res.redirect("/register");
+    next();
+    // return res.redirect("/register");
   } else {
     next();
   }
