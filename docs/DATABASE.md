@@ -11,8 +11,13 @@ If it errors, `ERROR: permission denied to create database` do the following ste
 ```sh
 createuser postgres
 psql postgres
-postgres=# GRANT ALL PRIVILEGES ON DATABASE insDB TO postgres;
 postgres=# alter user postgres createdb;;
+```
+
+Give permission if no access error
+
+```sh
+postgres=# GRANT ALL PRIVILEGES ON DATABASE insdb TO postgres;
 ```
 
 After npm run migrate, you can run npm run dev and open localhost:8080 to see the page.
