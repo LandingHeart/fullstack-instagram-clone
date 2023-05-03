@@ -10,9 +10,9 @@ const styles = (theme) => ({
 function HomePage({ classes }) {
   const dispatch = useDispatch();
   const { loading, posts } = useSelector((state) => state.posts);
-  useEffect(() => {
-    dispatch(fetchPosts());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchPosts());
+  // }, []);
 
   return (
     <div className={classes.main_content_row_container}>
