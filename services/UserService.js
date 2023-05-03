@@ -1,6 +1,7 @@
 const User = require("../models/index").users;
 const { Op, where } = require("sequelize");
 const bcrypt = require("bcrypt");
+
 module.exports = class UserService {
   //Read
   static async findAll() {
