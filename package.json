@@ -62,6 +62,7 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "require-all": "^3.0.0",
     "sequelize": "^6.21.3",
     "sequelize-cli": "^6.4.1",
     "socket.io": "^4.5.2",
