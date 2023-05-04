@@ -1,4 +1,4 @@
-const AuthService = require("../services/authService");
+const AuthService = require("../services/AuthService");
 
 module.exports = class Auth {
   //Generate token
