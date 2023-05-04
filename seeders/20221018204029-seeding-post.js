@@ -16,7 +16,7 @@ const posts = [];
 const imageUrls = [];
 
 async function createUser() {
-  for (let i = 1; i <= 1000; i++) {
+  for (let i = 1; i <= 500; i++) {
     //preprocess attributes since it might generate duplicate username, phone, email
     let email = faker.internet.email();
     let phone = faker.phone.number("###-###-####");
@@ -114,8 +114,8 @@ function createComment() {
           "2019-12-31T00:00:00.000Z"
         ),
         postId: postId,
-        //assuming we successfully created 1000 users
-        userId: faker.datatype.number({ min: 1, max: 1000 }),
+        //assuming we successfully created 500 users
+        userId: faker.datatype.number({ min: 1, max: 500 }),
       });
     }
   }
