@@ -6,11 +6,6 @@ NOT READY
 
 Please include a 2 sentence summary.
 
-#### Deploy pr below
-
-**Change Logs**
-copy to chrome console and paste it here for deployment pr
-
 ```js
 
 ```
