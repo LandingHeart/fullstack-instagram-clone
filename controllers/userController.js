@@ -1,7 +1,7 @@
-const UserService = require("../services/userService");
-const AuthService = require("../services/authService");
-const FollowService = require("../services/followService");
-const FollowFindPair = require("../services/followFindPair");
+const UserService = require("../services/UserService");
+const AuthService = require("../services/AuthService");
+// const FollowService = require("../services/FollowService");
+const FollowFindPair = require("../services/FollowFindPair");
 
 module.exports = class User {
   //Read
@@ -104,7 +104,9 @@ module.exports = class User {
     try {
       const { id, phone } = req.body;
       if (!id || !phone) {
-        return res.status(401).json({ error: "Incomplete infomation provided"});
+        return res
+          .status(401)
+          .json({ error: "Incomplete infomation provided" });
       }
       const user = await UserService.updateUser(id, { phone: phone });
       if (user instanceof Error) {
