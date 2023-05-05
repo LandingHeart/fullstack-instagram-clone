@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-const postController = require("../../controllers/postController");
-const userController = require("../../controllers/userController");
-const AuthController = require("../../controllers/authController");
+const postController = require("../../controllers/p_ostController");
+const userController = require("../../controllers/u_serController");
+const AuthController = require("../../controllers/A_uthController");
 
 //Post route
 router.post("/post", postController.apiCreatePost);

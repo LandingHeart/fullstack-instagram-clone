@@ -1,7 +1,7 @@
-const UserService = require("../services/userService");
-const AuthService = require("../services/authService");
+const UserService = require("../services/UserService");
+const AuthService = require("../services/AuthService");
 // const FollowService = require("../services/FollowService");
-const FollowFindPair = require("../services/followFindPair");
+const FollowFindPair = require("../services/FollowFindPair");
 
 module.exports = class User {
   //Read
