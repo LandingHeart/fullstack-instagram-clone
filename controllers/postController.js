@@ -1,5 +1,5 @@
 const { json } = require("sequelize");
-const PostService = require("../services/PostService");
+const PostService = require("../services/postService");
 
 module.exports = class Post {
   static async apiGetAllpost(req, res, next) {
