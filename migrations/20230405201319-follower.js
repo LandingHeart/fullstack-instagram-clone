@@ -44,7 +44,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("followers");
     await queryInterface.removeConstraint(
       "followers",
       "unique_follower_following"
@@ -53,5 +52,6 @@ module.exports = {
       "followers",
       "followers_not_equal_following"
     );
+    await queryInterface.dropTable("followers");
   },
 };

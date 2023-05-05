@@ -1,4 +1,4 @@
-const RefreshToken = require("../models/index").refreshTokens;
+const RefreshToken = require("../models/index").refresh_tokens;
 const jwt = require("jsonwebtoken");
 const { where } = require("sequelize");
 require("dotenv").config();

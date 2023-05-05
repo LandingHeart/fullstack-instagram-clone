@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "refreshTokens",
-      tableName: "refreshTokens",
+      modelName: "refresh_tokens",
+      tableName: "refresh_tokens",
     }
   );
 

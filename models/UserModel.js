@@ -6,8 +6,8 @@ const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasOne(models.refreshTokens);
-      models.refreshTokens.belongsTo(User);
+      User.hasOne(models.refresh_tokens);
+      models.refresh_tokens.belongsTo(User);
       User.belongsToMany(models.users, {
         as: "follower",
         through: "followers",
