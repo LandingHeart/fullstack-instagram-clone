@@ -37,7 +37,22 @@ module.exports = {
         required: true,
         allowNull: false,
       },
-      last_edit_date: Sequelize.DataTypes.DATE,
+      likes: {
+        type: Sequelize.DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      dislikes: {
+        type: Sequelize.DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+      },
+      // last_edit_date: Sequelize.DataTypes.DATE,
+      deletedAt: {
+        type: Sequelize.DataTypes.DATE,
+        required: false,
+        allowNull: true,
+      },
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
       //foreign key

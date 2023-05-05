@@ -55,6 +55,10 @@ module.exports = (sequelize, DataTypes) => {
         required: true,
         allowNull: false,
       },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
       //foreign key
       userId: {
         type: DataTypes.INTEGER,

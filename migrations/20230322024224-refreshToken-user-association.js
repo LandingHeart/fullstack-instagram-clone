@@ -2,7 +2,8 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    queryInterface.addConstraint("refreshTokens", {
+    // queryInterface.addConstraint("refreshTokens", {
+    queryInterface.addConstraint("refresh_tokens", {
       fields: ["userId"],
       type: "foreign key",
       name: "refreshToken_user_association",
@@ -16,7 +17,8 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     queryInterface.removeConstraint(
-      "refreshTokens",
+      // "refreshTokens",
+      "refresh_tokens",
       "refreshToken_user_association"
     );
   },

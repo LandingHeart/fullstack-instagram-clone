@@ -101,10 +101,10 @@ function createComment() {
         ),
         likes: faker.datatype.number({ min: 0, max: 100 }),
         dislikes: faker.datatype.number({ min: 0, max: 10 }),
-        deletedAt: faker.date.between(
-          "2020-01-01T00:00:00.000Z",
-          "2023-01-01T00:00:00.000Z"
-        ),
+        // deletedAt: faker.date.between(
+        //   "2020-01-01T00:00:00.000Z",
+        //   "2023-01-01T00:00:00.000Z"
+        // ),
         updatedAt: faker.date.between(
           "2020-01-01T00:00:00.000Z",
           "2023-01-01T00:00:00.000Z"

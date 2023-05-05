@@ -10,7 +10,8 @@ module.exports = {
         allowNull: false,
       },
       userComment: {
-        type: Sequelize.DataTypes.STRING,
+        // type: Sequelize.DataTypes.STRING,
+        type: Sequelize.DataTypes.STRING(1024),
         required: true,
         allowNull: false,
       },
@@ -24,7 +25,11 @@ module.exports = {
         defaultValue: 0,
         allowNull: false,
       },
-      deletedAt: Sequelize.DataTypes.DATE,
+      deletedAt: {
+        type: Sequelize.DataTypes.DATE,
+        required: false,
+        allowNull: true,
+      },
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
       //foreign key
