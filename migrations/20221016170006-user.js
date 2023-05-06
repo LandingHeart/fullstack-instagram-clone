@@ -14,7 +14,8 @@ module.exports = {
         unique: true,
       },
       phone: {
-        type: Sequelize.DataTypes.INTEGER,
+        // type: Sequelize.DataTypes.INTEGER,
+        type: Sequelize.DataTypes.STRING(20),
         allowNull: true,
         unique: true,
       },
@@ -29,7 +30,7 @@ module.exports = {
         required: true,
         allowNull: false,
       },
-      last_edit_date: Sequelize.DataTypes.DATE,
+      // last_edit_date: Sequelize.DataTypes.DATE,
       updatedAt: Sequelize.DataTypes.DATE,
       createdAt: Sequelize.DataTypes.DATE,
     });

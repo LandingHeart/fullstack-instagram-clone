@@ -6,7 +6,7 @@ const UserController = require("../../controllers/UserController");
 const AuthController = require("../../controllers/AuthController");
 
 //Post route
-router.post("/post", Post.apiCreatePost);
+router.post("/post", PostController.apiCreatePost);
 
 router.get("/post", PostController.apiGetAllpost);
 router.get("/post/:title", PostController.apiSearchAllpost);

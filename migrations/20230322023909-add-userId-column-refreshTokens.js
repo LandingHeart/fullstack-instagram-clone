@@ -4,7 +4,8 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return Promise.all([
       queryInterface.addColumn(
-        "refreshTokens", // table name
+        // "refreshTokens", // table name
+        "refresh_tokens", // table name
         "userId", // new field name
         {
           type: Sequelize.DataTypes.INTEGER,
@@ -17,7 +18,8 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     return Promise.all([
-      queryInterface.removeColumn("refreshTokens", "userId"),
+      // queryInterface.removeColumn("refreshTokens", "userId"),
+      queryInterface.removeColumn("refresh_tokens", "userId"),
     ]);
   },
 };
