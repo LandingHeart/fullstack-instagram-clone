@@ -13,6 +13,10 @@ struct IGPost: Codable{
     
     let title: String
     
+    let likes: Int
+    
+    let dislikes: Int
+    
     let postImgUrl: String
     
     let width: Int
@@ -23,11 +27,12 @@ struct IGPost: Codable{
     
     let description: String
     
-    let last_edit_date: String?
+    let deletedAt: String?
     
     let createdAt: String
     
     let updatedAt: String
     
+    let userId: Int
 }
 

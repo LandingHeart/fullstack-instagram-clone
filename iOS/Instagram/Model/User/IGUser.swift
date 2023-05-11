@@ -12,7 +12,7 @@ struct IGUser: Codable {
 
     let email: String
 
-    let phone: Int?
+    let phone: String?
 
     let username: String
 
