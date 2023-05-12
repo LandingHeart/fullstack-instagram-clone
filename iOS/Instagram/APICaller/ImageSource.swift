@@ -26,6 +26,7 @@ final class ImageSource {
         }
         let key = url.absoluteString as NSString
         if let data = cache.object(forKey: key) {
+            print("using cache")
             completion(.success(data as Data))
             return
         }
@@ -35,6 +36,7 @@ final class ImageSource {
                 return
             }
             self?.cache.setObject(data as NSData, forKey: key)
+            print("downloaded image")
             completion(.success(data))
         }.resume()
     }

@@ -157,6 +157,7 @@ extension SignupViewController {
             case .success(let user):
                 print(user)
             case .failure(let error):
+                IGErrorMessageView.customized(message: "User Already Exist")
                 print(error.localizedDescription)
             }
         }

@@ -28,6 +28,7 @@ final class IGErrorMessageView: UIView {
         return textView
     }()
     
+    @discardableResult
     private init(message: String) {
         super.init(frame: .init(x: 0, y: 0, width: K.screenWidth * 0.8, height: 50))
         messageTextView.text = message
@@ -86,14 +87,16 @@ final class IGErrorMessageView: UIView {
     }
     
     //MARK: - Error handling instance
-    @discardableResult
-    public static func customized(message: String) -> IGErrorMessageView {
-        return IGErrorMessageView(message: message)
+    public static func customized(message: String) {
+        DispatchQueue.main.async {
+            IGErrorMessageView(message: message)
+        }
     }
     
-    @discardableResult
-    public static func noInternet() -> IGErrorMessageView {
-        return IGErrorMessageView(message: "No Internet Availiable")
+    public static func noInternet() {
+        DispatchQueue.main.async {
+            IGErrorMessageView(message: "No Internet Availiable")
+        }
     }
     
     deinit {

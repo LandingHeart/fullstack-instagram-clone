@@ -54,6 +54,6 @@ extension AppDelegate {
 //MARK: - LoginDelegate
 extension AppDelegate: LoginDelegate {
     func didLogin() {
-        setRootVC(mainVC)
+//        setRootVC(mainVC)
     }
 }
