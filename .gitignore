@@ -3,7 +3,7 @@
 ## User settings
 xcuserdata/
 .DS_Store
-
+.node-version
 ### Node ###
 # Logs
 logs

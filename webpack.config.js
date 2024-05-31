@@ -3,27 +3,25 @@ const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   mode: isDev ? "development" : "production",
-  entry: [
-    "@babel/polyfill", // enables async-await
-    "./views/src/index.js",
-  ],
+  entry: ["./views/src/index.js"],
   output: {
-    // publicPath: "/public/",
     path: path.resolve(__dirname, "views", "public"),
     filename: "bundle.js",
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+    modules: [
+      path.resolve(__dirname, "views/src/"),
+      path.resolve(__dirname, "node_modules"),
+    ],
   },
   devServer: {
     static: {
       directory: path.resolve(__dirname, "views", "public"),
     },
-    contentBase: path.resolve(__dirname, "views", "public"),
-    publicPath: "/public/",
     hot: true,
     historyApiFallback: true,
     watchContentBase: true,
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
   },
   devtool: "eval-source-map",
   module: {
